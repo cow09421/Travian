@@ -1,0 +1,295 @@
+=== MAP SCAN DEBUG ===
+Target URL: https://ts2.x1.international.travian.com/karte.php?x=146&y=-137&zoom=2
+Navigation OK: True
+Total responses: 139
+
+[200] text/css                                 https://cdn.legends.travian.com/gpack/467.7/css_ltr/imports_compressed.css
+  BODY: @charset "UTF-8";#allianceBanner .creator .elementSelection .rtl svg,#topBarHeroWrapper #topBarHero .rtl .experience,#topBarHeroWrapper #topBarHero .rtl .health,.dialog.paymentShopV5 #paymentWizard.buyGold .paymentWrapper .paymentMethods input.togglePaymentMethods~label.togglePaymentMethods .back .r
+[200] text/javascript                          https://cdn.legends.travian.com/gpack/467.7/js/jquery-4.0.0.min.js
+  BODY: /*! jQuery v4.0.0 | (c) OpenJS Foundation and other contributors | jquery.com/license */
+!function(e,t){"use strict";"object"==typeof module&&"object"==typeof module.exports?module.exports=t(e,!0):t(e)}("undefined"!=typeof window?window:this,function(e,t){"use strict";if(!e.document)throw Error("jQu
+[200] text/javascript                          https://cdn.legends.travian.com/gpack/467.7/js/jquery.md5.min.js
+  BODY: (function($){$.md5=function(string){function RotateLeft(lValue,iShiftBits){return(lValue<<iShiftBits)|(lValue>>>(32-iShiftBits));}
+function AddUnsigned(lX,lY){var lX4,lY4,lX8,lY8,lResult;lX8=(lX&0x80000000);lY8=(lY&0x80000000);lX4=(lX&0x40000000);lY4=(lY&0x40000000);lResult=(lX&0x3FFFFFFF)+(lY&0x3FF
+[200] text/javascript                          https://cdn.legends.travian.com/gpack/467.7/js/d3/d3.min.js
+  BODY: !function(){function n(n){return n&&(n.ownerDocument||n.document||n).documentElement}function t(n){return n&&(n.ownerDocument&&n.ownerDocument.defaultView||n.document&&n||n.defaultView)}function e(n,t){return t>n?-1:n>t?1:n>=t?0:0/0}function r(n){return null===n?0/0:+n}function u(n){return!isNaN(n)}
+[200] text/javascript                          https://cdn.legends.travian.com/gpack/467.7/js/d3/d3pie.min.js
+  BODY: /*!
+* d3pie
+* @author Ben Keen
+* @version 0.1.8
+* @date April 2015
+* @repo http://github.com/benkeen/d3pie
+*/
+!function(a,b){"function"==typeof define&&define.amd?define([],b):"object"==typeof exports?module.exports=b(require()):a.d3pie=b(a)}(this,function(){var a="d3pie",b="0.1.6",c=0,d={header:{ti
+[200] text/javascript                          https://cdn.legends.travian.com/gpack/467.7/js/ChartJs/Chart.min.js
+  BODY: /*!
+ * Chart.js v2.9.4
+ * https://www.chartjs.org
+ * (c) 2020 Chart.js Contributors
+ * Released under the MIT License
+ */
+!function(t,e){"object"==typeof exports&&"undefined"!=typeof module?module.exports=e(function(){try{return require("moment")}catch(t){}}()):"function"==typeof define&&define.amd?
+[200] text/javascript                          https://cdn.legends.travian.com/gpack/467.7/js/gsap/TweenMax.min.js
+  BODY: /*!
+ * VERSION: 1.19.1
+ * DATE: 2017-01-17
+ * UPDATES AND DOCS AT: http://greensock.com
+ * 
+ * Includes all of the following: TweenLite, TweenMax, TimelineLite, TimelineMax, EasePack, CSSPlugin, RoundPropsPlugin, BezierPlugin, AttrPlugin, DirectionalRotationPlugin
+ *
+ * @license Copyright (c) 2008-2
+[200] text/javascript                          https://cdn.legends.travian.com/gpack/467.7/js/gsap/plugins/MorphSVGPlugin.min.js
+  BODY: /*!
+ * VERSION: 0.8.10
+ * DATE: 2017-04-29
+ * UPDATES AND DOCS AT: http://greensock.com
+ *
+ * @license Copyright (c) 2008-2017, GreenSock. All rights reserved.
+ * MorphSVGPlugin is a Club GreenSock membership benefit; You must have a valid membership to use
+ * this code without violating the terms o
+[200] text/javascript                          https://cdn.legends.travian.com/gpack/467.7/js/simplebar.min.js
+  BODY: /**
+ * SimpleBar.js - v5.3.6
+ * Scrollbars, simpler.
+ * https://grsmto.github.io/simplebar/
+ *
+ * Made by Adrien Denat from a fork by Jonathan Nicol
+ * Under MIT License
+ */
+
+!function(t,e){"object"==typeof exports&&"undefined"!=typeof module?module.exports=e():"function"==typeof define&&define.amd?
+[200] text/javascript                          https://cdn.legends.travian.com/gpack/467.7/js/popper.min.js
+  BODY: /**
+ * @popperjs/core v2.11.6 - MIT License
+ */
+
+!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?t(exports):"function"==typeof define&&define.amd?define(["exports"],t):t((e="undefined"!=typeof globalThis?globalThis:e||self).Popper={})}(this,(function(e){"use strict";function t(e)
+[200] text/javascript                          https://cdn.legends.travian.com/gpack/467.7/js/tippy.min.js
+  BODY: !function(t,e){"object"==typeof exports&&"undefined"!=typeof module?module.exports=e(require("@popperjs/core")):"function"==typeof define&&define.amd?define(["@popperjs/core"],e):(t=t||self).tippy=e(t.Popper)}(this,(function(t){"use strict";var e="undefined"!=typeof window&&"undefined"!=typeof docum
+[200] text/javascript                          https://cdn.legends.travian.com/gpack/467.7/js/PixiJS/pixi.min.js
+  BODY: var YM=Object.defineProperty;var kx=Object.getOwnPropertySymbols;var KM=Object.prototype.hasOwnProperty,qM=Object.prototype.propertyIsEnumerable;var $x=(d,Gt,Bt)=>Gt in d?YM(d,Gt,{enumerable:!0,configurable:!0,writable:!0,value:Bt}):d[Gt]=Bt,Lx=(d,Gt)=>{for(var Bt in Gt||(Gt={}))KM.call(Gt,Bt)&&$x(d
+[200] text/javascript                          https://cdn.legends.travian.com/gpack/467.7/js/deepmerge.js
+  BODY: (function (global, factory) {
+    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+        typeof define === 'function' && define.amd ? define(factory) :
+            (global = global || self, global.deepmerge = factory());
+}(this, function () { 'use strict'
+[200] application/javascript                   https://ts2.x1.international.travian.com/js/Constants.js
+  BODY: Travian.Constants = {"RES_LUMBER":1,"RES_CLAY":2,"RES_IRON":3,"RES_CROP":4,"RESOURCE_NAME":{"1":"lumber","2":"clay","3":"iron","4":"crop"},"HERO_STATUS":{"IN_VILLAGE":100,"DEAD":101,"ON_THE_WAY_TO_ATTACK":3,"ON_THE_WAY_TO_RAID":4,"ON_THE_WAY_TO_SUPPLY":5,"ON_THE_RETURN_PATH":9,"ON_ESCAPE":40,"ON_ADV
+[200] application/javascript                   https://ts2.x1.international.travian.com/js/Variables.js?467.7
+  BODY: Travian.Variables = {"Speed":1,"Map":{"Size":{"width":401,"height":401,"left":-200,"right":200,"bottom":-200,"top":200}},"Season":"","Templates":{},"feature_flags":{"multi_language":true,"territory":false,"cities":false,"boostedStart":false,"travelOverTheWorldEdge":true,"tribesVikings":false,"auctio
+[200] application/javascript                   https://ts2.x1.international.travian.com/js/zh-TW/Strings.js?467.7
+  BODY: Travian.Strings = {"allgemein.anleitung":"\u904a\u6232\u6307\u5357","allgemein.cancel":"\u53d6\u6d88","allgemein.ok":"\u78ba\u5b9a","allgemein.close":"\u95dc\u9589","allgemein.close_with_capital_c":"\u95dc\u9589","cropfinder.keine_ergebnisse":"\u6c92\u6709\u5408\u8981\u6c42\u7684\u641c\u5c0b\u7d50\u
+[200] text/javascript                          https://cdn.legends.travian.com/gpack/467.7/js/bundle/vendor.js
+  BODY: (globalThis.webpackChunktravian_legends_webpack_bundle=globalThis.webpackChunktravian_legends_webpack_bundle||[]).push([[502],{20821(e,t,r){"use strict";r.d(t,{L:()=>c});var n=r(96540),i=r(85880);let a="undefined"!=typeof document?n.useLayoutEffect:n.useEffect,o=e=>e&&!Array.isArray(e)&&"object"==ty
+[200] text/javascript                          https://cdn.legends.travian.com/gpack/467.7/js/bundle/runtime.js
+  BODY: (()=>{"use strict";var e,r,t,o={},n={};function a(e){var r=n[e];if(void 0!==r)return r.exports;var t=n[e]={exports:{}};return o[e].call(t.exports,t,t.exports,a),t.exports}a.m=o,a.amdO={},e=[],a.O=(r,t,o,n)=>{if(!t){var l=1/0;for(p=0;p<e.length;p++){for(var[t,o,n]=e[p],f=!0,i=0;i<t.length;i++)(!1&n||
+[200] text/javascript                          https://cdn.legends.travian.com/gpack/467.7/js/bundle/main.js
+  BODY: (globalThis.webpackChunktravian_legends_webpack_bundle=globalThis.webpackChunktravian_legends_webpack_bundle||[]).push([[792],{22022(e,t,a){"use strict";var s=a(74848),n=a(5338),i=a(96540);const r={},l=e=>{const t=e.filter(e=>void 0===r[e]).map(e=>fetch(`/js/${Travian.Game.language}/${e}.json`).then
+[200] text/javascript                          https://cdn.legends.travian.com/gpack/467.7/js/bundle/crypt.js
+  BODY: function addNsEvent(e,t){var i=e.split("."),n=i[0];i[1];return this.bindCache=this.bindCache||{},this.bindCache[e]?this.bindCache[e].push(t):this.bindCache[e]=[t],this.addEvent(n,t),this}function removeNsEvent(e){if(void 0===this.bindCache||!this.bindCache.hasOwnProperty(e))return this;for(var t,i=e
+[200] image/png                                https://ts2.x1.international.travian.com/heroV2/head/fc483a57a178ced77dc52d595d5b3e3a075a2e51.20287.1.png
+[200] image/gif                                https://ts2.x1.international.travian.com/img/x.gif
+[200] text/html; charset=UTF-8                 https://ts2.x1.international.travian.com/karte.php?x=146&y=-137&zoom=2
+  BODY: <!DOCTYPE html>
+<html
+    id="mainLayout"
+    lang="zh-TW"
+    style="--readingDirection: ltr; --readingDirectionFrom: left; --readingDirectionTo: right; --scaleXFactor: 1;"
+>
+	<head>
+		<title>International 2</title>
+<meta charset="" />
+<meta name="viewport" content="width=device-width"/>
+<meta name
+[200] text/javascript; charset=utf-8           https://cdn.consentmanager.net/delivery/autocdn/cmp-web.x40dcf06677fd.zh.js
+  BODY: window.cmp_config_data_cs="";
+window.cmp_config_data={"checkcrawler":"cmpcrawlercookie","checkcrawlerreject":"cmpcrawlerrejectcookie","intID":17155,"uid":10995,"rid":0,"dbgdesignid":26539,"usr_cc":"DE","usr_regio":"","cookiefree":0,"savepref":0,"lvt":-1,"bnc":0,"bnc2":0,"bncd":0,"iabid":31,"host":"d
+[200] text/javascript; charset=utf-8           https://cdn.consentmanager.net/delivery/js/cmp_zh.min.js
+  BODY: function cmp_utillities(){this.shadow=null,this.prependChild=function(e){var t=null,i=null;return document.body?i=document.body:document.getElementsByTagName("body").length>0?i=document.getElementsByTagName("body")[0]:document.documentElement&&(i=document.documentElement),null===i?this.appendChild(e
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/logo.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/hud/topBar/hero/frame/health.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/hud/topBar/hero/frame/experience.png
+[200] image/jpeg                               https://cdn.legends.travian.com/gpack/467.7/img_ltr/themes/default/background/bgResources_narrow.jpg
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/hud/topBar/headerBackground_referAFriend.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/hud/topBar/navigation/navigation.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/hud/topBar/navigation/indicator.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/hud/topBar/shop.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/hud/topBar/stockBar/warehouse_medium.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/global/resources/lumber_small.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/global/resources/clay_small.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/global/resources/iron_small.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/hud/topBar/stockBar/granary_medium.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/global/resources/crop_small.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/global/resources/freeCrop_small.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/hud/topBar/hero/frame/heroFrame.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/hud/topBar/hero/states/heroHome.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/hud/topBar/hero/frame/levelUp_medium.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/hud/topBar/hero/frame/separator.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/hud/sidebar/sidebarBox.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/hud/sidebar/separator.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/a/delete.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/components/button/content/goldInner.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/hud/sidebar/toggle.png
+[200] image/jpeg                               https://cdn.legends.travian.com/gpack/467.7/img_ltr/hud/content/header.jpg
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/hud/content/frame.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/hud/sidebar/tasks/mentorRoman.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/components/speechBubble/speechBalloonLarge.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/hud/sidebar/tasks/exclamationMark.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/innerShadow/tl.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/innerShadow/tr.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/innerShadow/tc.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/innerShadow/ml.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/innerShadow/mr.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/innerShadow/bl.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/innerShadow/br.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/innerShadow/bc.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/toolbar/ml.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/toolbar/mr.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/toolbar/mc.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/buttons/zoom-in.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/buttons/zoom-out.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/dropDown/bg.png
+[200] image/gif                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/buttons/dropdownArrow.gif
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/buttons/goldMap.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/buttons/view-full-on.png
+[200] image/gif                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/buttons/cropfinder.gif
+[200] image/gif                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/buttons/filter-my.gif
+[200] image/gif                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/buttons/filter-ally.gif
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/toolbar/bl.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/toolbar/br.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/toolbar/bc.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/dialog/mc.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/dialog/bl.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/dialog/br.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/dialog/bc.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/dialog/tl.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/dialog/tr.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/dialog/tc.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/tabs/border-bottom.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/tabs/tl-active.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/tabs/tr-active.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/tabs/tc-active.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/tabs/ml-active.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/tabs/mr-active.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/tabs/mc-active.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/contextmenu/tl.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/contextmenu/tr.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/contextmenu/tc.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/contextmenu/ml.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/contextmenu/mr.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/contextmenu/mc.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/contextmenu/bl.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/contextmenu/br.png
+[200] image/png                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/contextmenu/bc.png
+[200] image/gif                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/buttons/collapse.gif
+[200] image/gif                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/buttons/expand.gif
+[200] image/gif                                https://cdn.legends.travian.com/gpack/467.7/img_ltr/legacy/views/map/loading_medium.gif
+[200] application/json                         https://ts2.x1.international.travian.com/js/zh-TW/layout.json
+  BODY: {"waitingForTooltip":"\u8f09\u5165\u63d0\u793a\u2026","newReports":"\u65b0\u5831\u544a\uff1a[INT]","newMessages":"\u65b0\u8a0a\u606f\uff1a[INT]","expandBox":"\u6253\u958b","displayMoreInformation":"\u986f\u793a\u66f4\u591a\u8cc7\u6599","displayMoreMessages":"\u986f\u793a\u66f4\u591a\u8a0a\u606f","co
+[200] application/json                         https://ts2.x1.international.travian.com/js/zh-TW/karte.json
+  BODY: {"karte":"\u5730\u5716","details":"\u8a73\u60c5","spieler":"\u73a9\u5bb6","dorf":"\u6751\u838a","norden":"\u5317","osten":"\u6771","sueden":"\u5357","westen":"\u897f","verlassenes_tal":"\u8352\u5ee2\u7684\u571f\u5730","freie_oase":"\u8352\u5ee2\u4e4b\u5c71\u8c37","besetztes_tal":"\u5df2\u88ab\u4f54\
+[200] application/json                         https://ts2.x1.international.travian.com/js/zh-TW/allgemein.json
+  BODY: {"click_here_to_change_village_name":"\u96d9\u64ca\u8981\u66f4\u6539\u540d\u7a31\u7684\u6751\u838a\u3002","next":"\u4e0b\u4e00\u6b65","previous":"\u8fd4\u56de","change_village_name_title":"\u66f4\u6539\u6751\u838a\u540d\u7a31","change_village_name_desc":"\u65b0\u7684\u6751\u838a\u540d\u7a31:","chang
+[200] application/json                         https://ts2.x1.international.travian.com/js/zh-TW/dorf1u2.json
+  BODY: {"produktion":"\u7522\u80fd\uff1a","productionPerHour":"\u6bcf\u5c0f\u6642\u7684\u7522\u91cf\uff1a","pro_std":"\u6bcf\u5c0f\u6642","einheiten":"\u8ecd\u968a\uff1a","std":"\u5c0f\u6642","keine":"\u6c92\u6709","fertig_um":"\u5b8c\u6210\u6642\u9593\u65bc","bauauftrag":"\u5efa\u7bc9\u7269\uff1a","abbrec
+[200] application/json                         https://ts2.x1.international.travian.com/js/zh-TW/spieler.json
+  BODY: {"in_loeschung":"\u982d\u50cf\u522a\u9664\u4e2d\u3002","in_loeschung_goldkauf_verweigert":"\u982d\u50cf\u522a\u9664\u4e2d\uff0c\u7981\u6b62\u8cfc\u5165\u91d1\u5e63\u3002","dorf_mit_artefakt":"(\u5de5\u85dd\u54c1)","m_uebersicht":"\u6982\u8981","m_profil":"\u500b\u4eba\u8cc7\u6599","m_einstellungen":
+[200] application/json                         https://ts2.x1.international.travian.com/js/zh-TW/api.json
+  BODY: {"um":"\u5728","uhr":"\u9ede\u9418","sms_n0":"SMS\u78ba\u8a8d","sms_n1":"\u60a8\u597d","sms_n2":"\u611f\u8b1d\u60a8SMS \u3002","sms_n310":"\u60a8\u7684Plus Account\u88ab\u5ef6\u9577\u4e86","sms_n311":"\u5929\u548c\u6709\u6548\u671f\u5230","sms_n320":"\u60a8\u7684Plus Account\u88ab\u555f\u52d5\u4e86\
+[200] application/json                         https://ts2.x1.international.travian.com/js/zh-TW/quickLinks.json
+  BODY: {"anotherPlayerSet":"\u4f60\u7121\u6cd5\u5efa\u7acb\/\u66f4\u65b0\u5176\u4ed6\u73a9\u5bb6\u7684\u5feb\u901f\u9023\u7d50\u96c6","plusIsNotActive":"TravianPlus\u672a\u555f\u7528","globalSetNotFound":"\u627e\u4e0d\u5230\u70ba\u6751\u838a\u6e05\u55ae\u8a2d\u5b9a\u7684\u9023\u7d50","villageSetNotFound":"
+[200] application/json                         https://ts2.x1.international.travian.com/js/zh-TW/gid16.json
+  BODY: {"uebersischt":"\u516c\u6703\u6982\u8981","truppen_schicken":"\u6d3e\u9063\u90e8\u968a","kampf_simulator":"\u6230\u9b25\u6a21\u64ec\u5668","name":"\u96c6\u7d50\u9ede","beschreibung_detect_incoming_unit_type":"\u5982\u679c\u96c6\u7d50\u9ede\u7684\u7b49\u7d1a\u6bd4\u653b\u64ca\u58eb\u5175\u9ad8\uff0c\
+[200] application/json                         https://ts2.x1.international.travian.com/js/zh-TW/gid17.json
+  BODY: {"filter_1_1":"\u50c5\u986f\u793a\u63d0\u4f9b\u6bd4\u4f8b\u81f3\u5c111:1\u7684\u4ea4\u6613\u3002","filter_1_x":"\u986f\u793a\u6240\u6709\u4ea4\u6613\u3002","target":"\u76ee\u6a19","fehler_res_negativ":"\u8a2d\u5b9a\u932f\u8aa4\uff0c\u5176\u4e2d\u4e00\u9805\u9001\u51fa\u91cf\u5df2\u8d85\u904e\u4f60\u
+[200] application/json                         https://ts2.x1.international.travian.com/js/zh-TW/gid24.json
+  BODY: {"name":"\u57ce\u93ae\u5ef3","aktion":"\u884c\u52d5","veranstalten":"\u8209\u884c","kleines_fest":"\u5c0f\u6d3e\u5c0d","kp1":"500 \u6587\u660e\u9ede","kp":"[KP] \u6587\u660e\u9ede","grosses_fest":"\u5927\u578b\u6d3e\u5c0d","kp2":"2000 \u6587\u660e\u9ede","es_wird_bereits_gefeiert":"\u5df2\u6709\u4e0
+[200] application/json                         https://ts2.x1.international.travian.com/js/zh-TW/gid25u26.json
+  BODY: {"ausbilden":"\u8a13\u7df4","kulturpunkte":"\u6587\u660e\u9ede","zustimmung":"\u5fe0\u8aa0\u5ea6","expansion":"\u64f4\u5c55","kulturpunkte1":"\u60a8\u9700\u8981\u6587\u660e\u9ede\u4f86\u64f4\u5c55\u60a8\u7684\u570b\u5bb6\u3002\u5efa\u7bc9\u7269\u7684\u7b49\u7d1a\u6108\u9ad8\uff0c\u60a8\u6bcf\u5929\u
+[200] application/json                         https://ts2.x1.international.travian.com/js/zh-TW/plus.json
+  BODY: {"no_construction":"\u76ee\u524d\u6c92\u6709\u4efb\u4f55\u5efa\u7bc9\u7269\u6b63\u5728\u5efa\u8a2d\u4e4b\u4e2d\u3002","send_invites":"\u767c\u9001\u9080\u8acb","farmslots":"[SLOTCOUNT] \u500b\u7f8a\u6751\u6a19\u8a18","aktiv_fuer_spielrunde":"\u5c07\u5728\u6574\u8f2a\u6230\u5f79\u6709\u6548\u3002","w
+[200] text/html; charset=UTF-8                 https://cdn.consentmanager.net/delivery/crossdomain.html
+  BODY: <!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Cookie Banner</title>
+ <script>
+  
+  function handleMessage (event)
+  {
+   try
+   {
+    if (localStorage)
+    {
+     var msg = typeof event.data === 'string' ? event.data : '';
+     if (msg.substring(0, 10) == 'cmpcd:req:')
+    
+[200] image/svg+xml                            https://cdn.consentmanager.net/delivery/recall/recall_cookie.svg
+  BODY: <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24"  viewBox="0 0 18 18"><g><path d="M9,0 A9,9 0 0 0 0,9 A9,9 0 0 0 9,18 A9,9 0 0 0 18,9 C18,8.5 17.959999084472656,8 17.8700008392334,7.5 C17.600000381469727,7 17,7 17,7 H15 V6 C15,5 
+[200] image/jpeg                               https://ts2.x1.international.travian.com/map/minimap.jpg
+[200] image/gif                                https://ts2.x1.international.travian.com/img/map/rulers/x-2.gif
+[200] image/gif                                https://ts2.x1.international.travian.com/img/map/rulers/y-2.gif
+[200] image/gif                                https://ts2.x1.international.travian.com/img/map/grid/grid-2.gif
+[200] image/jpeg                               https://ts2.x1.international.travian.com/map/block/120.-140.139.-121.png
+[200] image/jpeg                               https://ts2.x1.international.travian.com/map/block/140.-160.159.-141.png
+[200] image/jpeg                               https://ts2.x1.international.travian.com/map/block/140.-140.159.-121.png
+[200] image/png                                https://ts2.x1.international.travian.com/map/mark/140.-160.159.-141.png?t=1780159639401
+[200] image/png                                https://ts2.x1.international.travian.com/map/mark/140.-140.159.-121.png?t=1780159639408
+[200] image/png                                https://ts2.x1.international.travian.com/map/mark/120.-140.139.-121.png?t=1780159639407
+[200] image/jpeg                               https://ts2.x1.international.travian.com/map/block/140.-120.159.-101.png
+[200] image/jpeg                               https://ts2.x1.international.travian.com/map/block/120.-160.139.-141.png
+[200] image/png                                https://ts2.x1.international.travian.com/map/mark/120.-160.139.-141.png?t=1780159639400
+[200] image/png                                https://ts2.x1.international.travian.com/map/mark/140.-120.159.-101.png?t=1780159639405
+[200] image/jpeg                               https://ts2.x1.international.travian.com/map/block/120.-120.139.-101.png
+[200] image/jpeg                               https://ts2.x1.international.travian.com/map/block/100.-140.119.-121.png
+[200] image/png                                https://ts2.x1.international.travian.com/map/mark/120.-120.139.-101.png?t=1780159639404
+[200] image/jpeg                               https://ts2.x1.international.travian.com/map/block/100.-160.119.-141.png
+[200] image/png                                https://ts2.x1.international.travian.com/map/mark/100.-140.119.-121.png?t=1780159639406
+[200] image/png                                https://ts2.x1.international.travian.com/map/mark/100.-160.119.-141.png?t=1780159639399
+[200] image/jpeg                               https://ts2.x1.international.travian.com/map/block/100.-120.119.-101.png
+[200] image/png                                https://ts2.x1.international.travian.com/map/mark/100.-120.119.-101.png?t=1780159639403
+
+=== PAGE HTML (first 5000 chars) ===
+<!DOCTYPE html><html id="mainLayout" lang="zh-TW" style="--readingDirection: ltr; --readingDirectionFrom: left; --readingDirectionTo: right; --scaleXFactor: 1;"><head>
+		<title>International 2</title>
+<meta charset="">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#F4EFE4">
+<style data-tippy-stylesheet="">.tippy-box[data-animation=fade][data-state=hidden]{opacity:0}[data-tippy-root]{max-width:calc(100vw - 10px)}.tippy-box{position:relative;background-color:#333;color:#fff;border-radius:4px;font-size:14px;line-height:1.4;white-space:normal;outline:0;transition-property:transform,visibility,opacity}.tippy-box[data-placement^=top]>.tippy-arrow{bottom:0}.tippy-box[data-placement^=top]>.tippy-arrow:before{bottom:-7px;left:0;border-width:8px 8px 0;border-top-color:initial;transform-origin:center top}.tippy-box[data-placement^=bottom]>.tippy-arrow{top:0}.tippy-box[data-placement^=bottom]>.tippy-arrow:before{top:-7px;left:0;border-width:0 8px 8px;border-bottom-color:initial;transform-origin:center bottom}.tippy-box[data-placement^=left]>.tippy-arrow{right:0}.tippy-box[data-placement^=left]>.tippy-arrow:before{border-width:8px 0 8px 8px;border-left-color:initial;right:-7px;transform-origin:center left}.tippy-box[data-placement^=right]>.tippy-arrow{left:0}.tippy-box[data-placement^=right]>.tippy-arrow:before{left:-7px;border-width:8px 8px 8px 0;border-right-color:initial;transform-origin:center right}.tippy-box[data-inertia][data-state=visible]{transition-timing-function:cubic-bezier(.54,1.5,.38,1.11)}.tippy-arrow{width:16px;height:16px;color:#333}.tippy-arrow:before{content:"";position:absolute;border-color:transparent;border-style:solid}.tippy-content{position:relative;padding:5px 9px;z-index:1}</style><link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link href="https://cdn.legends.travian.com/gpack/467.7/css_ltr/imports_compressed.css" rel="stylesheet" type="text/css">
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/jquery-4.0.0.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/jquery.md5.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/d3/d3.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/d3/d3pie.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/ChartJs/Chart.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/gsap/TweenMax.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/gsap/plugins/MorphSVGPlugin.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/simplebar.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/popper.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/tippy.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/PixiJS/pixi.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/deepmerge.js"></script>
+<script type="application/javascript">window.Travian = {};</script>
+<script type="application/javascript" src="/js/Constants.js"></script>
+<script type="application/javascript" src="/js/Variables.js?467.7"></script>
+<script type="application/javascript" src="/js/zh-TW/Strings.js?467.7"></script>
+<script defer="" type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/bundle/vendor.js"></script>
+<script defer="" type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/bundle/runtime.js"></script>
+<script defer="" type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/bundle/main.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/bundle/crypt.js"></script>
+<script type="application/javascript">
+    Travian.Game.language = "zh-TW";
+    Travian.Game.timestamp = 1780159638;
+    Travian.Game.timeZone = "Europe/London";
+    Travian.Game.timezoneOffsetToUTC = -3600;
+    Travian.Game.timeFormat = 0;
+</script>
+<script type="application/javascript">
+    Travian.Game.Preferences.initialize([]);
+</script>
+	</head>
+	<body class="map ltr" data-browser="chrome" data-browser-engine="blink" data-theme="default" data-language="zh-TW" data-village-perspective="perspectiveResources"><div id="cmpwrapper" class="cmpwrapper"></div><div id="contextualHelp"><div class="contextualHelp below" data-currentstep="0" style="left: 88px; top: 110px;"><div class="arrowContainer"><svg class="pointingArrow" viewBox="0 0 20 20" style="top: 0px; left: 50%;

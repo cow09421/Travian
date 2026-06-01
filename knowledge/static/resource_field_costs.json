@@ -1,0 +1,290 @@
+{
+  "wood_cutters": {
+    "0": {
+      "wood": 50,
+      "clay": 40,
+      "iron": 30,
+      "crop": 20,
+      "time_sec": 460
+    },
+    "1": {
+      "wood": 100,
+      "clay": 80,
+      "iron": 60,
+      "crop": 40,
+      "time_sec": 920
+    },
+    "2": {
+      "wood": 200,
+      "clay": 160,
+      "iron": 120,
+      "crop": 80,
+      "time_sec": 1880
+    },
+    "3": {
+      "wood": 400,
+      "clay": 320,
+      "iron": 240,
+      "crop": 160,
+      "time_sec": 3760
+    },
+    "4": {
+      "wood": 800,
+      "clay": 640,
+      "iron": 480,
+      "crop": 320,
+      "time_sec": 7520
+    },
+    "5": {
+      "wood": 1600,
+      "clay": 1280,
+      "iron": 960,
+      "crop": 640,
+      "time_sec": 15040
+    },
+    "6": {
+      "wood": 3200,
+      "clay": 2560,
+      "iron": 1920,
+      "crop": 1280,
+      "time_sec": 30080
+    },
+    "7": {
+      "wood": 6400,
+      "clay": 5120,
+      "iron": 3840,
+      "crop": 2560,
+      "time_sec": 60160
+    },
+    "8": {
+      "wood": 12800,
+      "clay": 10240,
+      "iron": 7680,
+      "crop": 5120,
+      "time_sec": 120320
+    },
+    "9": {
+      "wood": 25600,
+      "clay": 20480,
+      "iron": 15360,
+      "crop": 10240,
+      "time_sec": 240640
+    }
+  },
+  "clay_pits": {
+    "0": {
+      "wood": 80,
+      "clay": 40,
+      "iron": 30,
+      "crop": 20,
+      "time_sec": 460
+    },
+    "1": {
+      "wood": 65,
+      "clay": 100,
+      "iron": 45,
+      "crop": 30,
+      "time_sec": 920
+    },
+    "2": {
+      "wood": 130,
+      "clay": 200,
+      "iron": 90,
+      "crop": 60,
+      "time_sec": 1880
+    },
+    "3": {
+      "wood": 260,
+      "clay": 400,
+      "iron": 180,
+      "crop": 120,
+      "time_sec": 3760
+    },
+    "4": {
+      "wood": 520,
+      "clay": 800,
+      "iron": 360,
+      "crop": 240,
+      "time_sec": 7520
+    },
+    "5": {
+      "wood": 1040,
+      "clay": 1600,
+      "iron": 720,
+      "crop": 480,
+      "time_sec": 15040
+    },
+    "6": {
+      "wood": 2080,
+      "clay": 3200,
+      "iron": 1440,
+      "crop": 960,
+      "time_sec": 30080
+    },
+    "7": {
+      "wood": 4160,
+      "clay": 6400,
+      "iron": 2880,
+      "crop": 1920,
+      "time_sec": 60160
+    },
+    "8": {
+      "wood": 8320,
+      "clay": 12800,
+      "iron": 5760,
+      "crop": 3840,
+      "time_sec": 120320
+    },
+    "9": {
+      "wood": 16640,
+      "clay": 25600,
+      "iron": 11520,
+      "crop": 7680,
+      "time_sec": 240640
+    }
+  },
+  "iron_mines": {
+    "0": {
+      "wood": 100,
+      "clay": 80,
+      "iron": 30,
+      "crop": 60,
+      "time_sec": 460
+    },
+    "1": {
+      "wood": 200,
+      "clay": 160,
+      "iron": 60,
+      "crop": 120,
+      "time_sec": 920
+    },
+    "2": {
+      "wood": 400,
+      "clay": 320,
+      "iron": 120,
+      "crop": 240,
+      "time_sec": 1880
+    },
+    "3": {
+      "wood": 800,
+      "clay": 640,
+      "iron": 240,
+      "crop": 480,
+      "time_sec": 3760
+    },
+    "4": {
+      "wood": 1600,
+      "clay": 1280,
+      "iron": 480,
+      "crop": 960,
+      "time_sec": 7520
+    },
+    "5": {
+      "wood": 3200,
+      "clay": 2560,
+      "iron": 960,
+      "crop": 1920,
+      "time_sec": 15040
+    },
+    "6": {
+      "wood": 6400,
+      "clay": 5120,
+      "iron": 1920,
+      "crop": 3840,
+      "time_sec": 30080
+    },
+    "7": {
+      "wood": 12800,
+      "clay": 10240,
+      "iron": 3840,
+      "crop": 7680,
+      "time_sec": 60160
+    },
+    "8": {
+      "wood": 25600,
+      "clay": 20480,
+      "iron": 7680,
+      "crop": 15360,
+      "time_sec": 120320
+    },
+    "9": {
+      "wood": 51200,
+      "clay": 40960,
+      "iron": 15360,
+      "crop": 30720,
+      "time_sec": 240640
+    }
+  },
+  "croplands": {
+    "0": {
+      "wood": 70,
+      "clay": 90,
+      "iron": 70,
+      "crop": 20,
+      "time_sec": 460
+    },
+    "1": {
+      "wood": 140,
+      "clay": 180,
+      "iron": 140,
+      "crop": 40,
+      "time_sec": 920
+    },
+    "2": {
+      "wood": 280,
+      "clay": 360,
+      "iron": 280,
+      "crop": 80,
+      "time_sec": 1880
+    },
+    "3": {
+      "wood": 560,
+      "clay": 720,
+      "iron": 560,
+      "crop": 160,
+      "time_sec": 3760
+    },
+    "4": {
+      "wood": 1120,
+      "clay": 1440,
+      "iron": 1120,
+      "crop": 320,
+      "time_sec": 7520
+    },
+    "5": {
+      "wood": 2240,
+      "clay": 2880,
+      "iron": 2240,
+      "crop": 640,
+      "time_sec": 15040
+    },
+    "6": {
+      "wood": 4480,
+      "clay": 5760,
+      "iron": 4480,
+      "crop": 1280,
+      "time_sec": 30080
+    },
+    "7": {
+      "wood": 8960,
+      "clay": 11520,
+      "iron": 8960,
+      "crop": 2560,
+      "time_sec": 60160
+    },
+    "8": {
+      "wood": 17920,
+      "clay": 23040,
+      "iron": 17920,
+      "crop": 5120,
+      "time_sec": 120320
+    },
+    "9": {
+      "wood": 35840,
+      "clay": 46080,
+      "iron": 35840,
+      "crop": 10240,
+      "time_sec": 240640
+    }
+  }
+}

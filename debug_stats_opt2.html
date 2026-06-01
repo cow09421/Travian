@@ -1,0 +1,1143 @@
+<!DOCTYPE html><html id="mainLayout" lang="zh-TW" style="--readingDirection: ltr; --readingDirectionFrom: left; --readingDirectionTo: right; --scaleXFactor: 1;"><head>
+		<title>International 2</title>
+<meta charset="">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#F4EFE4">
+<style data-tippy-stylesheet="">.tippy-box[data-animation=fade][data-state=hidden]{opacity:0}[data-tippy-root]{max-width:calc(100vw - 10px)}.tippy-box{position:relative;background-color:#333;color:#fff;border-radius:4px;font-size:14px;line-height:1.4;white-space:normal;outline:0;transition-property:transform,visibility,opacity}.tippy-box[data-placement^=top]>.tippy-arrow{bottom:0}.tippy-box[data-placement^=top]>.tippy-arrow:before{bottom:-7px;left:0;border-width:8px 8px 0;border-top-color:initial;transform-origin:center top}.tippy-box[data-placement^=bottom]>.tippy-arrow{top:0}.tippy-box[data-placement^=bottom]>.tippy-arrow:before{top:-7px;left:0;border-width:0 8px 8px;border-bottom-color:initial;transform-origin:center bottom}.tippy-box[data-placement^=left]>.tippy-arrow{right:0}.tippy-box[data-placement^=left]>.tippy-arrow:before{border-width:8px 0 8px 8px;border-left-color:initial;right:-7px;transform-origin:center left}.tippy-box[data-placement^=right]>.tippy-arrow{left:0}.tippy-box[data-placement^=right]>.tippy-arrow:before{left:-7px;border-width:8px 8px 8px 0;border-right-color:initial;transform-origin:center right}.tippy-box[data-inertia][data-state=visible]{transition-timing-function:cubic-bezier(.54,1.5,.38,1.11)}.tippy-arrow{width:16px;height:16px;color:#333}.tippy-arrow:before{content:"";position:absolute;border-color:transparent;border-style:solid}.tippy-content{position:relative;padding:5px 9px;z-index:1}</style><link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link href="https://cdn.legends.travian.com/gpack/467.7/css_ltr/imports_compressed.css" rel="stylesheet" type="text/css">
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/jquery-4.0.0.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/jquery.md5.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/d3/d3.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/d3/d3pie.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/ChartJs/Chart.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/gsap/TweenMax.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/gsap/plugins/MorphSVGPlugin.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/simplebar.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/popper.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/tippy.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/PixiJS/pixi.min.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/deepmerge.js"></script>
+<script type="application/javascript">window.Travian = {};</script>
+<script type="application/javascript" src="/js/Constants.js"></script>
+<script type="application/javascript" src="/js/Variables.js?467.7"></script>
+<script type="application/javascript" src="/js/zh-TW/Strings.js?467.7"></script>
+<script defer="" type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/bundle/vendor.js"></script>
+<script defer="" type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/bundle/runtime.js"></script>
+<script defer="" type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/bundle/main.js"></script>
+<script type="application/javascript" src="https://cdn.legends.travian.com/gpack/467.7/js/bundle/crypt.js"></script>
+<script type="application/javascript">
+    Travian.Game.language = "zh-TW";
+    Travian.Game.timestamp = 1780167263;
+    Travian.Game.timeZone = "Europe/London";
+    Travian.Game.timezoneOffsetToUTC = -3600;
+    Travian.Game.timeFormat = 0;
+</script>
+<script type="application/javascript">
+    Travian.Game.Preferences.initialize([]);
+</script>
+	</head>
+	<body class="statistics ltr" data-browser="chrome" data-browser-engine="blink" data-theme="default" data-language="zh-TW" data-village-perspective="perspectiveBuildings"><div id="cmpwrapper" class="cmpwrapper"></div><div id="contextualHelp"><div class="contextualHelp below" data-currentstep="0" style="left: 88px; top: 110px;"><div class="arrowContainer"><svg class="pointingArrow" viewBox="0 0 20 20" style="top: 0px; left: 50%;"><path d="M20 0L1 10L20 20"></path></svg></div> <div class="helpBody"><div class="progress"><div class="active"></div></div><div class="steps"><div class="">您的英雄獲得了一些資源獎勵。要使用這些資源，您首先需要將它們從英雄道具庫移到庫存裏。</div></div><nav class="hide">   <svg class="chevronBack hide" viewBox="0 0 20 20" preserveAspectRatio="none">      <path d="M19 1L1 10L19 19"></path>   </svg>   <svg class="chevronForward hide" viewBox="0 0 20 20" preserveAspectRatio="none">      <path d="M1 1L19 10L1 19"></path>   </svg>   <button type="button" class="textButtonV1 hide">確定</button></nav></div></div></div>
+        <script>window.cmp_minimaltracking=true;window.cmp_disable_spa=true;window.cmp_noscreen=true;</script><script>window.gdprAppliesGlobally=true;if(!("cmp_id" in window)||window.cmp_id<1){window.cmp_id=0}if(!("cmp_cdid" in window)){window.cmp_cdid="40dcf06677fd"}if(!("cmp_params" in window)){window.cmp_params=""}if(!("cmp_host" in window)){window.cmp_host="d.delivery.consentmanager.net"}if(!("cmp_cdn" in window)){window.cmp_cdn="cdn.consentmanager.net"}if(!("cmp_proto" in window)){window.cmp_proto="https:"}if(!("cmp_codesrc" in window)){window.cmp_codesrc="1"}window.cmp_getsupportedLangs=function(){var b=["DE","EN","FR","IT","NO","DA","FI","ES","PT","RO","BG","ET","EL","GA","HR","LV","LT","MT","NL","PL","SV","SK","SL","CS","HU","RU","SR","ZH","TR","UK","AR","BS"];if("cmp_customlanguages" in window){for(var a=0;a<window.cmp_customlanguages.length;a++){b.push(window.cmp_customlanguages[a].l.toUpperCase())}}return b};window.cmp_getRTLLangs=function(){var a=["AR"];if("cmp_customlanguages" in window){for(var b=0;b<window.cmp_customlanguages.length;b++){if("r" in window.cmp_customlanguages[b]&&window.cmp_customlanguages[b].r){a.push(window.cmp_customlanguages[b].l)}}}return a};window.cmp_getlang=function(j){if(typeof(j)!="boolean"){j=true}if(j&&typeof(cmp_getlang.usedlang)=="string"&&cmp_getlang.usedlang!==""){return cmp_getlang.usedlang}var g=window.cmp_getsupportedLangs();var c=[];var f=location.hash;var e=location.search;var a="languages" in navigator?navigator.languages:[];if(f.indexOf("cmplang=")!=-1){c.push(f.substr(f.indexOf("cmplang=")+8,2).toUpperCase())}else{if(e.indexOf("cmplang=")!=-1){c.push(e.substr(e.indexOf("cmplang=")+8,2).toUpperCase())}else{if("cmp_setlang" in window&&window.cmp_setlang!=""){c.push(window.cmp_setlang.toUpperCase())}else{if(a.length>0){for(var d=0;d<a.length;d++){c.push(a[d])}}}}}if("language" in navigator){c.push(navigator.language)}if("userLanguage" in navigator){c.push(navigator.userLanguage)}var h="";for(var d=0;d<c.length;d++){var b=c[d].toUpperCase();if(g.indexOf(b)!=-1){h=b;break}if(b.indexOf("-")!=-1){b=b.substr(0,2)}if(g.indexOf(b)!=-1){h=b;break}}if(h==""&&typeof(cmp_getlang.defaultlang)=="string"&&cmp_getlang.defaultlang!==""){return cmp_getlang.defaultlang}else{if(h==""){h="EN"}}h=h.toUpperCase();return h};(function(){var i=document;var b=window;var a="";var g="_en";if("cmp_getlang" in b){a=b.cmp_getlang().toLowerCase();g="_"+a}var f=("cmp_proto" in b)?b.cmp_proto:"https:";if(f!="http:"&&f!="https:"){f="https:"}var c=i.createElement("script");c.setAttribute("data-cmp-ab","1");c.src=f+"//"+b.cmp_cdn+"/delivery/autocdn/cmp-web."+("cmp_id" in b&&b.cmp_id>0?b.cmp_id:"")+("cmp_cdid" in b?"x"+b.cmp_cdid:"")+"."+a.replace("_","").toLowerCase()+".js";c.type="text/javascript";c.async=true;if(i.body){i.body.appendChild(c)}else{if(i.currentScript&&i.currentScript.parentElement){i.currentScript.parentElement.appendChild(c)}else{var h=i.getElementsByTagName("body");if(h.length==0){h=i.getElementsByTagName("div")}if(h.length==0){h=i.getElementsByTagName("span")}if(h.length==0){h=i.getElementsByTagName("ins")}if(h.length==0){h=i.getElementsByTagName("script")}if(h.length==0){h=i.getElementsByTagName("head")}if(h.length>0){h[0].appendChild(c)}}}var c=i.createElement("script");c.src=f+"//"+b.cmp_cdn+"/delivery/js/cmp"+g+".min.js";c.type="text/javascript";c.setAttribute("data-cmp-ab","1");c.async=true;if(i.body){i.body.appendChild(c)}else{if(i.currentScript&&i.currentScript.parentElement){i.currentScript.parentElement.appendChild(c)}else{var h=i.getElementsByTagName("body");if(h.length==0){h=i.getElementsByTagName("div")}if(h.length==0){h=i.getElementsByTagName("span")}if(h.length==0){h=i.getElementsByTagName("ins")}if(h.length==0){h=i.getElementsByTagName("script")}if(h.length==0){h=i.getElementsByTagName("head")}if(h.length>0){h[0].appendChild(c)}}}})();window.cmp_addFrame=function(b){if(!window.frames[b]){if(document.body){var a=document.createElement("iframe");a.style.cssText="display:none";if("cmp_cdn" in window&&"cmp_ultrablocking" in window&&window.cmp_ultrablocking>0){a.src="//"+window.cmp_cdn+"/delivery/empty.html"}a.name=b;document.body.appendChild(a)}else{window.setTimeout(window.cmp_addFrame,10,b)}}};window.cmp_rc=function(h){var b=document.cookie;var f="";var d=0;while(b!=""&&d<100){d++;while(b.substr(0,1)==" "){b=b.substr(1,b.length)}var g=b.substring(0,b.indexOf("="));if(b.indexOf(";")!=-1){var c=b.substring(b.indexOf("=")+1,b.indexOf(";"))}else{var c=b.substr(b.indexOf("=")+1,b.length)}if(h==g){f=c}var e=b.indexOf(";")+1;if(e==0){e=b.length}b=b.substring(e,b.length)}return(f)};window.cmp_stub=function(){var a=arguments;__cmp.a=__cmp.a||[];if(!a.length){return __cmp.a}else{if(a[0]==="ping"){if(a[1]===2){a[2]({gdprApplies:gdprAppliesGlobally,cmpLoaded:false,cmpStatus:"stub",displayStatus:"hidden",apiVersion:"2.0",cmpId:31},true)}else{a[2](false,true)}}else{if(a[0]==="getUSPData"){a[2]({version:1,uspString:window.cmp_rc("")},true)}else{if(a[0]==="getTCData"){__cmp.a.push([].slice.apply(a))}else{if(a[0]==="addEventListener"||a[0]==="removeEventListener"){__cmp.a.push([].slice.apply(a))}else{if(a.length==4&&a[3]===false){a[2]({},false)}else{__cmp.a.push([].slice.apply(a))}}}}}}};window.cmp_gpp_ping=function(){return{gppVersion:"1.0",cmpStatus:"stub",cmpDisplayStatus:"hidden",supportedAPIs:["tcfca","usnat","usca","usva","usco","usut","usct"],cmpId:31}};window.cmp_gppstub=function(){var a=arguments;__gpp.q=__gpp.q||[];if(!a.length){return __gpp.q}var g=a[0];var f=a.length>1?a[1]:null;var e=a.length>2?a[2]:null;if(g==="ping"){return window.cmp_gpp_ping()}else{if(g==="addEventListener"){__gpp.e=__gpp.e||[];if(!("lastId" in __gpp)){__gpp.lastId=0}__gpp.lastId++;var c=__gpp.lastId;__gpp.e.push({id:c,callback:f});return{eventName:"listenerRegistered",listenerId:c,data:true,pingData:window.cmp_gpp_ping()}}else{if(g==="removeEventListener"){var h=false;__gpp.e=__gpp.e||[];for(var d=0;d<__gpp.e.length;d++){if(__gpp.e[d].id==e){__gpp.e[d].splice(d,1);h=true;break}}return{eventName:"listenerRemoved",listenerId:e,data:h,pingData:window.cmp_gpp_ping()}}else{if(g==="getGPPData"){return{sectionId:3,gppVersion:1,sectionList:[],applicableSections:[0],gppString:"",pingData:window.cmp_gpp_ping()}}else{if(g==="hasSection"||g==="getSection"||g==="getField"){return null}else{__gpp.q.push([].slice.apply(a))}}}}}};window.cmp_msghandler=function(d){var a=typeof d.data==="string";try{var c=a?JSON.parse(d.data):d.data}catch(f){var c=null}if(typeof(c)==="object"&&c!==null&&"__cmpCall" in c){var b=c.__cmpCall;window.__cmp(b.command,b.parameter,function(h,g){var e={__cmpReturn:{returnValue:h,success:g,callId:b.callId}};d.source.postMessage(a?JSON.stringify(e):e,"*")})}if(typeof(c)==="object"&&c!==null&&"__uspapiCall" in c){var b=c.__uspapiCall;window.__uspapi(b.command,b.version,function(h,g){var e={__uspapiReturn:{returnValue:h,success:g,callId:b.callId}};d.source.postMessage(a?JSON.stringify(e):e,"*")})}if(typeof(c)==="object"&&c!==null&&"__tcfapiCall" in c){var b=c.__tcfapiCall;window.__tcfapi(b.command,b.version,function(h,g){var e={__tcfapiReturn:{returnValue:h,success:g,callId:b.callId}};d.source.postMessage(a?JSON.stringify(e):e,"*")},b.parameter)}if(typeof(c)==="object"&&c!==null&&"__gppCall" in c){var b=c.__gppCall;window.__gpp(b.command,function(h,g){var e={__gppReturn:{returnValue:h,success:g,callId:b.callId}};d.source.postMessage(a?JSON.stringify(e):e,"*")},"parameter" in b?b.parameter:null,"version" in b?b.version:1)}};window.cmp_setStub=function(a){if(!(a in window)||(typeof(window[a])!=="function"&&typeof(window[a])!=="object"&&(typeof(window[a])==="undefined"||window[a]!==null))){window[a]=window.cmp_stub;window[a].msgHandler=window.cmp_msghandler;window.addEventListener("message",window.cmp_msghandler,false)}};window.cmp_setGppStub=function(a){if(!(a in window)||(typeof(window[a])!=="function"&&typeof(window[a])!=="object"&&(typeof(window[a])==="undefined"||window[a]!==null))){window[a]=window.cmp_gppstub;window[a].msgHandler=window.cmp_msghandler;window.addEventListener("message",window.cmp_msghandler,false)}};window.cmp_addFrame("__cmpLocator");if(!("cmp_disableusp" in window)||!window.cmp_disableusp){window.cmp_addFrame("__uspapiLocator")}if(!("cmp_disabletcf" in window)||!window.cmp_disabletcf){window.cmp_addFrame("__tcfapiLocator")}if(!("cmp_disablegpp" in window)||!window.cmp_disablegpp){window.cmp_addFrame("__gppLocator")}window.cmp_setStub("__cmp");if(!("cmp_disabletcf" in window)||!window.cmp_disabletcf){window.cmp_setStub("__tcfapi")}if(!("cmp_disableusp" in window)||!window.cmp_disableusp){window.cmp_setStub("__uspapi")}if(!("cmp_disablegpp" in window)||!window.cmp_disablegpp){window.cmp_setGppStub("__gpp")};</script><script data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/autocdn/cmp-web.x40dcf06677fd.zh.js" type="text/javascript" async=""></script><script src="https://cdn.consentmanager.net/delivery/js/cmp_zh.min.js" type="text/javascript" data-cmp-ab="1" async=""></script><iframe name="__cmpLocator" style="display: none;"></iframe><iframe name="__uspapiLocator" style="display: none;"></iframe><iframe name="__tcfapiLocator" style="display: none;"></iframe><iframe name="__gppLocator" style="display: none;"></iframe>        <div id="reactPortalRoot"></div>
+        <div id="reactDialogWrapper"></div>
+
+		<div id="background" class=" ">
+			<div id="topBar">
+    <a id="logo" href="https://www.travian.com/tw" target="_blank">
+		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 172.7 60">
+  <path d="M52.9 34.4c-.2-.3-.3-.7-.3-1.3 0-.8-.1-1.2-.1-1.3l-.1-3.9.1-6.6c0-1.1.1-2.2.1-3.3.1-1.5.2-2.4.3-2.8.1 0 .3 0 .6-.1h.4c2.6 0 4.1.3 4.4.8.1.1.1.4.3.8.1.4.2.5.2.5s.1 0 .2-.1V17c0-.4.1-.9.2-1.4.2-.5.3-1 .5-1.6l-.4-.1c-.9.2-1.9.4-3.1.4h-5l-6.5-.3c-.3 0-.5.4-.8 1.2-.1.5-.3 1-.4 1.4-.2.5-.3.8-.3.8v.2h.2c.1-.4.3-.7.6-1 .3-.3.6-.5.9-.6.3-.1.9-.2 2.1-.4 1.3-.2 2.1-.3 2.5-.3.3 0 .4 1.5.4 4.5l-.1 8.6c-.1 2.2-.3 3.7-.3 4.6-.1.9-.2 1.5-.4 1.8-.1.1-.2.2-.4.2-.2.1-.3.2-.3.3l.5.1c.2-.1.4-.1.5-.1 1.1-.1 1.8-.2 1.9-.2l2.8.2c.2 0 .3-.1.4-.2 0 0-.3-.1-.8-.2-.4-.2-.7-.3-.8-.5zm19.7-.1c.6.7 1.4 1 2.3 1h.9c1.2-.1 1.8-.2 1.9-.3-.1 0-.4-.1-.8-.3-.2-.1-.5-.2-.6-.4-.5-.4-1.1-1.2-1.7-2.2-.5-.9-1-1.8-1.4-2.7-.3-.5-.7-1.3-1.4-2.4-.4-.8-.7-1.2-.7-1.2 0-.1.4-.5 1-1.1.7-.7 1.3-1.4 1.6-2.1.6-1 .9-2.2.9-3.4 0-1.8-.7-3.1-2.1-3.9-1-.6-2.3-1-3.7-1l-2.8.1c-.9 0-1.6.1-2.1.1l-1.5.1c-.1 0-.3.1-.6.2l.3.1c.2.1.2.1.3.2.4 1 .6 2 .6 3l.1 3.9v2s0 .3-.1.8c0 .5-.1.7-.1.8v2l-.2 4.2c0 1.9-.1 3-.2 3.3-.3.4-.5.6-.6.7 1.2-.2 2-.3 2.3-.3h2.2s.3-.1.9-.2c-.1-.1-.2-.1-.4-.1-.9 0-1.4-1-1.4-3v-5.4c0-.2.1-.4.3-.4 1.2 0 2 .2 2.4.6.5.5 1 1.3 1.5 2.1.4.7.8 1.5 1.2 2.2.8 1.7 1.4 2.7 1.7 3zm-5.2-8.2h-1.8l.1-11.3h.9c1.4 0 2.6.8 3.6 2.5.9 1.5 1.4 2.9 1.4 4.3 0 1.9-.3 3.1-.9 3.6-.4.7-1.5.9-3.3.9zm33.6 8.6c-.4-.2-.7-.5-.9-.9-1.2-2-2.5-4.9-3.8-8.6-.9-2.6-1.7-5.1-2.6-7.7-.2-.7-.5-1.3-.7-2-.4-1-.9-1.5-1.3-1.5h-3.2c-.2 0-.4.1-.6.1-.2 0-.3.1-.3.2.1.1.2.1.2.1h.5c.3 0 .5.1.8.3.2.2.3.5.3.8 0 .5-.9 3-2.6 7.5-1.6 4.1-2.7 6.9-3.4 8.5-.7 1.6-1.5 2.8-2.5 3.6.3 0 .8 0 1.4.1.7.1 1.1.1 1.4.1l3.6-.5c-.7-.2-1.4-.5-2.1-.8-.6-.3-.9-.8-.9-1.7 0-.8.4-2.2 1.1-4.1l.6-1.8c.4-1 .8-1.6 1-1.6h5.4c.8 1.8 1.4 3.2 1.8 4.2.4 1.1.9 2.3 1.3 3.5.8 1.7 1.7 2.6 2.7 2.6l3-.2c.3.1.1 0-.2-.2zm-8.5-10.3h-5.4l2.8-7.4c.4.7.6 1.3.8 1.7l1.8 5.4v.3zm20.7-10.2c.3-.1.6.2.8.7.2.4.2.8.2 1.3 0 1.3-.8 4.2-2.3 8.5-1 2.8-1.8 4.9-2.5 6.4-1.6-3.7-2.8-6.9-3.8-9.4-.8-2.3-1.5-4-1.8-5.1-.5-1.4-.8-2.1-.8-2.1-.3-.1-.8-.2-1.6-.2h-2.6c-.3 0-.5.1-.6.3.2.1.4.1.6.2.2.1.3.2.5.3 1.1 1.5 2.3 3.7 3.5 6.7.7 1.5 1.6 3.9 2.8 7.1 1.1 3 1.7 4.6 1.8 4.9.6 1.2.9 1.8 1 1.9 2.8-7.3 5.8-14.6 9-21.8h-4.2v.3zm7.8 3.6c0 .3.1.6.1.8v6.8l-.1 4.9-.5 5.1h4.2c.1-.1.1-.2.1-.2-.5-.2-.7-.3-.7-.3-.2-.2-.3-.5-.3-.9 0-.3-.1-.6-.1-1l.1-9.6c.1-3.6.2-6.7.5-9.4h-.3c.1 0-.1 0-.6.1s-1 .1-1.7.1h-1.5c.5.5.7 1.1.8 1.8-.1.5-.1 1.2 0 1.8zm27 16.9c-.4-.2-.7-.5-.9-.9-1.2-2-2.5-4.9-3.8-8.6-.9-2.6-1.7-5.1-2.6-7.7-.2-.7-.5-1.3-.7-2-.4-1-.9-1.5-1.3-1.5l-3.1.1c-.2 0-.4.1-.6.1-.2 0-.3.1-.3.2.1.1.2.1.2.1h.5c.3 0 .5.1.8.3.2.2.3.5.3.8 0 .5-.9 3-2.6 7.5-1.6 4.1-2.7 6.9-3.4 8.5-.7 1.6-1.5 2.8-2.5 3.6.3 0 .8 0 1.4.1.7.1 1.1.1 1.4.1l3.6-.5c-.7-.2-1.4-.5-2.1-.8-.6-.3-.9-.8-.9-1.7 0-.8.4-2.2 1.1-4.1l.6-1.8c.4-1 .8-1.6 1-1.6h5.4c.8 1.8 1.4 3.2 1.8 4.2.4 1.1.9 2.3 1.3 3.5.8 1.7 1.7 2.6 2.7 2.6l3-.2c.2 0 .1-.1-.3-.3zm-8.4-10.3h-5.4L137 17c.4.7.6 1.3.8 1.7l1.8 5.4v.3zm29.7-10.2c-.4 0-1 .2-2 .5-.8.3-1.3.5-1.4.6.2 0 .8 0 1.7-.1.2 0 .3.1.3.2.1 1.4.2 2.5.2 3.2.1 2.1.2 4.4.3 6.6l.1 4.6c0 .2 0 .3-.1.4-3.4-3.8-5.7-6.3-6.8-7.6-2.8-3.3-4.8-6.1-6.2-8.6-2.1.2-3.8.3-4.9.5 1.3.6 2.1 1.4 2.5 2.4.3.6.4 1.6.4 3l-.2 3.7v1.7c0 3.8-.2 6.4-.6 7.9-.1.4-.3.7-.7 1-.5.4-.8.7-.9.7.5.1 1.1.2 2 .2.7 0 1.5-.1 2.5-.3 1.3-.3 2-.5 2-.5-.6-.1-1.1-.2-1.4-.2-.5 0-.9-.1-1.4-.4-.1-.1-.2-.3-.3-.5 0-.1-.1-.3-.1-.7-.2-1.9-.3-3.2-.3-4-.1-3.9-.1-7.1 0-9.7 1.1 1.3 3.1 3.5 5.8 6.7 1.8 2.1 4.3 4.9 7.5 8.4.9.9 1.3 1.4 1.4 1.4.1 0 .1 0 .2-.1.1-1.8.2-3.7.3-5.5.2-3.6.3-5.6.3-6.1v-1.4c0-.3.2-2.6.6-6.9.2-.1.7-.3 1.3-.5.6-.2.9-.3 1.1-.5l-3.2-.1zm-112 27.6H56v9.5h6v-1.2h-4.7m14.5-3.2h5.3v-1.1h-5.3v-2.9h5.7v-1.1h-7v9.5h7.2v-1.2h-5.9m19.1-2.6h2.8v1.8c-.3.2-.7.5-1.2.7s-1.1.3-1.6.3c-.6 0-1.2-.1-1.8-.4-.6-.3-1-.7-1.3-1.3-.3-.6-.4-1.3-.4-2.1 0-.7.1-1.3.4-1.9.1-.3.3-.7.6-.9.3-.3.6-.5 1-.7.4-.2.9-.3 1.5-.3.5 0 .9.1 1.3.2s.7.4.9.7c.2.3.4.7.5 1.1l1.2-.3c-.2-.6-.4-1.2-.7-1.6s-.8-.7-1.3-.9c-.6-.2-1.2-.3-1.9-.3-1 0-1.8.2-2.5.6s-1.3 1-1.7 1.8c-.4.8-.6 1.7-.6 2.6 0 .9.2 1.8.6 2.5s1 1.3 1.8 1.7 1.6.6 2.6.6c.7 0 1.4-.1 2.1-.4.7-.2 1.3-.6 1.9-1.1v-3.5H91v1.1zm14.2-.6h5.4v-1.1h-5.4v-2.9h5.7v-1.1h-7v9.5h7.3v-1.2h-6m21-.9l-5.1-7.4h-1.3v9.5h1.3v-7.5l5 7.5h1.3v-9.5h-1.2m16.8.8c-.4-.3-.9-.6-1.4-.7-.4-.1-1-.1-1.7-.1h-3.3v9.5h3.5c.6 0 1.1-.1 1.6-.2s.8-.3 1.2-.5c.3-.2.6-.5.9-.9.3-.4.5-.8.7-1.4.2-.6.3-1.2.3-1.9 0-.8-.1-1.6-.4-2.3-.5-.5-.9-1.1-1.4-1.5zm-.1 5.7c-.2.5-.4.9-.7 1.2-.2.2-.5.4-.9.5s-.9.2-1.5.2h-2.1V43h2c.8 0 1.3.1 1.7.2.5.2.9.5 1.2 1.1.3.5.5 1.3.5 2.3.1.6 0 1.2-.2 1.7zm15.9-2c-.4-.2-1.1-.4-2.1-.6-1-.2-1.7-.5-1.9-.7-.2-.2-.4-.5-.4-.8 0-.4.2-.7.5-1 .4-.3.9-.4 1.7-.4.7 0 1.3.2 1.7.5.4.3.6.8.7 1.4l1.2-.1c0-.6-.2-1.1-.5-1.5-.3-.4-.7-.8-1.3-1-.5-.2-1.2-.3-1.9-.3-.6 0-1.2.1-1.8.3-.5.2-.9.5-1.2.9-.3.4-.4.9-.4 1.3s.1.8.3 1.2c.2.4.6.6 1 .9.4.2 1 .4 1.9.6.9.2 1.5.4 1.7.5.4.2.7.3.9.6.2.2.3.5.3.8 0 .3-.1.6-.3.8-.2.2-.5.4-.8.6-.4.1-.8.2-1.3.2s-1-.1-1.5-.3-.8-.4-1-.7c-.2-.3-.3-.7-.4-1.2l-1.2.1c0 .6.2 1.2.5 1.7s.8.9 1.4 1.1 1.3.4 2.2.4c.7 0 1.3-.1 1.9-.4.6-.2 1-.6 1.3-1 .3-.4.4-.9.4-1.4 0-.5-.1-1-.4-1.3-.2-.7-.6-1-1.2-1.2z"></path>
+  <image width="156" height="250" transform="matrix(.24 0 0 .24 .22 .14)" xlink:href="https://cdn.legends.travian.com/gpack/467.7/logo.png"></image>
+</svg>
+	</a>
+			<div id="header" class="referAFriend ">
+            <input type="checkbox" id="mobileMenuState">
+    
+			<div id="navigation">
+			<a class="village resourceView " href="/dorf1.php" accesskey="1"></a>
+			<a class="village buildingView " href="/dorf2.php" accesskey="2"></a>
+
+			<a class="map" href="/karte.php" accesskey="3"></a>
+			<a class="statistics" href="/statistics" accesskey="4"></a>
+			<a class="reports" href="/report" accesskey="5">
+							</a>
+			<a class="messages" href="/messages" accesskey="6">
+									<div class="indicator">1</div>
+							</a>
+
+            <a class="dailyQuests" href="#" accesskey="7" onclick="Travian.React.openDailyQuestsDialog(); return false;">
+                            </a>
+
+            
+								<label class="mobileMenuButton" for="mobileMenuState">
+											</label>
+					<a class="mobileShopButton" href="#" accesskey="8" title="" onclick="Travian.React.openPaymentWizard({}); this.blur(); return false;"></a>
+					</div>
+
+		<div class="currency">
+            <svg viewBox="0 0 50 50" class="goldCoin" onclick="Travian.React.openPaymentWizard({activeTab: 'advantages'}); return false;">
+    <defs>
+        <linearGradient id="gold-coin-linear-gradient" x1="25" x2="25" y1="2" y2="48" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ffdc79"></stop>
+            <stop offset=".47" stop-color="#fcbf60"></stop>
+            <stop offset=".8" stop-color="#af7029"></stop>
+            <stop offset="1" stop-color="#c09957"></stop>
+        </linearGradient>
+        <linearGradient id="gold-coin-linear-gradient-2" x1="25" x2="25" y1="7.9" y2="42.19" gradientUnits="userSpaceOnUse">
+            <stop offset=".06" stop-color="#81481b"></stop>
+            <stop offset="1" stop-color="#fef6a9"></stop>
+        </linearGradient>
+    </defs>
+    <circle cx="25" cy="25" r="25" fill="#522d1c"></circle>
+    <circle cx="25" cy="25" r="23" fill="url(#gold-coin-linear-gradient)"></circle>
+    <circle cx="25" cy="25" r="17" fill="url(#gold-coin-linear-gradient-2)"></circle>
+    <path fill="#b4772a" d="M41 25C40.62 3.67 9.38 3.67 9 25c.38 21.33 31.62 21.33 32 0Z"></path>
+    <path fill="#a06327" d="M14.84 12.41c.63-.49 1.29-.94 1.99-1.32l6.58 7.14v2.01l-8.57-7.83Zm20.9 10.4c.22-.05.91-.05.91-.05s2.01-1.26 3.66-2.53c-.11-.38-.22-.76-.35-1.12-.03-.06-.06-.13-.09-.2-1.69 1.71-3.63 3.58-4.12 3.89Zm-24.72-5.9c2.85 2.36 8.53 5.55 13.36 5.45-.49.1 1.95.1 1.36 0 4.87 0 10.42-3.05 13.24-5.42-.39-.69-.88-1.38-1.36-2.07-12.05 9.83-13.24 9.75-25.24-.03-.5.64-.96 1.32-1.37 2.07Zm14.14-1.24-3.38-6.36c-.42.08-.84.17-1.25.28 1.18 1.77 4.07 5.33 4.63 6.08Zm-1.25-6.62 1.25 1.6 1.24-1.59c-.83-.07-1.66-.06-2.49-.01Zm1.34 6.62s.69-1.18 1.96-2.66c.71-.81 1.75-2.27 2.51-3.35-.37-.11-.75-.19-1.13-.27l-3.35 6.28ZM9.07 23.94c-.02.35-.06.69-.07 1.06.01.67.05 1.31.12 1.94l2.5-3H9.06Zm17.75-3.84 8.47-7.59c-.62-.5-1.28-.95-1.96-1.35l-6.51 7.06v1.87Zm-12.37 2.66c-.38-.19-2.46-2.2-4.29-3.95-.16.42-.31.85-.43 1.29 2.51 1.71 3.48 2.85 4.72 2.66Zm24.21 10.89c-5.93-6.46-11.45-8.13-11.45-8.13 4.43 3.21 8.18 7.47 10.15 9.95.47-.56.91-1.16 1.31-1.82Zm-3.76-9.81h-4.48v.1c3.94 1.36 7.68 4.15 9.84 6.02.11-.38.23-.77.31-1.17-2.24-2.25-5.67-4.95-5.67-4.95Zm-8.37 6.8-.19 1.58c2.17 1.34 4.6 4.69 6.17 7.05.96-.47 1.86-1.05 2.71-1.71-4.64-4.57-8.68-6.91-8.68-6.91Zm-6.82-6.8h-4.38v.1s-3.51 2.78-5.85 5.03c.09.37.19.74.29 1.09 2.16-1.87 5.9-4.77 9.94-6.22Zm21.22.1H38.5l2.38 2.8c.06-.56.1-1.14.11-1.74 0-.36-.04-.71-.07-1.06Zm-17.91 1.58c-.68-.1-5.16 1.38-11.59 8.27.4.65.84 1.25 1.32 1.81 1.96-2.38 5.73-6.76 10.27-10.08Zm-5.33 13.84c1.57-2.44 3.97-5.74 6.21-7.15l-.19-1.48s-4.01 2.32-8.73 6.96c.85.65 1.76 1.21 2.71 1.67Zm12.93-.15-4.09-4.33H24l-4.09 4.33c1.56.59 2.92-1.97 5.36-3.64 2.34 1.67 3.7 4.24 5.36 3.64Z"></path>
+    <path fill="#703e19" d="M34.65 15.43h-1.8l-.4.6h-14.9l-.4-.6h-1.8l-1 5.8.9 1 2.1-3.1h4.8v14.6c0 1.7-2.6 2.1-2.6 2.1v2.3h11v-2.3s-2.6-.4-2.6-2.1v-14.6h4.8l2.1 3.1.7-1.1-.9-5.7Z"></path>
+    <path fill="#f7ce7c" d="m34.95 21.25.7-1.1-1-5.8h-1.8l-.4.6h-14.9l-.4-.6h-1.8l-1 5.8.9 1.1 2.1-3.1h5.3v14.6c0 1.7-3.1 2.1-3.1 2.1v1.4l.8.8h9.5l.7-.8v-1.5s-3.1-.4-3.1-2.1v-14.6h5.4l2.1 3.2Z"></path>
+    <path fill="#faf28a" d="m14.45 20.25-.1-.1 1-5.8h1.8l.4.6h14.9l.4-.6h1.8l1 5.8-.1.1-.9-5.3h-1.8l-.4.6h-14.9l-.4-.6h-1.8l-.9 5.3Zm5.1 15.17c.2.1 3.7-.8 3.1-2.7 0 1.7-3.1 2.1-3.1 2.1v.6Zm7.9-2.76c-.6 2 2.8 2.8 3.1 2.7v-.6s-3.1-.5-3.1-2.1Z"></path>
+    <path fill="#a87134" d="M25.05 4c1.48 0 1.48 2.26 0 2.26S23.57 4 25.05 4ZM21.7 6.56c1.48-.2 1.08-2.46-.39-2.16-1.38.2-.98 2.46.39 2.16Zm-3.14.78c1.38-.49.59-2.66-.79-2.07-1.28.49-.49 2.66.79 2.07Zm-2.95 1.38c1.28-.69.1-2.66-1.08-1.97-1.28.79-.1 2.75 1.08 1.97Zm-2.66 1.87c1.08-.89-.3-2.66-1.48-1.67-1.08.89.39 2.66 1.48 1.67Zm-2.26 2.36c.98-1.08-.79-2.56-1.67-1.48-.98 1.08.69 2.56 1.67 1.48Zm-1.97 2.66c.79-1.28-1.18-2.36-1.97-1.08-.69 1.18 1.28 2.36 1.97 1.08Zm-1.38 2.95c.59-1.38-1.57-2.07-2.07-.79-.49 1.38 1.67 2.16 2.07.79Zm-.78 3.14c.3-1.38-1.97-1.77-2.16-.39-.3 1.48 1.87 1.87 2.16.39Zm-.3 3.25c0-1.48-2.26-1.48-2.26 0s2.26 1.48 2.26 0Zm.3 3.35c-.2-1.48-2.46-1.08-2.16.39.2 1.38 2.36.98 2.16-.39Zm.78 3.14c-.49-1.38-2.66-.59-2.07.79.49 1.28 2.66.49 2.07-.79Zm1.38 2.95c-.69-1.28-2.66-.1-1.97 1.08.79 1.28 2.75.1 1.97-1.08Zm1.87 2.66c-.89-1.08-2.66.39-1.67 1.48.89 1.08 2.66-.39 1.67-1.48Zm2.36 2.36c-1.08-.98-2.56.79-1.48 1.67 1.08.98 2.56-.79 1.48-1.67Zm2.66 1.87c-1.28-.79-2.36 1.18-1.08 1.97 1.18.69 2.36-1.28 1.08-1.97Zm2.95 1.38c-1.38-.49-2.16 1.67-.79 2.07 1.38.49 2.16-1.57.79-2.07Zm3.14.78c-1.38-.3-1.77 1.97-.39 2.16 1.48.39 1.87-1.87.39-2.16Zm3.25.3c-1.48 0-1.48 2.26 0 2.26s1.48-2.26 0-2.26Zm3.25-.3c-1.48.2-1.08 2.46.39 2.16 1.48-.2 1.08-2.36-.39-2.16Zm3.14-.78c-1.38.49-.59 2.66.79 2.07 1.38-.49.59-2.56-.79-2.07Zm3.05-1.38c-1.28.69-.1 2.66 1.08 1.97 1.28-.79.1-2.75-1.08-1.97Zm2.66-1.87c-1.08.89.3 2.66 1.48 1.67 1.08-.89-.39-2.66-1.48-1.67Zm2.26-2.36c-.98 1.08.79 2.56 1.67 1.48.98-1.08-.69-2.56-1.67-1.48Zm1.87-2.66c-.79 1.28 1.18 2.36 1.97 1.08.79-1.18-1.18-2.36-1.97-1.08Zm1.38-2.95c-.49 1.38 1.57 2.16 2.07.79.59-1.38-1.57-2.16-2.07-.79Zm.88-3.14c-.3 1.38 1.97 1.77 2.16.39.3-1.48-1.97-1.87-2.16-.39Zm.3-3.25c0 1.48 2.26 1.48 2.26 0s-2.26-1.48-2.26 0Zm-.3-3.25c.2 1.48 2.46 1.08 2.16-.39-.2-1.48-2.46-1.08-2.16.39Zm-.78-3.14c.49 1.38 2.66.59 2.07-.79-.49-1.38-2.66-.59-2.07.79Zm-1.38-3.05c.69 1.28 2.66.1 1.97-1.08-.79-1.28-2.75-.1-1.97 1.08Zm-1.97-2.66c.89 1.08 2.66-.3 1.67-1.48-.79-1.08-2.56.39-1.67 1.48Zm-2.26-2.26c1.08.98 2.56-.79 1.48-1.67-1.18-.98-2.56.69-1.48 1.67Zm-2.66-1.87c1.28.79 2.36-1.18 1.08-1.97-1.18-.79-2.36 1.18-1.08 1.97Zm-2.95-1.38c1.38.49 2.16-1.67.79-2.07-1.38-.59-2.16 1.57-.79 2.07Zm-3.14-.88c1.38.3 1.77-1.97.39-2.16-1.48-.3-1.87 1.97-.39 2.16Z"></path>
+</svg>
+            <div class="value ajaxReplaceableGoldAmount">
+                ‭30‬            </div>
+            <svg viewBox="0 0 50 50" class="silverCoin" onclick="Travian.React.openPaymentWizard({activeTab: 'advantages'}); return false;">
+    <defs>
+        <linearGradient id="linear-gradient" x1="25" x2="25" y1="2" y2="48" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#c4e0f5"></stop>
+            <stop offset=".48" stop-color="#b7ceeb"></stop>
+            <stop offset=".77" stop-color="#6383a8"></stop>
+            <stop offset="1" stop-color="#98b7db"></stop>
+        </linearGradient>
+        <linearGradient id="linear-gradient-2" x1="25" x2="25" y1="7.9" y2="42.19" gradientUnits="userSpaceOnUse">
+            <stop offset=".06" stop-color="#4b6f7d"></stop>
+            <stop offset="1" stop-color="#fafbfb"></stop>
+        </linearGradient>
+    </defs>
+    <circle cx="25" cy="25" r="25" fill="#303a4c"></circle>
+    <circle cx="25" cy="25" r="23" fill="url(#linear-gradient)"></circle>
+    <circle cx="25" cy="25" r="17" fill="url(#linear-gradient-2)"></circle>
+    <path fill="#7991bc" d="M41 25C40.62 3.67 9.38 3.67 9 25c.38 21.33 31.62 21.33 32 0Z"></path>
+    <path fill="#5a7493" d="M14.84 12.41c.63-.49 1.29-.94 1.99-1.32l6.58 7.14v2.01l-8.57-7.83Zm20.9 10.4c.22-.05.91-.05.91-.05s2.01-1.26 3.66-2.53c-.11-.38-.22-.76-.35-1.12-.03-.06-.06-.13-.09-.2-1.69 1.71-3.63 3.58-4.12 3.89Zm-24.72-5.9c2.85 2.36 8.53 5.55 13.36 5.45-.49.1 1.95.1 1.36 0 4.87 0 10.42-3.05 13.24-5.42-.39-.69-.88-1.38-1.36-2.07-12.05 9.83-13.24 9.75-25.24-.03-.5.64-.96 1.32-1.37 2.07Zm14.14-1.24-3.38-6.36c-.42.08-.84.17-1.25.28 1.18 1.77 4.07 5.33 4.63 6.08Zm-1.25-6.62 1.25 1.6 1.24-1.59c-.83-.07-1.66-.06-2.49-.01Zm1.34 6.62s.69-1.18 1.96-2.66c.71-.81 1.75-2.27 2.51-3.35-.37-.11-.75-.19-1.13-.27l-3.35 6.28ZM9.07 23.94c-.02.35-.06.69-.07 1.06.01.67.05 1.31.12 1.94l2.5-3H9.06Zm17.75-3.84 8.47-7.59c-.62-.5-1.28-.95-1.96-1.35l-6.51 7.06v1.87Zm-12.37 2.66c-.38-.19-2.46-2.2-4.29-3.95-.16.42-.31.85-.43 1.29 2.51 1.71 3.48 2.85 4.72 2.66Zm24.21 10.89c-5.93-6.46-11.45-8.13-11.45-8.13 4.43 3.21 8.18 7.47 10.15 9.95.47-.56.91-1.16 1.31-1.82Zm-3.76-9.81h-4.48v.1c3.94 1.36 7.68 4.15 9.84 6.02.11-.38.23-.77.31-1.17-2.24-2.25-5.67-4.95-5.67-4.95Zm-8.37 6.8-.19 1.58c2.17 1.34 4.6 4.69 6.17 7.05.96-.47 1.86-1.05 2.71-1.71-4.64-4.57-8.68-6.91-8.68-6.91Zm-6.82-6.8h-4.38v.1s-3.51 2.78-5.85 5.03c.09.37.19.74.29 1.09 2.16-1.87 5.9-4.77 9.94-6.22Zm21.22.1H38.5l2.38 2.8c.06-.56.1-1.14.11-1.74 0-.36-.04-.71-.07-1.06Zm-17.91 1.58c-.68-.1-5.16 1.38-11.59 8.27.4.65.84 1.25 1.32 1.81 1.96-2.38 5.73-6.76 10.27-10.08Zm-5.33 13.84c1.57-2.44 3.97-5.74 6.21-7.15l-.19-1.48s-4.01 2.32-8.73 6.96c.85.65 1.76 1.21 2.71 1.67Zm12.93-.15-4.09-4.33H24l-4.09 4.33c1.56.59 2.92-1.97 5.36-3.64 2.34 1.67 3.7 4.24 5.36 3.64Z"></path>
+    <path fill="#445c6b" d="M34.65 15.43h-1.8l-.4.6h-14.9l-.4-.6h-1.8l-1 5.8.9 1 2.1-3.1h4.8v14.6c0 1.7-2.6 2.1-2.6 2.1v2.3h11v-2.3s-2.6-.4-2.6-2.1v-14.6h4.8l2.1 3.1.7-1.1-.9-5.7Z"></path>
+    <path fill="#c4e0f5" d="m34.95 21.25.7-1.1-1-5.8h-1.8l-.4.6h-14.9l-.4-.6h-1.8l-1 5.8.9 1.1 2.1-3.1h5.3v14.6c0 1.7-3.1 2.1-3.1 2.1v1.4l.8.8h9.5l.7-.8v-1.5s-3.1-.4-3.1-2.1v-14.6h5.4l2.1 3.2Z"></path>
+    <path fill="#eff7fd" d="m14.45 20.25-.1-.1 1-5.8h1.8l.4.6h14.9l.4-.6h1.8l1 5.8-.1.1-.9-5.3h-1.8l-.4.6h-14.9l-.4-.6h-1.8l-.9 5.3Zm5.1 15.17c.2.1 3.7-.8 3.1-2.7 0 1.7-3.1 2.1-3.1 2.1v.6Zm7.9-2.76c-.6 2 2.8 2.8 3.1 2.7v-.6s-3.1-.5-3.1-2.1Z"></path>
+    <path fill="#6f89a4" d="M25.05 4c1.48 0 1.48 2.26 0 2.26S23.57 4 25.05 4ZM21.7 6.56c1.48-.2 1.08-2.46-.39-2.16-1.38.2-.98 2.46.39 2.16Zm-3.14.78c1.38-.49.59-2.66-.79-2.07-1.28.49-.49 2.66.79 2.07Zm-2.95 1.38c1.28-.69.1-2.66-1.08-1.97-1.28.79-.1 2.75 1.08 1.97Zm-2.66 1.87c1.08-.89-.3-2.66-1.48-1.67-1.08.89.39 2.66 1.48 1.67Zm-2.26 2.36c.98-1.08-.79-2.56-1.67-1.48-.98 1.08.69 2.56 1.67 1.48Zm-1.97 2.66c.79-1.28-1.18-2.36-1.97-1.08-.69 1.18 1.28 2.36 1.97 1.08Zm-1.38 2.95c.59-1.38-1.57-2.07-2.07-.79-.49 1.38 1.67 2.16 2.07.79Zm-.78 3.14c.3-1.38-1.97-1.77-2.16-.39-.3 1.48 1.87 1.87 2.16.39Zm-.3 3.25c0-1.48-2.26-1.48-2.26 0s2.26 1.48 2.26 0Zm.3 3.35c-.2-1.48-2.46-1.08-2.16.39.2 1.38 2.36.98 2.16-.39Zm.78 3.14c-.49-1.38-2.66-.59-2.07.79.49 1.28 2.66.49 2.07-.79Zm1.38 2.95c-.69-1.28-2.66-.1-1.97 1.08.79 1.28 2.75.1 1.97-1.08Zm1.87 2.66c-.89-1.08-2.66.39-1.67 1.48.89 1.08 2.66-.39 1.67-1.48Zm2.36 2.36c-1.08-.98-2.56.79-1.48 1.67 1.08.98 2.56-.79 1.48-1.67Zm2.66 1.87c-1.28-.79-2.36 1.18-1.08 1.97 1.18.69 2.36-1.28 1.08-1.97Zm2.95 1.38c-1.38-.49-2.16 1.67-.79 2.07 1.38.49 2.16-1.57.79-2.07Zm3.14.78c-1.38-.3-1.77 1.97-.39 2.16 1.48.39 1.87-1.87.39-2.16Zm3.25.3c-1.48 0-1.48 2.26 0 2.26s1.48-2.26 0-2.26Zm3.25-.3c-1.48.2-1.08 2.46.39 2.16 1.48-.2 1.08-2.36-.39-2.16Zm3.14-.78c-1.38.49-.59 2.66.79 2.07 1.38-.49.59-2.56-.79-2.07Zm3.05-1.38c-1.28.69-.1 2.66 1.08 1.97 1.28-.79.1-2.75-1.08-1.97Zm2.66-1.87c-1.08.89.3 2.66 1.48 1.67 1.08-.89-.39-2.66-1.48-1.67Zm2.26-2.36c-.98 1.08.79 2.56 1.67 1.48.98-1.08-.69-2.56-1.67-1.48Zm1.87-2.66c-.79 1.28 1.18 2.36 1.97 1.08.79-1.18-1.18-2.36-1.97-1.08Zm1.38-2.95c-.49 1.38 1.57 2.16 2.07.79.59-1.38-1.57-2.16-2.07-.79Zm.88-3.14c-.3 1.38 1.97 1.77 2.16.39.3-1.48-1.97-1.87-2.16-.39Zm.3-3.25c0 1.48 2.26 1.48 2.26 0s-2.26-1.48-2.26 0Zm-.3-3.25c.2 1.48 2.46 1.08 2.16-.39-.2-1.48-2.46-1.08-2.16.39Zm-.78-3.14c.49 1.38 2.66.59 2.07-.79-.49-1.38-2.66-.59-2.07.79Zm-1.38-3.05c.69 1.28 2.66.1 1.97-1.08-.79-1.28-2.75-.1-1.97 1.08Zm-1.97-2.66c.89 1.08 2.66-.3 1.67-1.48-.79-1.08-2.56.39-1.67 1.48Zm-2.26-2.26c1.08.98 2.56-.79 1.48-1.67-1.18-.98-2.56.69-1.48 1.67Zm-2.66-1.87c1.28.79 2.36-1.18 1.08-1.97-1.18-.79-2.36 1.18-1.08 1.97Zm-2.95-1.38c1.38.49 2.16-1.67.79-2.07-1.38-.59-2.16 1.57-.79 2.07Zm-3.14-.88c1.38.3 1.77-1.97.39-2.16-1.48-.3-1.87 1.97-.39 2.16Z"></path>
+</svg>
+            <div class="value ajaxReplaceableSilverAmount" data-load-tooltip="free-silver">
+                ‭0‬            </div>
+		</div>
+
+		<a class="shop" href="#" accesskey="8" onclick="Travian.React.openPaymentWizard({}); this.blur(); return false;"></a>
+
+		
+		
+					<a id="button6a1b325fdf46b" class="layoutButton buttonFramed withIcon round referAFriend green    " href="/referAFriend">
+					<svg viewBox="0 0 18.08 20" class="referAFriend"><g class="outline">
+  <path class="human" d="M5.86 9a1.26 1.26 0 01-1.14-1.31V6.36a.72.72 0 01.55-.75.67.67 0 000-.42 4.87 4.87 0 01.2-2.51 1.63 1.63 0 01.28-.52c.29-.38.63-.73.94-1.09A3.84 3.84 0 0111.4.58a4.16 4.16 0 011.86 4.2 5.2 5.2 0 000 1c.63.3.41.88.39 1.38 0 .2-.05.41 0 .63a1.76 1.76 0 01-.09.75c-.15.43-.17.45-.59.6a3.31 3.31 0 01-.71 1.6c-.24.28-.16.65-.24 1s-.13.61-.21.91a1.56 1.56 0 00.83 2 6.14 6.14 0 011.63 1.14 4.54 4.54 0 01.91 1.38c.19.42.06.61-.4.61H.5c-.46 0-.51 0-.5-.52a4.13 4.13 0 012-3.48A6.1 6.1 0 013.57 13a4.77 4.77 0 002.07-1.21 1.2 1.2 0 00.36-1c-.06-.56-.1-1.16-.14-1.79z"></path>
+  <path class="plus" d="M8.38 16.43v-2.56a.71.71 0 01.77-.57h2.27v-2.32c0-.53.17-.68.69-.68h2.09c.7 0 .88.15.89.9v2.1h2.17c.62 0 .81.19.82.81v2c0 .71-.17.88-.87.88h-2.12v2.21c0 .72-.19.8-.81.81h-2c-.69 0-.85-.17-.85-.85v-2.17H9.25c-.42.01-.75-.1-.87-.56z"></path>
+</g><g class="icon">
+  <path class="human" d="M5.86 9a1.26 1.26 0 01-1.14-1.31V6.36a.72.72 0 01.55-.75.67.67 0 000-.42 4.87 4.87 0 01.2-2.51 1.63 1.63 0 01.28-.52c.29-.38.63-.73.94-1.09A3.84 3.84 0 0111.4.58a4.16 4.16 0 011.86 4.2 5.2 5.2 0 000 1c.63.3.41.88.39 1.38 0 .2-.05.41 0 .63a1.76 1.76 0 01-.09.75c-.15.43-.17.45-.59.6a3.31 3.31 0 01-.71 1.6c-.24.28-.16.65-.24 1s-.13.61-.21.91a1.56 1.56 0 00.83 2 6.14 6.14 0 011.63 1.14 4.54 4.54 0 01.91 1.38c.19.42.06.61-.4.61H.5c-.46 0-.51 0-.5-.52a4.13 4.13 0 012-3.48A6.1 6.1 0 013.57 13a4.77 4.77 0 002.07-1.21 1.2 1.2 0 00.36-1c-.06-.56-.1-1.16-.14-1.79z"></path>
+  <path class="plus" d="M8.38 16.43v-2.56a.71.71 0 01.77-.57h2.27v-2.32c0-.53.17-.68.69-.68h2.09c.7 0 .88.15.89.9v2.1h2.17c.62 0 .81.19.82.81v2c0 .71-.17.88-.87.88h-2.12v2.21c0 .72-.19.8-.81.81h-2c-.69 0-.85-.17-.85-.85v-2.17H9.25c-.42.01-.75-.1-.87-.56z"></path>
+</g></svg>
+		</a>
+
+<script type="text/javascript">
+    jQuery('#button6a1b325fdf46b').on('click', function (event) {
+        jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"green","loadTooltip":null,"boxId":"","disabled":false,"attention":false,"colorBlind":false,"class":"","id":"button6a1b325fdf46b","redirectUrl":"\/referAFriend","redirectUrlExternal":"","svg":"topBar\/referAFriend.svg","content":""}]);
+    });
+</script>
+		
+					<div id="stockBar">
+
+    <div class="warehouse">
+
+        <div class="capacity">
+            <i class="warehouse_medium"></i>
+            <div class="value">‭800‬</div>
+        </div>
+		                    <a class="stockBarButton resource1" href="/production.php?t=lumber">
+                <i class="lumber_small"></i>
+                <svg viewBox="0 0 160 180" class=" advantageBonusArrow productionBoost">
+    <path class="border" d="M158.78 106.45 85.17 2.72C84.06 1.01 82.14 0 80.03 0S76 1.01 74.79 2.72L1.17 106.45c-1.41 1.91-1.51 4.53-.5 6.64 1.11 2.11 3.23 3.42 5.65 3.42h31.76v57.15c0 3.52 2.82 6.34 6.35 6.34h70.89c3.53 0 6.35-2.82 6.35-6.34v-57.15h31.97c2.42 0 4.54-1.31 5.65-3.42 1.11-2.11.91-4.63-.5-6.64Z"></path>
+    <path class="sideShadow" d="m20.6 103.48-14.07 6.78c.17.3.48.51.87.51h35.86c.55 0 1 .45 1 1v61.81c0 .55.45 1 1 1h69.48c.55 0 1-.45 1-1V111.8c0-.55.45-1 1-1l35.34.29c.41 0 .74-.23.9-.55l-14.1-7-118.28-.06Z"></path>
+    <path class="bottomShadow" d="m51.45 167.41-6.88 6.88c.18.18.42.28.69.28h69.48c.26 0 .49-.11.67-.27l-6.96-6.9H51.44Z"></path>
+    <path class="topShadow" d="m6.54 110.26 13.98-6.74 59.44-85.03 59.02 85.1 14.01 6.95c.15-.3.15-.68-.07-1.01L80.83 5.35c-.39-.57-1.24-.57-1.64 0L6.59 109.21c-.35.5-.16 1.14.3 1.42-.15-.09-.26-.22-.35-.37Z"></path>
+    <path class="inner" d="M108.45 167.41h-57v-63.89H20.52l59.44-85.03 59.02 85.1-30.53-.05v63.87z"></path>
+</svg>
+
+                <div id="l1" class="value">‭567‬</div>
+				<div class="barBox">
+					<div id="lbar1" class="bar" style="width:71%;"></div>
+				</div>
+            </a>
+                    <a class="stockBarButton resource2" href="/production.php?t=clay">
+                <i class="clay_small"></i>
+                <svg viewBox="0 0 160 180" class=" advantageBonusArrow productionBoost">
+    <path class="border" d="M158.78 106.45 85.17 2.72C84.06 1.01 82.14 0 80.03 0S76 1.01 74.79 2.72L1.17 106.45c-1.41 1.91-1.51 4.53-.5 6.64 1.11 2.11 3.23 3.42 5.65 3.42h31.76v57.15c0 3.52 2.82 6.34 6.35 6.34h70.89c3.53 0 6.35-2.82 6.35-6.34v-57.15h31.97c2.42 0 4.54-1.31 5.65-3.42 1.11-2.11.91-4.63-.5-6.64Z"></path>
+    <path class="sideShadow" d="m20.6 103.48-14.07 6.78c.17.3.48.51.87.51h35.86c.55 0 1 .45 1 1v61.81c0 .55.45 1 1 1h69.48c.55 0 1-.45 1-1V111.8c0-.55.45-1 1-1l35.34.29c.41 0 .74-.23.9-.55l-14.1-7-118.28-.06Z"></path>
+    <path class="bottomShadow" d="m51.45 167.41-6.88 6.88c.18.18.42.28.69.28h69.48c.26 0 .49-.11.67-.27l-6.96-6.9H51.44Z"></path>
+    <path class="topShadow" d="m6.54 110.26 13.98-6.74 59.44-85.03 59.02 85.1 14.01 6.95c.15-.3.15-.68-.07-1.01L80.83 5.35c-.39-.57-1.24-.57-1.64 0L6.59 109.21c-.35.5-.16 1.14.3 1.42-.15-.09-.26-.22-.35-.37Z"></path>
+    <path class="inner" d="M108.45 167.41h-57v-63.89H20.52l59.44-85.03 59.02 85.1-30.53-.05v63.87z"></path>
+</svg>
+
+                <div id="l2" class="value">‭573‬</div>
+				<div class="barBox">
+					<div id="lbar2" class="bar" style="width:72%;"></div>
+				</div>
+            </a>
+                    <a class="stockBarButton resource3" href="/production.php?t=iron">
+                <i class="iron_small"></i>
+                <svg viewBox="0 0 160 180" class=" advantageBonusArrow productionBoost">
+    <path class="border" d="M158.78 106.45 85.17 2.72C84.06 1.01 82.14 0 80.03 0S76 1.01 74.79 2.72L1.17 106.45c-1.41 1.91-1.51 4.53-.5 6.64 1.11 2.11 3.23 3.42 5.65 3.42h31.76v57.15c0 3.52 2.82 6.34 6.35 6.34h70.89c3.53 0 6.35-2.82 6.35-6.34v-57.15h31.97c2.42 0 4.54-1.31 5.65-3.42 1.11-2.11.91-4.63-.5-6.64Z"></path>
+    <path class="sideShadow" d="m20.6 103.48-14.07 6.78c.17.3.48.51.87.51h35.86c.55 0 1 .45 1 1v61.81c0 .55.45 1 1 1h69.48c.55 0 1-.45 1-1V111.8c0-.55.45-1 1-1l35.34.29c.41 0 .74-.23.9-.55l-14.1-7-118.28-.06Z"></path>
+    <path class="bottomShadow" d="m51.45 167.41-6.88 6.88c.18.18.42.28.69.28h69.48c.26 0 .49-.11.67-.27l-6.96-6.9H51.44Z"></path>
+    <path class="topShadow" d="m6.54 110.26 13.98-6.74 59.44-85.03 59.02 85.1 14.01 6.95c.15-.3.15-.68-.07-1.01L80.83 5.35c-.39-.57-1.24-.57-1.64 0L6.59 109.21c-.35.5-.16 1.14.3 1.42-.15-.09-.26-.22-.35-.37Z"></path>
+    <path class="inner" d="M108.45 167.41h-57v-63.89H20.52l59.44-85.03 59.02 85.1-30.53-.05v63.87z"></path>
+</svg>
+
+                <div id="l3" class="value">‭246‬</div>
+				<div class="barBox">
+					<div id="lbar3" class="bar" style="width:31%;"></div>
+				</div>
+            </a>
+        
+    </div>
+
+    <div class="granary">
+        <div class="capacity">
+            <i class="granary_medium"></i>
+            <div class="value">‭800‬</div>
+        </div>
+
+        <a class="stockBarButton resource4" href="/production.php?t=crop">
+            <i class="crop_small"></i>
+            <svg viewBox="0 0 160 180" class=" advantageBonusArrow productionBoost">
+    <path class="border" d="M158.78 106.45 85.17 2.72C84.06 1.01 82.14 0 80.03 0S76 1.01 74.79 2.72L1.17 106.45c-1.41 1.91-1.51 4.53-.5 6.64 1.11 2.11 3.23 3.42 5.65 3.42h31.76v57.15c0 3.52 2.82 6.34 6.35 6.34h70.89c3.53 0 6.35-2.82 6.35-6.34v-57.15h31.97c2.42 0 4.54-1.31 5.65-3.42 1.11-2.11.91-4.63-.5-6.64Z"></path>
+    <path class="sideShadow" d="m20.6 103.48-14.07 6.78c.17.3.48.51.87.51h35.86c.55 0 1 .45 1 1v61.81c0 .55.45 1 1 1h69.48c.55 0 1-.45 1-1V111.8c0-.55.45-1 1-1l35.34.29c.41 0 .74-.23.9-.55l-14.1-7-118.28-.06Z"></path>
+    <path class="bottomShadow" d="m51.45 167.41-6.88 6.88c.18.18.42.28.69.28h69.48c.26 0 .49-.11.67-.27l-6.96-6.9H51.44Z"></path>
+    <path class="topShadow" d="m6.54 110.26 13.98-6.74 59.44-85.03 59.02 85.1 14.01 6.95c.15-.3.15-.68-.07-1.01L80.83 5.35c-.39-.57-1.24-.57-1.64 0L6.59 109.21c-.35.5-.16 1.14.3 1.42-.15-.09-.26-.22-.35-.37Z"></path>
+    <path class="inner" d="M108.45 167.41h-57v-63.89H20.52l59.44-85.03 59.02 85.1-30.53-.05v63.87z"></path>
+</svg>
+
+            <div id="l4" class="value">‭549‬</div>
+			<div class="barBox">
+				<div id="lbar4" class="bar" style="width:69%;"></div>
+			</div>
+        </a>
+
+        <a class="stockBarButton" href="/production.php?t=balance">
+            <i class="freeCrop_small"></i>
+			<div id="stockBarFreeCrop" class="value">‭5‬</div>
+        </a>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    var resources = {
+        production: {"l1": 84,"l2": 84,"l3": 48,"l4": 41,"l5": 5},
+        storage: {"l1": 567,"l2": 573,"l3": 246,"l4": 549},
+        maxStorage: {"l1": 800,"l2": 800,"l3": 800,"l4": 800}
+    };
+</script>
+		            <nav id="mobileMenu">
+        <ul>
+                            <li>
+                    <a class="dailyQuests" href="#" accesskey="7" onclick="Travian.React.openDailyQuestsDialog(); return false;">
+                        <div class="inlineIcon " title=""><svg viewBox="0 0 40 130.22" class="dailyQuests ">
+    <rect width="40" height="89.11" rx="10.33"></rect>
+    <ellipse cx="19.67" cy="115.67" rx="17.22" ry="14.56"></ellipse>
+</svg>
+<span class="value ">每日任務</span></div>                    </a>
+                </li>
+                <li>
+                    <a class="statistics" href="/statistics">
+                        <div class="inlineIcon " title=""><svg viewBox="0 0 120.56 137.33" class="statistics">
+    <path d="M1.67 70.67h32.67V130H1.67zM43.56 35.56h32.67V130H43.56zM86.46 0h32.67v130H86.46zM0 133.56h120.56v3.78H0z"></path>
+</svg>
+<span class="value ">Statistics（統計）</span></div>                    </a>
+                </li>
+<!--                // TODO: TL-15781 Add seasonal rewards to mobile menu-->
+									<li>
+						<a class="referAFriend" href="/referAFriend">
+							<div class="inlineIcon " title=""><svg viewBox="0 0 18.08 20" class="referAFriend">
+  <path class="human" d="M5.86 9a1.26 1.26 0 01-1.14-1.31V6.36a.72.72 0 01.55-.75.67.67 0 000-.42 4.87 4.87 0 01.2-2.51 1.63 1.63 0 01.28-.52c.29-.38.63-.73.94-1.09A3.84 3.84 0 0111.4.58a4.16 4.16 0 011.86 4.2 5.2 5.2 0 000 1c.63.3.41.88.39 1.38 0 .2-.05.41 0 .63a1.76 1.76 0 01-.09.75c-.15.43-.17.45-.59.6a3.31 3.31 0 01-.71 1.6c-.24.28-.16.65-.24 1s-.13.61-.21.91a1.56 1.56 0 00.83 2 6.14 6.14 0 011.63 1.14 4.54 4.54 0 01.91 1.38c.19.42.06.61-.4.61H.5c-.46 0-.51 0-.5-.52a4.13 4.13 0 012-3.48A6.1 6.1 0 013.57 13a4.77 4.77 0 002.07-1.21 1.2 1.2 0 00.36-1c-.06-.56-.1-1.16-.14-1.79z"></path>
+  <path class="plus" d="M8.38 16.43v-2.56a.71.71 0 01.77-.57h2.27v-2.32c0-.53.17-.68.69-.68h2.09c.7 0 .88.15.89.9v2.1h2.17c.62 0 .81.19.82.81v2c0 .71-.17.88-.87.88h-2.12v2.21c0 .72-.19.8-.81.81h-2c-.69 0-.85-.17-.85-.85v-2.17H9.25c-.42.01-.75-.1-.87-.56z"></path>
+</svg>
+<span class="value ">向朋友推薦</span></div>						</a>
+					</li>
+				                <li>
+                    <a class="profile" href="/profile">
+                        <div class="inlineIcon " title=""><svg viewBox="0 0 15.76 21" class="profile">
+  <path d="M7.88 1.77c2.1 0 3.8 2.09 3.8 4.65s-1.7 4.65-3.8 4.65S4.08 9 4.08 6.42s1.71-4.65 3.8-4.65m0-1.77c-3 0-5.49 2.88-5.49 6.42s2.46 6.42 5.49 6.42 5.49-2.84 5.49-6.42S10.92 0 7.88 0zm7.88 21a11.81 11.81 0 0 0-2.51-7 7.17 7.17 0 0 1-5.37 2.46A7.17 7.17 0 0 1 2.52 14 11.82 11.82 0 0 0 0 21z"></path>
+</svg>
+<span class="value ">玩家資料</span></div>                    </a>
+                </li>
+                <li>
+                                            <a class="options" href="/options">
+                            <div class="inlineIcon " title=""><svg viewBox="0 0 20 20" class="settings">
+  <path d="M9 20l-.24-3.26-.57-.16A7.21 7.21 0 0 1 6.66 16l-.52-.29-2.47 2.1-1.48-1.48 2.14-2.47-.33-.52a7.21 7.21 0 0 1-.62-1.49l-.16-.57L0 11V9l3.26-.24.16-.57A7.21 7.21 0 0 1 4 6.66l.29-.52-2.1-2.47 1.48-1.48 2.47 2.14.52-.33a7.21 7.21 0 0 1 1.49-.62l.57-.16L9 0h2l.24 3.26.57.16a7.21 7.21 0 0 1 1.53.58l.52.29 2.47-2.14 1.48 1.48-2.14 2.51.29.52a7.21 7.21 0 0 1 .62 1.49l.16.57L20 9v2l-3.26.24-.16.57a7.21 7.21 0 0 1-.58 1.53l-.29.52 2.14 2.47-1.48 1.48-2.47-2.14-.52.29a7.21 7.21 0 0 1-1.49.62l-.57.16L11 20zm1-15a5 5 0 1 0 5 5 5 5 0 0 0-5-5z"></path>
+</svg>
+<span class="value ">選項</span></div>                        </a>
+                                    </li>
+                <li>
+                    <a class="help" onclick="Travian.React.openHelpDialog()">
+                        <div class="inlineIcon " title=""><svg viewBox="0 0 12.24 20" class="answers">
+  <path d="M3.73 13.1v-.52c0-2.8 1.47-3.8 2.89-4.76 1-.72 2.14-1.46 2.14-2.9s-1.13-2.55-3-2.55A5.39 5.39 0 0 0 2 4.12L0 2.61A8.15 8.15 0 0 1 6.24 0c3 0 6 1.4 6 4.52 0 2.42-1.4 3.38-2.88 4.4-1.33.91-2.7 1.85-2.7 3.82v.36zm3.61 4.8a2.09 2.09 0 0 0-2.1-2.07 2.09 2.09 0 0 0 0 4.17 2.1 2.1 0 0 0 2.1-2.1z"></path>
+</svg>
+<span class="value ">幫助</span></div>                    </a>
+                </li>
+                <li>
+                    <a class="discord" target="_blank" href="https://discord.gg/travianlegends">
+                        <div class="inlineIcon " title=""><svg viewBox="0 0 20 18.71" class="discord">
+  <path d="M0 2.91v10.18A2.92 2.92 0 002.91 16h12.71a.93.93 0 01.65.27l2.17 2.17a.91.91 0 001.56-.65V2.91A2.92 2.92 0 0017.09 0H2.91A2.92 2.92 0 000 2.91zm15.72 9.59H4.28a.78.78 0 01-.78-.78V4.28a.78.78 0 01.78-.78h11.44a.78.78 0 01.78.78v7.44a.78.78 0 01-.78.78z"></path>
+</svg>
+<span class="value ">Discord</span></div>                    </a>
+                </li>
+                                <li>
+                                        <a class="logout" href="/logout" onclick="Travian.api('auth/logout'); return false;">
+                        <div class="inlineIcon " title=""><svg viewBox="0 0 20 20" class="logout">
+  <path d="M0 17.01L7.01 10 .14 3.13 3.13.14 10 7.01 17.01 0 20 2.99 12.99 10l6.87 6.87-2.99 2.99L10 12.99 2.99 20 0 17.01z"></path>
+</svg>
+<span class="value ">登出</span></div>                    </a>
+                </li>
+                                                </ul>
+
+        
+        <svg viewBox="0 0 200 10" class="divider">
+    <path d="m200 5-78.7-2.5c.2.75.54 1.57.67 2.35h-2.49c-.08-1.31-1.16-2.35-2.48-2.35s-2.41 1.04-2.48 2.35h-9.67L100 0l-4.85 4.85h-9.67C85.4 3.54 84.32 2.5 83 2.5s-2.41 1.04-2.48 2.35h-2.49c.13-.78.47-1.6.67-2.35L0 5l78.7 2.5c-.22-.74-.55-1.58-.67-2.35h2.49C80.6 6.46 81.68 7.5 83 7.5s2.41-1.04 2.48-2.35h9.67L100 10l4.85-4.85h9.67c.08 1.31 1.16 2.35 2.48 2.35s2.41-1.04 2.48-2.35h2.49c-.12.77-.46 1.61-.67 2.35L200 5Z"></path>
+</svg>
+
+        <ul>
+            <li>
+                <a class="mainpage" href="https://www.travian.com/tw" target="_blank" title="">首頁</a>
+            </li>
+            <li>
+                <a class="terms" href="https://agb.traviangames.com/terms-zh.pdf" target="_blank" title="">條款</a>
+            </li>
+            <li>
+                <a class="imprint" href="https://www.travian.com/tw/imprint" target="_blank" title="">法律聲明</a>
+            </li>
+                            <li>
+                    <a class="imprint" href="#" onclick="__cmapi('showScreenAdvanced',null,null); return false" target="_blank" title="">隱私設定</a>
+                </li>
+                    </ul>
+
+        <p class="copyright">© 2004 - 2026 Travian Games GmbH</p>
+    </nav>
+    
+    
+    </div>
+	            <nav id="outOfGame">
+            
+        <a id="button6a1b325fdff26" class="layoutButton buttonFramed withIcon round profile grey    " href="/profile">
+					<svg viewBox="0 0 15.76 21" class="profile"><g class="outline">
+  <path d="M7.88 1.77c2.1 0 3.8 2.09 3.8 4.65s-1.7 4.65-3.8 4.65S4.08 9 4.08 6.42s1.71-4.65 3.8-4.65m0-1.77c-3 0-5.49 2.88-5.49 6.42s2.46 6.42 5.49 6.42 5.49-2.84 5.49-6.42S10.92 0 7.88 0zm7.88 21a11.81 11.81 0 0 0-2.51-7 7.17 7.17 0 0 1-5.37 2.46A7.17 7.17 0 0 1 2.52 14 11.82 11.82 0 0 0 0 21z"></path>
+</g><g class="icon">
+  <path d="M7.88 1.77c2.1 0 3.8 2.09 3.8 4.65s-1.7 4.65-3.8 4.65S4.08 9 4.08 6.42s1.71-4.65 3.8-4.65m0-1.77c-3 0-5.49 2.88-5.49 6.42s2.46 6.42 5.49 6.42 5.49-2.84 5.49-6.42S10.92 0 7.88 0zm7.88 21a11.81 11.81 0 0 0-2.51-7 7.17 7.17 0 0 1-5.37 2.46A7.17 7.17 0 0 1 2.52 14 11.82 11.82 0 0 0 0 21z"></path>
+</g></svg>
+		</a>
+
+<script type="text/javascript">
+    jQuery('#button6a1b325fdff26').on('click', function (event) {
+        jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"grey","loadTooltip":null,"boxId":"","disabled":false,"attention":false,"colorBlind":false,"class":"","id":"button6a1b325fdff26","redirectUrl":"\/profile","redirectUrlExternal":"","svg":"outOfGame\/profile.svg","content":""}]);
+    });
+</script>
+
+        <a id="button6a1b325fdff78" class="layoutButton buttonFramed withIcon round options grey    " href="/options">
+					<svg viewBox="0 0 20 20" class="options"><g class="outline">
+  <path d="M9 20l-.24-3.26-.57-.16A7.21 7.21 0 0 1 6.66 16l-.52-.29-2.47 2.1-1.48-1.48 2.14-2.47-.33-.52a7.21 7.21 0 0 1-.62-1.49l-.16-.57L0 11V9l3.26-.24.16-.57A7.21 7.21 0 0 1 4 6.66l.29-.52-2.1-2.47 1.48-1.48 2.47 2.14.52-.33a7.21 7.21 0 0 1 1.49-.62l.57-.16L9 0h2l.24 3.26.57.16a7.21 7.21 0 0 1 1.53.58l.52.29 2.47-2.14 1.48 1.48-2.14 2.51.29.52a7.21 7.21 0 0 1 .62 1.49l.16.57L20 9v2l-3.26.24-.16.57a7.21 7.21 0 0 1-.58 1.53l-.29.52 2.14 2.47-1.48 1.48-2.47-2.14-.52.29a7.21 7.21 0 0 1-1.49.62l-.57.16L11 20zm1-15a5 5 0 1 0 5 5 5 5 0 0 0-5-5z"></path>
+</g><g class="icon">
+  <path d="M9 20l-.24-3.26-.57-.16A7.21 7.21 0 0 1 6.66 16l-.52-.29-2.47 2.1-1.48-1.48 2.14-2.47-.33-.52a7.21 7.21 0 0 1-.62-1.49l-.16-.57L0 11V9l3.26-.24.16-.57A7.21 7.21 0 0 1 4 6.66l.29-.52-2.1-2.47 1.48-1.48 2.47 2.14.52-.33a7.21 7.21 0 0 1 1.49-.62l.57-.16L9 0h2l.24 3.26.57.16a7.21 7.21 0 0 1 1.53.58l.52.29 2.47-2.14 1.48 1.48-2.14 2.51.29.52a7.21 7.21 0 0 1 .62 1.49l.16.57L20 9v2l-3.26.24-.16.57a7.21 7.21 0 0 1-.58 1.53l-.29.52 2.14 2.47-1.48 1.48-2.47-2.14-.52.29a7.21 7.21 0 0 1-1.49.62l-.57.16L11 20zm1-15a5 5 0 1 0 5 5 5 5 0 0 0-5-5z"></path>
+</g></svg>
+		</a>
+
+<script type="text/javascript">
+    jQuery('#button6a1b325fdff78').on('click', function (event) {
+        jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"grey","loadTooltip":null,"boxId":"","disabled":false,"attention":false,"colorBlind":false,"class":"","id":"button6a1b325fdff78","redirectUrl":"\/options","redirectUrlExternal":"","svg":"outOfGame\/settings.svg","content":""}]);
+    });
+</script>
+
+        <a id="button6a1b325fdfff3" class="layoutButton buttonFramed withIcon round help grey    " onclick="Travian.React.openHelpDialog()">
+					<svg viewBox="0 0 12.24 20" class="help"><g class="outline">
+  <path d="M3.73 13.1v-.52c0-2.8 1.47-3.8 2.89-4.76 1-.72 2.14-1.46 2.14-2.9s-1.13-2.55-3-2.55A5.39 5.39 0 0 0 2 4.12L0 2.61A8.15 8.15 0 0 1 6.24 0c3 0 6 1.4 6 4.52 0 2.42-1.4 3.38-2.88 4.4-1.33.91-2.7 1.85-2.7 3.82v.36zm3.61 4.8a2.09 2.09 0 0 0-2.1-2.07 2.09 2.09 0 0 0 0 4.17 2.1 2.1 0 0 0 2.1-2.1z"></path>
+</g><g class="icon">
+  <path d="M3.73 13.1v-.52c0-2.8 1.47-3.8 2.89-4.76 1-.72 2.14-1.46 2.14-2.9s-1.13-2.55-3-2.55A5.39 5.39 0 0 0 2 4.12L0 2.61A8.15 8.15 0 0 1 6.24 0c3 0 6 1.4 6 4.52 0 2.42-1.4 3.38-2.88 4.4-1.33.91-2.7 1.85-2.7 3.82v.36zm3.61 4.8a2.09 2.09 0 0 0-2.1-2.07 2.09 2.09 0 0 0 0 4.17 2.1 2.1 0 0 0 2.1-2.1z"></path>
+</g></svg>
+		</a>
+
+<script type="text/javascript">
+    jQuery('#button6a1b325fdfff3').on('click', function (event) {
+        jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"grey","loadTooltip":null,"boxId":"","disabled":false,"attention":false,"colorBlind":false,"class":"","id":"button6a1b325fdfff3","redirectUrl":"","redirectUrlExternal":"","svg":"outOfGame\/answers.svg","content":"","onclick":"Travian.React.openHelpDialog()"}]);
+    });
+</script>
+            <a id="button6a1b325fe0045" class="layoutButton buttonFramed withIcon round logout grey    " onclick="Travian.api('auth/logout'); return false;">
+					<svg viewBox="0 0 20 20" class="logout"><g class="outline">
+  <path d="M0 17.01L7.01 10 .14 3.13 3.13.14 10 7.01 17.01 0 20 2.99 12.99 10l6.87 6.87-2.99 2.99L10 12.99 2.99 20 0 17.01z"></path>
+</g><g class="icon">
+  <path d="M0 17.01L7.01 10 .14 3.13 3.13.14 10 7.01 17.01 0 20 2.99 12.99 10l6.87 6.87-2.99 2.99L10 12.99 2.99 20 0 17.01z"></path>
+</g></svg>
+		</a>
+
+<script type="text/javascript">
+    jQuery('#button6a1b325fe0045').on('click', function (event) {
+        jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"grey","loadTooltip":null,"boxId":"","disabled":false,"attention":false,"colorBlind":false,"class":"","id":"button6a1b325fe0045","redirectUrl":"","redirectUrlExternal":"","svg":"misc\/cross.svg","content":"","onclick":"Travian.api('auth\/logout'); return false;"}]);
+    });
+</script>
+</nav>
+<script type="text/javascript">
+    jQuery('#outOfGame li.logout a').on('click', function() {
+        var windows = Travian.WindowManager.getWindows();
+        for (var i = 0; i < windows.length; i++) {
+            Travian.WindowManager.unregister(windows[i]);
+        }
+    });
+</script>
+    </div>
+    <div id="topBarHeroWrapper">
+        <div id="topBarHero" class="heroV2">
+			<svg class="health" viewBox="0 0 110 110">
+			<defs>
+				<clipPath id="healthMask" maskContentUnits="objectBoundingBox">
+					<path d="M55 55L47.35 109.46A 55 55 0 0 0 109.87 51.16" fill="white"></path>
+				</clipPath>
+			</defs>
+
+			<image xlink:href="https://cdn.legends.travian.com/gpack/467.7/img_ltr/hud/topBar/hero/frame/health.png" x="0" y="0" width="110" height="110" style="clip-path: url(#healthMask);"></image>
+
+			<path class="title" d="M55 55L47.35 109.46A 55 55 0 0 0 109.87 51.16" fill="transparent">
+				
+			</path>
+		</svg>
+			<svg class="experience" viewBox="0 0 110 110">
+			<defs>
+				<clipPath id="experienceMask" maskContentUnits="objectBoundingBox">
+					<path d="M55 55L32.63 105.25A 55 55 0 0 1 0.16 50.78" fill="white"></path>
+				</clipPath>
+			</defs>
+
+			<image xlink:href="https://cdn.legends.travian.com/gpack/467.7/img_ltr/hud/topBar/hero/frame/experience.png" x="0" y="0" width="110" height="110" style="clip-path: url(#experienceMask);"></image>
+
+			<path class="title" d="M55 55L32.63 105.25A 55 55 0 0 1 4 34.4" fill="transparent">
+				
+			</path>
+		</svg>
+	
+	<a id="heroImageButton" href="/hero" class="heroImageButton" type="button">
+        <div class="heroImageHover">
+            <img class="heroImage heroImageFemale" src="/heroV2/head/fc483a57a178ced77dc52d595d5b3e3a075a2e51.20287.1.png" alt="英雄">
+        </div>
+	</a>
+
+	<div class="heroStatus">
+        <a href="/build.php?newdid=53517&amp;id=39&amp;&amp;tt=2" title="" class=""><i class="heroHome"></i></a>
+        <span class="hide"><i class="heroHome"></i></span>
+	</div>
+
+    <i class="levelUp "></i>
+
+	<a id="button6a1b325fe0613" class="layoutButton buttonFramed withIcon round auction green    " data-load-tooltip="hero" data-load-tooltip-data="{&quot;boxId&quot;:&quot;hero&quot;,&quot;buttonId&quot;:&quot;auction&quot;}" href="/auctions">
+					<svg viewBox="0 0 20.18 19.44" class="auction"><g class="outline">
+  <path d="M20 9.44l-6.14 6.16a.54.54 0 0 1-.78 0L11 13.5a.56.56 0 0 1 0-.78l1.64-1.64-.64-.64h-1.24l-7.38 8.7L0 15.76l8.67-7.41V7.13l-.57-.57-.74.75a.49.49 0 0 1-.69 0L4.19 4.83a.49.49 0 0 1 0-.69l4-4a.49.49 0 0 1 .69 0l2.45 2.45a.52.52 0 0 1 0 .74l-.45.46.65.65h3.14v3.14l.73.73 1.75-1.75a.54.54 0 0 1 .78 0L20 8.66a.54.54 0 0 1 0 .78zm-9.35 7v3h9v-3z"></path>
+</g><g class="icon">
+  <path d="M20 9.44l-6.14 6.16a.54.54 0 0 1-.78 0L11 13.5a.56.56 0 0 1 0-.78l1.64-1.64-.64-.64h-1.24l-7.38 8.7L0 15.76l8.67-7.41V7.13l-.57-.57-.74.75a.49.49 0 0 1-.69 0L4.19 4.83a.49.49 0 0 1 0-.69l4-4a.49.49 0 0 1 .69 0l2.45 2.45a.52.52 0 0 1 0 .74l-.45.46.65.65h3.14v3.14l.73.73 1.75-1.75a.54.54 0 0 1 .78 0L20 8.66a.54.54 0 0 1 0 .78zm-9.35 7v3h9v-3z"></path>
+</g></svg>
+		</a>
+
+<script type="text/javascript">
+    jQuery('#button6a1b325fe0613').on('click', function (event) {
+        jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"green","loadTooltip":"hero","boxId":"hero","disabled":false,"attention":false,"colorBlind":false,"class":"","id":"button6a1b325fe0613","redirectUrl":"\/auctions","redirectUrlExternal":"","svg":"topBar\/auction.svg","content":"","title":"\u62cd\u8ce3||\u8f09\u5165\u63d0\u793a\u2026"}]);
+    });
+</script>
+<a id="button6a1b325fe068e" class="layoutButton buttonFramed withIcon round adventure green    attention" data-load-tooltip="hero" data-load-tooltip-data="{&quot;boxId&quot;:&quot;hero&quot;,&quot;buttonId&quot;:&quot;adventure&quot;}" href="/hero/adventures">
+					<div class="content">7</div>
+		</a>
+
+<script type="text/javascript">
+    jQuery('#button6a1b325fe068e').on('click', function (event) {
+        jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"green","loadTooltip":"hero","boxId":"hero","disabled":false,"attention":true,"colorBlind":false,"class":"","id":"button6a1b325fe068e","redirectUrl":"\/hero\/adventures","redirectUrlExternal":"","svg":false,"content":7,"title":"\u5192\u96aa||\u8f09\u5165\u63d0\u793a\u2026"}]);
+    });
+</script>
+</div>
+    </div>
+
+			<div id="center">
+                                    <div class="behindContent">
+                                                                    </div>
+                
+                <div id="sidebarBeforeContent" class="sidebar beforeContent">
+                    <div class="sidebarBoxWrapper">
+                    <div id="servertime">
+    <span>伺服器標準時間：</span>
+    <span><span format="24h" class="timer" counting="up" value="1780167263">19:54:25</span>&nbsp;(UTC&nbsp;+01:00)</span>
+</div>
+                    <div id="sidebarBoxInfobox" class="sidebarBox toggleable expanded">
+	<div class="header">
+			</div>
+	<div class="content">
+		<div class="boxTitleWrapper">
+    <div class="boxTitle">Info box</div>
+
+    <div class="inlineIcon messageShortInfo"><svg viewBox="0 0 20 14.28" class="messageNew">
+  <path d="M.72.93A1.69 1.69 0 0 1 .33.21L.54 0h19a1.56 1.56 0 0 1 .16.2 1.73 1.73 0 0 1-.39.73l-7.2 7.78a2.79 2.79 0 0 1-4.18 0zm13.59 7.89l3.55 2.5-4.92-1.06a4.31 4.31 0 0 1-5.84 0l-4.89 1.06 3.53-2.49L0 2.62v10.06a1.54 1.54 0 0 0 1.47 1.6h17.06a1.54 1.54 0 0 0 1.47-1.6v-10z"></path>
+</svg>
+<span class="value ">‭‭2‬×‬</span></div></div>
+
+<ul>
+        <li id="infoID_390361" class="infoType_6 firstElement active unreaded">
+            <p>
+	<a class="infoboxDeleteButton" href="#" data-id="390361">
+<img src="/img/x.gif" class="del" alt="del">
+</a>
+	您的Plus帳號已經結束</p>
+<button type="button" value="啟動" id="button6a1b325fe0bf5" class="textButtonV1 gold " onclick="Travian.Game.PremiumFeature.PlusAccount(); return false;" coins="10" version="textButtonV1">
+	啟動<i class="goldIcon"></i><span class="goldValue">10</span></button>
+<script type="text/javascript" id="button6a1b325fe0bf5_script">
+	jQuery(function() {
+        jQuery('button#button6a1b325fe0bf5').on('click', function () {
+            jQuery(window).trigger('buttonClicked', [this, {"type":"button","value":"\u555f\u52d5","name":"","id":"button6a1b325fe0bf5","class":"textButtonV1 gold ","title":"","confirm":"","onclick":"Travian.Game.PremiumFeature.PlusAccount(); return false;","coins":10,"version":"textButtonV1"}]);
+        });
+	});
+</script>
+        </li>
+                <li id="infoID_390362" class="infoType_23 unreaded active">
+            你的新手保護仍有<span class="timer" counting="down" value="314000" data-value="314000">87:13:20</span>小時。        </li>
+        </ul>
+
+
+<script type="text/javascript">
+	jQuery(function() {
+		Travian.Game.Layout.setupInfoboxItemsDeletionWithMessage('永久刪除該信息?', '確認');
+	});
+</script>
+
+	</div>
+				<div class="toggle">
+		<button type="button" class="toggleBox" onclick="">
+			<svg class="toggleArrow" viewBox="0 0 18 11">
+				<filter id="insetShadow">
+					<feFlood flood-color="#a2e25e"></feFlood>
+					<feComposite in2="SourceAlpha" operator="out"></feComposite>
+					<feGaussianBlur stdDeviation="2" result="blur"></feGaussianBlur>
+					<feComposite operator="atop" in2="SourceGraphic"></feComposite>
+				</filter>
+				<path class="caret" d="M1 10H17L9 1z"></path>
+				<path class="glow" d="M1 10H17L9 1z"></path>
+			</svg>
+		</button>
+	</div>
+
+	<script type="text/javascript">
+		jQuery(function() {
+			Travian.Translation.add({
+				'infobox_collapsed': '打開',
+				'infobox_expanded': '折疊 | 標記所有訊息已讀'
+			});
+
+			var box = jQuery('#sidebarBoxInfobox');
+			box.find('button.toggleBox').on('click', function(e) {
+				Travian.Game.Layout.toggleBox(box, 'travian_toggle', 'infobox');
+			});
+		});
+	</script>
+	</div>
+<div id="sidebarBoxLinklist" class="sidebarBox  expanded">
+	<div class="header">
+		<div class="buttonsWrapper">
+    <a id="button6a1b325fe0ca1" class="layoutButton buttonFramed withIcon round edit gold    " href="#" onclick="new Travian.Game.PlusDialog({featureKey: 'linkList', cssClass: 'premiumFeaturePackage premiumFeaturePlus paymentShopV5', premiumFeatureDialogVersion: 2, version: 2}); return false;">
+					<svg viewBox="0 0 15.59 20" class="edit"><g class="outline">
+  <path d="M15.59 18.55V20H0v-1.45zM11.52 0L1.05 13.47.92 17.4l3.65-1.21L15 2.73zm.25 7L8.16 4.33 9 3.2l3.6 2.62z"></path>
+</g><g class="icon">
+  <path d="M15.59 18.55V20H0v-1.45zM11.52 0L1.05 13.47.92 17.4l3.65-1.21L15 2.73zm.25 7L8.16 4.33 9 3.2l3.6 2.62z"></path>
+</g></svg>
+		</a>
+
+<script type="text/javascript">
+    jQuery('#button6a1b325fe0ca1').on('click', function (event) {
+        jQuery(window).trigger('buttonClicked', [event.delegateTarget, {"type":"gold","loadTooltip":null,"boxId":"","disabled":false,"attention":false,"colorBlind":false,"class":"","id":"button6a1b325fe0ca1","redirectUrl":"#","redirectUrlExternal":"","svg":"sideBar\/editUnderlined.svg","content":"","title":"\u9023\u7d50\u5217\u8868 || Travian Plus\u8b93\u60a8\u53ef\u4ee5\u81ea\u8a02\u9023\u7d50\u5217\u8868\u3002","onclick":"new Travian.Game.PlusDialog({featureKey: 'linkList', cssClass: 'premiumFeaturePackage premiumFeaturePlus paymentShopV5', premiumFeatureDialogVersion: 2, version: 2}); return false;"}]);
+    });
+</script>
+</div>
+	</div>
+	<div class="content">
+		<div class="boxTitle">連結列表</div>
+
+	<div class="linklistNotice">Travian Plus讓您可以自訂連結列表。</div>
+	</div>
+	</div>
+                    </div>
+				</div>
+
+				<div id="contentOuterContainer" class=" contentPage">
+                                            <div class="contentTitle buttonCount1">
+                            	<a id="closeContentButton" class="contentTitleButton buttonFramed green withIcon rectangle" href="/dorf2.php">
+        <svg viewBox="0 0 20 20"><g class="outline">
+  <path d="M0 17.01L7.01 10 .14 3.13 3.13.14 10 7.01 17.01 0 20 2.99 12.99 10l6.87 6.87-2.99 2.99L10 12.99 2.99 20 0 17.01z"></path>
+</g><g class="icon">
+  <path d="M0 17.01L7.01 10 .14 3.13 3.13.14 10 7.01 17.01 0 20 2.99 12.99 10l6.87 6.87-2.99 2.99L10 12.99 2.99 20 0 17.01z"></path>
+</g></svg>
+    </a>
+<a id="knowledgeBaseButton" class="contentTitleButton buttonFramed withIcon rectangle green" href="" target="_blank">&nbsp;</a>
+                        </div>
+                        <div class="contentContainer">
+                            <div id="content" class="statistics statisticsPlayer">
+                                <h1 class="titleInHeader">Statistics（統計）</h1><a type="button" id="tabFavorButton" class="icon contentTitleButton  buttonFramed green withIcon rectangle" onclick="Travian.api('favourite-tab', {data: {name: 'statistics',key: 'player'},success: function(data) {jQuery('.subNavi .favor').removeClass('favorActive');jQuery('.favor.favorKeyplayer').addClass('favorActive');}});return false;" useicon=""><img src="/img/x.gif" class="&nbsp;" alt=""></a>    <div class="contentNavi subNavi ">
+        <button type="button" class="scrollFrom" disabled="disabled"></button>
+        <div class="scrollingContainer">
+                            <div class="content  favor  favorKeyplayer">
+                    <a id="button6a1b325fdd398" title="" class="tabItem  active " href="/statistics/player">
+                        玩家                    </a>
+                </div>
+
+                                    <script type="text/javascript">
+                        jQuery(function() {
+                            if (jQuery('#button6a1b325fdd398').length > 0) {
+                                jQuery('#button6a1b325fdd398').on('click', function () {
+                                    jQuery(window).trigger('tabClicked', [this, {"class":" active","title":false,"target":false,"id":"button6a1b325fdd398","href":"\/statistics\/player","onclick":false,"enabled":true,"text":"\u73a9\u5bb6","dialog":false,"plusDialog":false,"goldclubDialog":false,"containerId":"","buttonIdentifier":"button6a1b325fdd398"}]);
+                                });
+                            }
+                        });
+                    </script>
+                
+                            <div class="content  favor  favorKeyalliance">
+                    <a id="button6a1b325fdd39c" title="" class="tabItem  normal " href="/statistics/alliance">
+                        公會                    </a>
+                </div>
+
+                                    <script type="text/javascript">
+                        jQuery(function() {
+                            if (jQuery('#button6a1b325fdd39c').length > 0) {
+                                jQuery('#button6a1b325fdd39c').on('click', function () {
+                                    jQuery(window).trigger('tabClicked', [this, {"class":" normal","title":false,"target":false,"id":"button6a1b325fdd39c","href":"\/statistics\/alliance","onclick":false,"enabled":true,"text":"\u516c\u6703","dialog":false,"plusDialog":false,"goldclubDialog":false,"containerId":"","buttonIdentifier":"button6a1b325fdd39c"}]);
+                                });
+                            }
+                        });
+                    </script>
+                
+                            <div class="content  favor  favorKeyvillage">
+                    <a id="button6a1b325fdd39d" title="" class="tabItem  normal " href="/statistics/village">
+                        村莊                    </a>
+                </div>
+
+                                    <script type="text/javascript">
+                        jQuery(function() {
+                            if (jQuery('#button6a1b325fdd39d').length > 0) {
+                                jQuery('#button6a1b325fdd39d').on('click', function () {
+                                    jQuery(window).trigger('tabClicked', [this, {"class":" normal","title":false,"target":false,"id":"button6a1b325fdd39d","href":"\/statistics\/village","onclick":false,"enabled":true,"text":"\u6751\u838a","dialog":false,"plusDialog":false,"goldclubDialog":false,"containerId":"","buttonIdentifier":"button6a1b325fdd39d"}]);
+                                });
+                            }
+                        });
+                    </script>
+                
+                            <div class="content  favor  favorKeyhero">
+                    <a id="button6a1b325fdd39e" title="" class="tabItem  normal " href="/statistics/hero">
+                        英雄                    </a>
+                </div>
+
+                                    <script type="text/javascript">
+                        jQuery(function() {
+                            if (jQuery('#button6a1b325fdd39e').length > 0) {
+                                jQuery('#button6a1b325fdd39e').on('click', function () {
+                                    jQuery(window).trigger('tabClicked', [this, {"class":" normal","title":false,"target":false,"id":"button6a1b325fdd39e","href":"\/statistics\/hero","onclick":false,"enabled":true,"text":"\u82f1\u96c4","dialog":false,"plusDialog":false,"goldclubDialog":false,"containerId":"","buttonIdentifier":"button6a1b325fdd39e"}]);
+                                });
+                            }
+                        });
+                    </script>
+                
+                            <div class="content  favor  favorKeygeneral">
+                    <a id="button6a1b325fdd39f" title="" class="tabItem  normal " href="/statistics/general">
+                        一般                    </a>
+                </div>
+
+                                    <script type="text/javascript">
+                        jQuery(function() {
+                            if (jQuery('#button6a1b325fdd39f').length > 0) {
+                                jQuery('#button6a1b325fdd39f').on('click', function () {
+                                    jQuery(window).trigger('tabClicked', [this, {"class":" normal","title":false,"target":false,"id":"button6a1b325fdd39f","href":"\/statistics\/general","onclick":false,"enabled":true,"text":"\u4e00\u822c","dialog":false,"plusDialog":false,"goldclubDialog":false,"containerId":"","buttonIdentifier":"button6a1b325fdd39f"}]);
+                                });
+                            }
+                        });
+                    </script>
+                
+                            <div class="content  favor  favorKeywonderoftheworld">
+                    <a id="button6a1b325fdd3a0" title="" class="tabItem  normal " href="/statistics/wonderoftheworld">
+                        世界奇觀                    </a>
+                </div>
+
+                                    <script type="text/javascript">
+                        jQuery(function() {
+                            if (jQuery('#button6a1b325fdd3a0').length > 0) {
+                                jQuery('#button6a1b325fdd3a0').on('click', function () {
+                                    jQuery(window).trigger('tabClicked', [this, {"class":" normal","title":false,"target":false,"id":"button6a1b325fdd3a0","href":"\/statistics\/wonderoftheworld","onclick":false,"enabled":true,"text":"\u4e16\u754c\u5947\u89c0","dialog":false,"plusDialog":false,"goldclubDialog":false,"containerId":"","buttonIdentifier":"button6a1b325fdd3a0"}]);
+                                });
+                            }
+                        });
+                    </script>
+                
+                                </div>
+        <button type="button" class="scrollTo" disabled="disabled"></button>
+    </div>
+
+        <div class="navigationSpacer"></div>
+
+    <script type="text/javascript">
+        jQuery(function() {
+            Travian.Game.TabScrollNavigation();
+        });
+    </script>
+    <div class="contentNavi tabNavi ">
+                    <div title="" class="container  active">
+                <div class="background-start">&nbsp;</div>
+                <div class="background-end">&nbsp;</div>
+                <div class="content favor favorKeyoverview">
+
+                                        <a id="button6a1b325fddd67" href="/statistics/player/overview" class="tabItem">
+					公會概要                        					</a>
+				                </div>
+            </div>
+
+                            <script type="text/javascript">
+                    jQuery(function() {
+                        if (jQuery('#button6a1b325fddd67').length > 0) {
+                            jQuery('#button6a1b325fddd67').on('click', function () {
+                                jQuery(window).trigger('tabClicked', [this, {"class":" active","title":false,"target":false,"id":"button6a1b325fddd67","href":"\/statistics\/player\/overview","onclick":false,"enabled":true,"text":"\u516c\u6703\u6982\u8981","dialog":false,"plusDialog":false,"goldclubDialog":false,"containerId":"","buttonIdentifier":"button6a1b325fddd67"}]);
+
+                            });
+                        }
+                    });
+                </script>
+            
+                    <div title="" class="container  normal">
+                <div class="background-start">&nbsp;</div>
+                <div class="background-end">&nbsp;</div>
+                <div class="content favor favorKeyattackers">
+
+                                        <a id="button6a1b325fddd6a" href="/statistics/player/attackers" class="tabItem">
+					攻擊者                        					</a>
+				                </div>
+            </div>
+
+                            <script type="text/javascript">
+                    jQuery(function() {
+                        if (jQuery('#button6a1b325fddd6a').length > 0) {
+                            jQuery('#button6a1b325fddd6a').on('click', function () {
+                                jQuery(window).trigger('tabClicked', [this, {"class":" normal","title":false,"target":false,"id":"button6a1b325fddd6a","href":"\/statistics\/player\/attackers","onclick":false,"enabled":true,"text":"\u653b\u64ca\u8005","dialog":false,"plusDialog":false,"goldclubDialog":false,"containerId":"","buttonIdentifier":"button6a1b325fddd6a"}]);
+
+                            });
+                        }
+                    });
+                </script>
+            
+                    <div title="" class="container  normal">
+                <div class="background-start">&nbsp;</div>
+                <div class="background-end">&nbsp;</div>
+                <div class="content favor favorKeydefenders">
+
+                                        <a id="button6a1b325fddd6b" href="/statistics/player/defenders" class="tabItem">
+					防禦者                        					</a>
+				                </div>
+            </div>
+
+                            <script type="text/javascript">
+                    jQuery(function() {
+                        if (jQuery('#button6a1b325fddd6b').length > 0) {
+                            jQuery('#button6a1b325fddd6b').on('click', function () {
+                                jQuery(window).trigger('tabClicked', [this, {"class":" normal","title":false,"target":false,"id":"button6a1b325fddd6b","href":"\/statistics\/player\/defenders","onclick":false,"enabled":true,"text":"\u9632\u79a6\u8005","dialog":false,"plusDialog":false,"goldclubDialog":false,"containerId":"","buttonIdentifier":"button6a1b325fddd6b"}]);
+
+                            });
+                        }
+                    });
+                </script>
+            
+                    <div title="" class="container  normal">
+                <div class="background-start">&nbsp;</div>
+                <div class="background-end">&nbsp;</div>
+                <div class="content favor favorKeytop10">
+
+                                        <a id="button6a1b325fddd6c" href="/statistics/player/top10" class="tabItem">
+					頭10名                        					</a>
+				                </div>
+            </div>
+
+                            <script type="text/javascript">
+                    jQuery(function() {
+                        if (jQuery('#button6a1b325fddd6c').length > 0) {
+                            jQuery('#button6a1b325fddd6c').on('click', function () {
+                                jQuery(window).trigger('tabClicked', [this, {"class":" normal","title":false,"target":false,"id":"button6a1b325fddd6c","href":"\/statistics\/player\/top10","onclick":false,"enabled":true,"text":"\u982d10\u540d","dialog":false,"plusDialog":false,"goldclubDialog":false,"containerId":"","buttonIdentifier":"button6a1b325fddd6c"}]);
+
+                            });
+                        }
+                    });
+                </script>
+            
+                <a type="submit" id="nestedTabFavorButton" class="icon nestedTabRowButton " onclick="Travian.api('favourite-tab', {data: {name: 'statisticsTablePlayer',key: 'overview'},success: function(data) {jQuery('.tabNavi .favor').removeClass('favorActive');jQuery('.favor.favorKeyoverview').addClass('favorActive');}});return false;" useicon=""><img src="/img/x.gif" class="&nbsp;" alt=""></a>
+        <div class="clear"></div>
+    </div>
+
+<svg id="bannerTemplateSVG" width="0" height="0"><defs></defs></svg>
+<h4 class="roundV2">玩家排名</h4>
+
+<table cellpadding="1" cellspacing="1" id="player" class="row_table_data borderGap">
+	<thead>
+		<tr>
+			<td class="ra ">
+                                                                </td>
+			<td class="tribe ">
+                                                                </td>
+			<td class="pla ">
+                                    玩家                            </td>
+			<td class="banner ">
+                                                                </td>
+			<td class="al ">
+                                    公會                            </td>
+			<td class="pop ">
+                                    人口                            </td>
+			<td class="vil ">
+                                    村莊                            </td>
+		</tr>
+	</thead>
+	<tbody class="hoverable">
+
+
+		<tr class="hover">
+
+			<td class="ra ">6441.</td>
+			<td class="tribe "><i class="tribe3_medium"></i></td>
+			<td class="pla "><a href="/profile/947">ReiCoo</a></td>
+			<td class="banner "></td>
+			<td class="al ">-</td>
+			<td class="pop ">‭24‬</td>
+			<td class="vil ">1</td>
+		</tr>
+
+		<tr class="hover">
+
+			<td class="ra ">6442.</td>
+			<td class="tribe "><i class="tribe7_medium"></i></td>
+			<td class="pla "><a href="/profile/1088">SAD</a></td>
+			<td class="banner "></td>
+			<td class="al ">-</td>
+			<td class="pop ">‭24‬</td>
+			<td class="vil ">1</td>
+		</tr>
+
+		<tr class="hover">
+
+			<td class="ra ">6443.</td>
+			<td class="tribe "><i class="tribe2_medium"></i></td>
+			<td class="pla "><a href="/profile/1624">EdBnq1Rv</a></td>
+			<td class="banner "></td>
+			<td class="al ">-</td>
+			<td class="pop ">‭24‬</td>
+			<td class="vil ">1</td>
+		</tr>
+
+		<tr class="hover">
+
+			<td class="ra ">6444.</td>
+			<td class="tribe "><i class="tribe3_medium"></i></td>
+			<td class="pla "><a href="/profile/2363">ShipWarrior</a></td>
+			<td class="banner "></td>
+			<td class="al ">-</td>
+			<td class="pop ">‭24‬</td>
+			<td class="vil ">1</td>
+		</tr>
+
+		<tr class="hover">
+
+			<td class="ra ">6445.</td>
+			<td class="tribe "><i class="tribe3_medium"></i></td>
+			<td class="pla "><a href="/profile/2402">GODOMAN</a></td>
+			<td class="banner "></td>
+			<td class="al ">-</td>
+			<td class="pop ">‭24‬</td>
+			<td class="vil ">1</td>
+		</tr>
+
+		<tr class="hover">
+
+			<td class="ra ">6446.</td>
+			<td class="tribe "><i class="tribe2_medium"></i></td>
+			<td class="pla "><a href="/profile/2403">JustWatch</a></td>
+			<td class="banner "></td>
+			<td class="al ">-</td>
+			<td class="pop ">‭24‬</td>
+			<td class="vil ">1</td>
+		</tr>
+
+		<tr class="hover">
+
+			<td class="ra ">6447.</td>
+			<td class="tribe "><i class="tribe3_medium"></i></td>
+			<td class="pla "><a href="/profile/2910">Benqa</a></td>
+			<td class="banner "></td>
+			<td class="al ">-</td>
+			<td class="pop ">‭24‬</td>
+			<td class="vil ">1</td>
+		</tr>
+
+		<tr class="hover">
+
+			<td class="ra ">6448.</td>
+			<td class="tribe "><i class="tribe3_medium"></i></td>
+			<td class="pla "><a href="/profile/3095">DirtyAxe</a></td>
+			<td class="banner "></td>
+			<td class="al ">-</td>
+			<td class="pop ">‭24‬</td>
+			<td class="vil ">1</td>
+		</tr>
+
+		<tr class="hover">
+
+			<td class="ra ">6449.</td>
+			<td class="tribe "><i class="tribe2_medium"></i></td>
+			<td class="pla "><a href="/profile/18810">VEGATHRON</a></td>
+			<td class="banner "></td>
+			<td class="al ">-</td>
+			<td class="pop ">‭23‬</td>
+			<td class="vil ">1</td>
+		</tr>
+
+		<tr class="hover">
+
+			<td class="ra ">6450.</td>
+			<td class="tribe "><i class="tribe3_medium"></i></td>
+			<td class="pla "><a href="/profile/18852">Bloodstone</a></td>
+			<td class="banner "></td>
+			<td class="al ">-</td>
+			<td class="pop ">‭23‬</td>
+			<td class="vil ">1</td>
+		</tr>
+
+		<tr class="hover">
+
+			<td class="ra ">6451.</td>
+			<td class="tribe "><i class="tribe1_medium"></i></td>
+			<td class="pla "><a href="/profile/19398">BraveHungaro</a></td>
+			<td class="banner "></td>
+			<td class="al ">-</td>
+			<td class="pop ">‭23‬</td>
+			<td class="vil ">1</td>
+		</tr>
+
+		<tr class="hover">
+
+			<td class="ra ">6452.</td>
+			<td class="tribe "><i class="tribe1_medium"></i></td>
+			<td class="pla "><a href="/profile/19806">Torres</a></td>
+			<td class="banner "></td>
+			<td class="al ">-</td>
+			<td class="pop ">‭23‬</td>
+			<td class="vil ">1</td>
+		</tr>
+
+		<tr class="hover">
+
+			<td class="ra ">6453.</td>
+			<td class="tribe "><i class="tribe3_medium"></i></td>
+			<td class="pla "><a href="/profile/19845">BraveWarlord</a></td>
+			<td class="banner "></td>
+			<td class="al ">-</td>
+			<td class="pop ">‭23‬</td>
+			<td class="vil ">1</td>
+		</tr>
+
+		<tr class="hover">
+
+			<td class="ra ">6454.</td>
+			<td class="tribe "><i class="tribe3_medium"></i></td>
+			<td class="pla "><a href="/profile/19877">DJALALFETITA</a></td>
+			<td class="banner "></td>
+			<td class="al ">-</td>
+			<td class="pop ">‭23‬</td>
+			<td class="vil ">1</td>
+		</tr>
+
+		<tr class="hover">
+
+			<td class="ra ">6455.</td>
+			<td class="tribe "><i class="tribe3_medium"></i></td>
+			<td class="pla "><a href="/profile/20215">tik</a></td>
+			<td class="banner "></td>
+			<td class="al ">-</td>
+			<td class="pop ">‭23‬</td>
+			<td class="vil ">1</td>
+		</tr>
+
+		<tr class="hl">
+
+			<td class="ra  fc">6456.</td>
+			<td class="tribe "><i class="tribe1_medium"></i></td>
+			<td class="pla "><a href="/profile/20287">FireDefen</a></td>
+			<td class="banner "></td>
+			<td class="al ">-</td>
+			<td class="pop ">‭23‬</td>
+			<td class="vil  lc">1</td>
+		</tr>
+
+		<tr class="hover">
+
+			<td class="ra ">6457.</td>
+			<td class="tribe "><i class="tribe7_medium"></i></td>
+			<td class="pla "><a href="/profile/20289">jLv0mn3</a></td>
+			<td class="banner "></td>
+			<td class="al ">-</td>
+			<td class="pop ">‭23‬</td>
+			<td class="vil ">1</td>
+		</tr>
+
+		<tr class="hover">
+
+			<td class="ra ">6458.</td>
+			<td class="tribe "><i class="tribe6_medium"></i></td>
+			<td class="pla "><a href="/profile/20427">munli12</a></td>
+			<td class="banner "></td>
+			<td class="al ">-</td>
+			<td class="pop ">‭23‬</td>
+			<td class="vil ">1</td>
+		</tr>
+
+		<tr class="hover">
+
+			<td class="ra ">6459.</td>
+			<td class="tribe "><i class="tribe2_medium"></i></td>
+			<td class="pla "><a href="/profile/20435">cumi anggora</a></td>
+			<td class="banner "></td>
+			<td class="al ">-</td>
+			<td class="pop ">‭23‬</td>
+			<td class="vil ">1</td>
+		</tr>
+
+		<tr class="hover">
+
+			<td class="ra ">6460.</td>
+			<td class="tribe "><i class="tribe3_medium"></i></td>
+			<td class="pla "><a href="/profile/20571">Bertozen</a></td>
+			<td class="banner "></td>
+			<td class="al ">-</td>
+			<td class="pop ">‭23‬</td>
+			<td class="vil ">1</td>
+		</tr>
+	</tbody>
+</table>
+
+<div id="search_navi">
+	<div class="searchWrapper">
+		<form method="post" action="/statistics/player/overview">
+			<table class="transparent">
+				<tbody><tr>
+					<td><span>
+									等級 <input type="text" inputmode="numeric" class="text ra" maxlength="5" name="rank" value="6456">
+							</span></td>
+					<td><span>
+									或名字： <input type="text" class="text name" maxlength="20" name="name" value="">
+							</span></td>
+					<td>
+						<button type="submit" value="確定" name="submit" id="submit" class="textButtonV1 green " version="textButtonV1">
+	確定</button>
+<script type="text/javascript" id="submit_script">
+	jQuery(function() {
+        jQuery('button#submit').on('click', function () {
+            jQuery(window).trigger('buttonClicked', [this, {"type":"submit","value":"\u78ba\u5b9a","name":"submit","id":"submit","class":"textButtonV1 green ","title":"","confirm":"","onclick":"","version":"textButtonV1"}]);
+        });
+	});
+</script>
+					</td>
+				</tr>
+			</tbody></table>
+		</form>
+	</div>
+    <div class="paginator"><a href="/statistics/player/overview?page=1" class="first"><img src="/img/x.gif" alt="首頁"></a> <a href="/statistics/player/overview?page=322" class="previous"><img alt="上一頁" src="/img/x.gif"></a> <a class="number" href="/statistics/player/overview?page=1">1</a>  ... <a class="number" href="/statistics/player/overview?page=322">322</a> <span class="number currentPage">323 </span> <a class="number" href="/statistics/player/overview?page=324">324</a>  ... <a class="number" href="/statistics/player/overview?page=792">792</a> <a href="/statistics/player/overview?page=324" class="next"><img alt="下一頁" src="/img/x.gif"></a> <a href="/statistics/player/overview?page=792" class="last"><img alt="未頁" src="/img/x.gif"></a>  </div></div>
+                            </div>
+                        </div>
+                    				</div>
+
+				<div id="sidebarAfterContent" class="sidebar afterContent">
+                    <div class="sidebarBoxWrapper">
+                        <div id="villageBoxes" class="contentV2"><div id="sidebarBoxActiveVillage" class="sidebarBox "><div class="header"><div class="buttonsWrapper quickLinks"><div class="quickLinkSlot "> <div class="slot"></div><svg viewBox="0 0 44 44" class="editSlotIndicator"><path d="M22 44h-.5v-1h.5c1.2 0 2.4 0 3.5-.3l.2 1c-1.2.2-2.4.3-3.7.3Zm-3.6-.3c-1.4-.2-2.7-.6-4-1.1l.3-.9c1.2.5 2.5.8 3.8 1l-.2 1Zm10.3-.7-.3-1c1.3-.4 2.5-.9 3.6-1.6l.5.9c-1.2.7-2.5 1.2-3.8 1.6Zm-17.1-1.6c-1.2-.7-2.4-1.4-3.4-2.3l.6-.8c1 .8 2.1 1.6 3.3 2.2l-.5.9Zm23.5-1.7-.6-.8c1.1-.8 2-1.7 2.9-2.7l.7.7c-.9 1-2 2-3.1 2.8ZM5.9 36.9c-.9-1-1.8-2.1-2.5-3.3l.8-.5c.7 1.1 1.5 2.2 2.4 3.1l-.7.7Zm34.2-2.5-.8-.6c.7-1.1 1.4-2.3 1.9-3.5l.9.4c-.6 1.3-1.2 2.5-2 3.6ZM1.9 30.9C1.3 29.6.9 28.3.6 27l1-.2c.3 1.3.7 2.5 1.3 3.8L2 31Zm41.3-3-1-.3c.4-1.3.6-2.6.7-3.9h1c-.1 1.5-.4 2.8-.7 4.2ZM0 23.9V22c0-.8 0-1.5.1-2.3h1c0 .8-.1 1.5-.1 2.3v1.8H0Zm43-3.2c0-1.3-.3-2.6-.6-3.9l1-.2c.3 1.3.6 2.7.6 4.1h-1ZM1.6 16.9l-1-.2c.3-1.3.8-2.7 1.4-3.9l.9.4c-.6 1.2-1 2.5-1.3 3.7ZM41.4 14c-.5-1.2-1.1-2.4-1.8-3.5l.8-.5c.8 1.2 1.4 2.4 1.9 3.7l-.9.4Zm-37-3.4-.8-.5c.8-1.2 1.6-2.3 2.6-3.3l.7.7c-.9 1-1.7 2-2.5 3.1Zm33.4-2.5c-.9-1-1.8-1.9-2.9-2.7l.6-.8c1.1.8 2.1 1.8 3 2.8l-.8.7ZM9 5.5l-.6-.8c1.1-.9 2.3-1.6 3.5-2.2l.5.9c-1.2.6-2.3 1.3-3.3 2.1Zm23.4-1.7c-1.1-.7-2.4-1.2-3.6-1.6l.3-.9c1.3.4 2.6 1 3.8 1.7l-.5.9ZM15.1 2.2l-.3-.9c1.3-.5 2.7-.8 4-1v1c-1.2.2-2.5.5-3.7.9Zm10.8-.8C24.6 1.2 23.3 1 22 1V0c1.4 0 2.8.1 4.1.4l-.2 1Z"></path></svg></div><div class="quickLinkSlot "> <a class="textButtonV2 buttonFramed layoutButton disabled round withIcon gold" data-load-tooltip-data="{&quot;type&quot;:&quot;MarketplaceSendResources&quot;}" data-dragid="villageQuickLinks1" href="#"><svg class="MarketplaceSendResources"><svg viewBox="0 0 250 213" class="outline"><path d="M23.5 108.2c-1.7.5-8.5-.3-5.1-7.2-1-3.6 1.2-6.6 4.3-6.1 1.4-6 1.1-10.5 11.5-9.1.8-2.2 8.9-4.3 13.9-.3h2.4c-.8-1-14.3-22.6-24.1-17-2.6 4.2-5.3.1-8.8-.4 0 0-1.1 10.7-7.7 5.2-9.2.9-14.2-4.4-5-10.7 0 0-2.8-7.9 6.7-5.6.5-12.1 4.5-17.9 16.8-11.8 7.4-13.8 46.5 28.9 49.9 31.2-3.4-5.4-18.4-30.6-27.4-34.1-3.9-1-17.4-4.1-10.6-10.7-1.4-1.7-1.4-3.1 1.1-2.6 2.5.4 5.1 3.1 5.1 3.1l13.3 8.3-9.7-12.9s-3.5-1.5-4.5-1.9c-1-.4-1.6-3.9 2.4-4.5 4-.6 10.8 2.2 10.8 2.2s-3.9-6.7-4.5-6.7-4.5-5.3 2-5.5c-.9-14.7 11.4 3 11.4 3.6 0 0-1.6-9.2.8-11.4C77.6-8.4 85 14.3 86 18.8c4.7 3 5.7 10.9 6.3 14.9l5.3 8.1-2.8-15.5c-8.4-14.6-6.4-36 12.1-15.1.3-6.3 6.6-4.4 8.6-1.2l2.8 8.9s1.8-8.5 4.3-9.8 4.9-.8 5.3 3.3c4.5-2 7.3-2.2 8.7 1.2 14.1 6.3.6 18.2-2.5 26.9-.8 1.8-3.3 12.4-3.3 12.4L146 35.7s-.8-6.3 7.5-5.3c3.1-5.3 8.1-13.8 15.3-7.9 6.5-3.3 12.8-5.3 14.8 1.4 7.1.4 12.2.2 12.4 10.4 7.1 8.3 6.1 16-3 11.2-3.1 2-5.3 1.8-6.7-.8-1.8 4.5-8.5 12.8-13.4 5.5-2 1.4-27.5 17.3-31.1 35.1 15.9-14.2 27.9-28.3 41.4-25.9 7.3-4.2 11.2-6.7 16.5-1.2 4.3-.2 5.9 4.1 5.7 5.9 5.9-1 10.4-1 10.8 4.1.8 8.6-1.3 17.2-7.7 9.8 0 0-7.9 4.5-9.2-2.8-4.7 3.1-11.4 6.3-14.6 1.6-2.6 1.8-8.1 6.1-11 12.6-26.8 7.5-105.6 30.9-105.6 30.9l-5.6-5s-4.2 8-9.9 0c-1.7 0-3.8 0-5.1 3.2-12.9.9.6-12.3 4.2-11 0 0-1.8-4.3 4.7-4.2-12-13.9-24.7-2.2-32.9 4.9Zm151.6 5.7c7.6-1.3 35.5 21.8 42 25.1l10.8-2.5c-14.6-7.6-24.2-35.1-17.3-49.7-13.9 3.6-97.8 25.5-98.4 25.7l39.8 11.4v13.8h6.1c-1.5-11.5 4.5-23.7 16.9-23.7ZM37.2 138.2l86.6 25.3c-.2-4.4-.1-21.4-.1-26.1h20.5v-8.2l-42.9-9.1s-63.1 18.1-64 18.1Zm-7.9 11v29.9c10.9 4 70.7 27.2 80.6 29.6l13.8-10.1v-28.9s-88.1-25.4-90.2-26.8l-4.2 6.4Zm194.4-66.9c-19.3 6.8-1.1 56.8 18.1 49.6 19.2-6.9 1-56.7-18.1-49.6Zm-1.1 81.8c-7.1-4.8-16.3-11.2-23.5-15.9-22.2-13.6-27.1-26.6-25.7 9.5h-28.6v32h28.6v18.8c0 3.6 3.4 5.8 6.1 4 12.7-8.6 38.4-26.1 51.2-34.7 6.7-5.6-4.4-10.9-8.2-13.6Z"></path></svg><svg viewBox="0 0 250 213" class="icon"><path d="M23.5 108.2c-1.7.5-8.5-.3-5.1-7.2-1-3.6 1.2-6.6 4.3-6.1 1.4-6 1.1-10.5 11.5-9.1.8-2.2 8.9-4.3 13.9-.3h2.4c-.8-1-14.3-22.6-24.1-17-2.6 4.2-5.3.1-8.8-.4 0 0-1.1 10.7-7.7 5.2-9.2.9-14.2-4.4-5-10.7 0 0-2.8-7.9 6.7-5.6.5-12.1 4.5-17.9 16.8-11.8 7.4-13.8 46.5 28.9 49.9 31.2-3.4-5.4-18.4-30.6-27.4-34.1-3.9-1-17.4-4.1-10.6-10.7-1.4-1.7-1.4-3.1 1.1-2.6 2.5.4 5.1 3.1 5.1 3.1l13.3 8.3-9.7-12.9s-3.5-1.5-4.5-1.9c-1-.4-1.6-3.9 2.4-4.5 4-.6 10.8 2.2 10.8 2.2s-3.9-6.7-4.5-6.7-4.5-5.3 2-5.5c-.9-14.7 11.4 3 11.4 3.6 0 0-1.6-9.2.8-11.4C77.6-8.4 85 14.3 86 18.8c4.7 3 5.7 10.9 6.3 14.9l5.3 8.1-2.8-15.5c-8.4-14.6-6.4-36 12.1-15.1.3-6.3 6.6-4.4 8.6-1.2l2.8 8.9s1.8-8.5 4.3-9.8 4.9-.8 5.3 3.3c4.5-2 7.3-2.2 8.7 1.2 14.1 6.3.6 18.2-2.5 26.9-.8 1.8-3.3 12.4-3.3 12.4L146 35.7s-.8-6.3 7.5-5.3c3.1-5.3 8.1-13.8 15.3-7.9 6.5-3.3 12.8-5.3 14.8 1.4 7.1.4 12.2.2 12.4 10.4 7.1 8.3 6.1 16-3 11.2-3.1 2-5.3 1.8-6.7-.8-1.8 4.5-8.5 12.8-13.4 5.5-2 1.4-27.5 17.3-31.1 35.1 15.9-14.2 27.9-28.3 41.4-25.9 7.3-4.2 11.2-6.7 16.5-1.2 4.3-.2 5.9 4.1 5.7 5.9 5.9-1 10.4-1 10.8 4.1.8 8.6-1.3 17.2-7.7 9.8 0 0-7.9 4.5-9.2-2.8-4.7 3.1-11.4 6.3-14.6 1.6-2.6 1.8-8.1 6.1-11 12.6-26.8 7.5-105.6 30.9-105.6 30.9l-5.6-5s-4.2 8-9.9 0c-1.7 0-3.8 0-5.1 3.2-12.9.9.6-12.3 4.2-11 0 0-1.8-4.3 4.7-4.2-12-13.9-24.7-2.2-32.9 4.9Zm151.6 5.7c7.6-1.3 35.5 21.8 42 25.1l10.8-2.5c-14.6-7.6-24.2-35.1-17.3-49.7-13.9 3.6-97.8 25.5-98.4 25.7l39.8 11.4v13.8h6.1c-1.5-11.5 4.5-23.7 16.9-23.7ZM37.2 138.2l86.6 25.3c-.2-4.4-.1-21.4-.1-26.1h20.5v-8.2l-42.9-9.1s-63.1 18.1-64 18.1Zm-7.9 11v29.9c10.9 4 70.7 27.2 80.6 29.6l13.8-10.1v-28.9s-88.1-25.4-90.2-26.8l-4.2 6.4Zm194.4-66.9c-19.3 6.8-1.1 56.8 18.1 49.6 19.2-6.9 1-56.7-18.1-49.6Zm-1.1 81.8c-7.1-4.8-16.3-11.2-23.5-15.9-22.2-13.6-27.1-26.6-25.7 9.5h-28.6v32h28.6v18.8c0 3.6 3.4 5.8 6.1 4 12.7-8.6 38.4-26.1 51.2-34.7 6.7-5.6-4.4-10.9-8.2-13.6Z"></path></svg></svg></a><svg viewBox="0 0 44 44" class="editSlotIndicator"><path d="M22 44h-.5v-1h.5c1.2 0 2.4 0 3.5-.3l.2 1c-1.2.2-2.4.3-3.7.3Zm-3.6-.3c-1.4-.2-2.7-.6-4-1.1l.3-.9c1.2.5 2.5.8 3.8 1l-.2 1Zm10.3-.7-.3-1c1.3-.4 2.5-.9 3.6-1.6l.5.9c-1.2.7-2.5 1.2-3.8 1.6Zm-17.1-1.6c-1.2-.7-2.4-1.4-3.4-2.3l.6-.8c1 .8 2.1 1.6 3.3 2.2l-.5.9Zm23.5-1.7-.6-.8c1.1-.8 2-1.7 2.9-2.7l.7.7c-.9 1-2 2-3.1 2.8ZM5.9 36.9c-.9-1-1.8-2.1-2.5-3.3l.8-.5c.7 1.1 1.5 2.2 2.4 3.1l-.7.7Zm34.2-2.5-.8-.6c.7-1.1 1.4-2.3 1.9-3.5l.9.4c-.6 1.3-1.2 2.5-2 3.6ZM1.9 30.9C1.3 29.6.9 28.3.6 27l1-.2c.3 1.3.7 2.5 1.3 3.8L2 31Zm41.3-3-1-.3c.4-1.3.6-2.6.7-3.9h1c-.1 1.5-.4 2.8-.7 4.2ZM0 23.9V22c0-.8 0-1.5.1-2.3h1c0 .8-.1 1.5-.1 2.3v1.8H0Zm43-3.2c0-1.3-.3-2.6-.6-3.9l1-.2c.3 1.3.6 2.7.6 4.1h-1ZM1.6 16.9l-1-.2c.3-1.3.8-2.7 1.4-3.9l.9.4c-.6 1.2-1 2.5-1.3 3.7ZM41.4 14c-.5-1.2-1.1-2.4-1.8-3.5l.8-.5c.8 1.2 1.4 2.4 1.9 3.7l-.9.4Zm-37-3.4-.8-.5c.8-1.2 1.6-2.3 2.6-3.3l.7.7c-.9 1-1.7 2-2.5 3.1Zm33.4-2.5c-.9-1-1.8-1.9-2.9-2.7l.6-.8c1.1.8 2.1 1.8 3 2.8l-.8.7ZM9 5.5l-.6-.8c1.1-.9 2.3-1.6 3.5-2.2l.5.9c-1.2.6-2.3 1.3-3.3 2.1Zm23.4-1.7c-1.1-.7-2.4-1.2-3.6-1.6l.3-.9c1.3.4 2.6 1 3.8 1.7l-.5.9ZM15.1 2.2l-.3-.9c1.3-.5 2.7-.8 4-1v1c-1.2.2-2.5.5-3.7.9Zm10.8-.8C24.6 1.2 23.3 1 22 1V0c1.4 0 2.8.1 4.1.4l-.2 1Z"></path></svg></div><div class="quickLinkSlot "> <a class="textButtonV2 buttonFramed layoutButton disabled round withIcon gold" data-load-tooltip-data="{&quot;type&quot;:&quot;BarracksManagement&quot;}" data-dragid="villageQuickLinks2" href="#"><svg class="BarracksManagement"><svg viewBox="0 0 184.6 200" class="outline"><path d="m138.6 172.6 3.8 3.2s-12.3 8.4-20.5 7c-8.1-1.5-16.2-23-16.2-23.3-.5-7.8-7-13.8-14.8-13.8s-14.8 6.6-14.8 14.8 1.1 6.5 3 9c2.6 3.5 6.7 5.7 11.3 5.9-34.5 25.8-75.6 24.7-75.6 24.7l28.4-65.6 8.8 5.2 30-25.1-18.8-13.9s-14.8 2.7-28.2 12.4c-2.1 4.8-9.6 27.4-9.6 27.4L12 146.9l11-40.6 1.6-5.9c7-20.9 26.7-36.1 50-36.1s52.7 23.6 52.7 52.7-.8 11.3-2.6 16.4c-1.6 11.4-1.5 29.8 13.9 39.2Zm18-63.1 27.3-3.4c-2-19.5-8.2-37.8-18-53.6l-36.8 14.9 28.3-27C146.1 26.5 131.8 15.3 115 8.3L94.5 42.5l8-38.6c-.6-.2-1.3-.4-1.9-.5C87.5 0 74.2-.8 61.4.8l4.2 30.8L51 2.5c-16.9-.4-33.3 4.2-51 9l39.3 45.1c10.4-1.4 35-10.3 45.6-7.6 46.3 12.1 64.7 54.6 54.1 105.1 13.7 11.7 0 0 31.2 31.5 8.8-26.3 4.8-11.8 10-31.5 2.8-11 4.3-22 4.4-32.8l-28-11.7Z"></path></svg><svg viewBox="0 0 184.6 200" class="icon"><path d="m138.6 172.6 3.8 3.2s-12.3 8.4-20.5 7c-8.1-1.5-16.2-23-16.2-23.3-.5-7.8-7-13.8-14.8-13.8s-14.8 6.6-14.8 14.8 1.1 6.5 3 9c2.6 3.5 6.7 5.7 11.3 5.9-34.5 25.8-75.6 24.7-75.6 24.7l28.4-65.6 8.8 5.2 30-25.1-18.8-13.9s-14.8 2.7-28.2 12.4c-2.1 4.8-9.6 27.4-9.6 27.4L12 146.9l11-40.6 1.6-5.9c7-20.9 26.7-36.1 50-36.1s52.7 23.6 52.7 52.7-.8 11.3-2.6 16.4c-1.6 11.4-1.5 29.8 13.9 39.2Zm18-63.1 27.3-3.4c-2-19.5-8.2-37.8-18-53.6l-36.8 14.9 28.3-27C146.1 26.5 131.8 15.3 115 8.3L94.5 42.5l8-38.6c-.6-.2-1.3-.4-1.9-.5C87.5 0 74.2-.8 61.4.8l4.2 30.8L51 2.5c-16.9-.4-33.3 4.2-51 9l39.3 45.1c10.4-1.4 35-10.3 45.6-7.6 46.3 12.1 64.7 54.6 54.1 105.1 13.7 11.7 0 0 31.2 31.5 8.8-26.3 4.8-11.8 10-31.5 2.8-11 4.3-22 4.4-32.8l-28-11.7Z"></path></svg></svg></a><svg viewBox="0 0 44 44" class="editSlotIndicator"><path d="M22 44h-.5v-1h.5c1.2 0 2.4 0 3.5-.3l.2 1c-1.2.2-2.4.3-3.7.3Zm-3.6-.3c-1.4-.2-2.7-.6-4-1.1l.3-.9c1.2.5 2.5.8 3.8 1l-.2 1Zm10.3-.7-.3-1c1.3-.4 2.5-.9 3.6-1.6l.5.9c-1.2.7-2.5 1.2-3.8 1.6Zm-17.1-1.6c-1.2-.7-2.4-1.4-3.4-2.3l.6-.8c1 .8 2.1 1.6 3.3 2.2l-.5.9Zm23.5-1.7-.6-.8c1.1-.8 2-1.7 2.9-2.7l.7.7c-.9 1-2 2-3.1 2.8ZM5.9 36.9c-.9-1-1.8-2.1-2.5-3.3l.8-.5c.7 1.1 1.5 2.2 2.4 3.1l-.7.7Zm34.2-2.5-.8-.6c.7-1.1 1.4-2.3 1.9-3.5l.9.4c-.6 1.3-1.2 2.5-2 3.6ZM1.9 30.9C1.3 29.6.9 28.3.6 27l1-.2c.3 1.3.7 2.5 1.3 3.8L2 31Zm41.3-3-1-.3c.4-1.3.6-2.6.7-3.9h1c-.1 1.5-.4 2.8-.7 4.2ZM0 23.9V22c0-.8 0-1.5.1-2.3h1c0 .8-.1 1.5-.1 2.3v1.8H0Zm43-3.2c0-1.3-.3-2.6-.6-3.9l1-.2c.3 1.3.6 2.7.6 4.1h-1ZM1.6 16.9l-1-.2c.3-1.3.8-2.7 1.4-3.9l.9.4c-.6 1.2-1 2.5-1.3 3.7ZM41.4 14c-.5-1.2-1.1-2.4-1.8-3.5l.8-.5c.8 1.2 1.4 2.4 1.9 3.7l-.9.4Zm-37-3.4-.8-.5c.8-1.2 1.6-2.3 2.6-3.3l.7.7c-.9 1-1.7 2-2.5 3.1Zm33.4-2.5c-.9-1-1.8-1.9-2.9-2.7l.6-.8c1.1.8 2.1 1.8 3 2.8l-.8.7ZM9 5.5l-.6-.8c1.1-.9 2.3-1.6 3.5-2.2l.5.9c-1.2.6-2.3 1.3-3.3 2.1Zm23.4-1.7c-1.1-.7-2.4-1.2-3.6-1.6l.3-.9c1.3.4 2.6 1 3.8 1.7l-.5.9ZM15.1 2.2l-.3-.9c1.3-.5 2.7-.8 4-1v1c-1.2.2-2.5.5-3.7.9Zm10.8-.8C24.6 1.2 23.3 1 22 1V0c1.4 0 2.8.1 4.1.4l-.2 1Z"></path></svg></div><div class="quickLinkSlot "> <a class="textButtonV2 buttonFramed layoutButton disabled round withIcon gold" data-load-tooltip-data="{&quot;type&quot;:&quot;StableManagement&quot;}" data-dragid="villageQuickLinks3" href="#"><svg class="StableManagement"><svg viewBox="0 0 237.1 250" class="outline"><path d="M218.3 128.8c7.5 2.5 13.7 6.2 18.7 10-12.5-19.8-38.6-60.7-65-68.7 3.7 0 17.5-1.2 20 0-11.2-6.2-13.7-11.2-70-31.2q-8.7-2.5-18.7-6.2C102.2 28 86.5-2.1 69.7.1c1.6 5.7 3 37.8 3.7 41.2 0 0-1.2 0-2.5 1.2-4.6-.8-22.1-12.5-26.2-15 0 0 1.2 23.7 10 31.2-5 5-8.7 10-11.2 8.7-17.6 6.4-11.1 19.4-11.2 32.5-8.9 17.5-13.7 40.2-25 56.2-8.2 2.3-10 13.8-2.5 18.7 2.7 14.1 15 22.5 28.7 21.2 11.2-1.2 18.7-10 21.2-21.2 40.4-10.2 83.1-45.4 35-73.7 79.9 8.7-5 136.2-6.2 141.2 17.5 10 28.7 8.7 63.7 3.7 18.7-7.5 45-30 60-37.5 10.9-24.1 21.2-53.4 11.2-79.9Zm-158.6-30c-2.5 1.2-5 2.5-6.2 2.5-6.2 0-10 3.7-10-1.2s2.5-17.5 8.7-17.5c14.4-2.2 18.5 6.7 7.5 16.2Zm139.9 102.4c-6.2-94.9-81.2-138.7-86.2-141.2 6.2 1.2 103.7 28.7 86.2 141.2Z"></path></svg><svg viewBox="0 0 237.1 250" class="icon"><path d="M218.3 128.8c7.5 2.5 13.7 6.2 18.7 10-12.5-19.8-38.6-60.7-65-68.7 3.7 0 17.5-1.2 20 0-11.2-6.2-13.7-11.2-70-31.2q-8.7-2.5-18.7-6.2C102.2 28 86.5-2.1 69.7.1c1.6 5.7 3 37.8 3.7 41.2 0 0-1.2 0-2.5 1.2-4.6-.8-22.1-12.5-26.2-15 0 0 1.2 23.7 10 31.2-5 5-8.7 10-11.2 8.7-17.6 6.4-11.1 19.4-11.2 32.5-8.9 17.5-13.7 40.2-25 56.2-8.2 2.3-10 13.8-2.5 18.7 2.7 14.1 15 22.5 28.7 21.2 11.2-1.2 18.7-10 21.2-21.2 40.4-10.2 83.1-45.4 35-73.7 79.9 8.7-5 136.2-6.2 141.2 17.5 10 28.7 8.7 63.7 3.7 18.7-7.5 45-30 60-37.5 10.9-24.1 21.2-53.4 11.2-79.9Zm-158.6-30c-2.5 1.2-5 2.5-6.2 2.5-6.2 0-10 3.7-10-1.2s2.5-17.5 8.7-17.5c14.4-2.2 18.5 6.7 7.5 16.2Zm139.9 102.4c-6.2-94.9-81.2-138.7-86.2-141.2 6.2 1.2 103.7 28.7 86.2 141.2Z"></path></svg></svg></a><svg viewBox="0 0 44 44" class="editSlotIndicator"><path d="M22 44h-.5v-1h.5c1.2 0 2.4 0 3.5-.3l.2 1c-1.2.2-2.4.3-3.7.3Zm-3.6-.3c-1.4-.2-2.7-.6-4-1.1l.3-.9c1.2.5 2.5.8 3.8 1l-.2 1Zm10.3-.7-.3-1c1.3-.4 2.5-.9 3.6-1.6l.5.9c-1.2.7-2.5 1.2-3.8 1.6Zm-17.1-1.6c-1.2-.7-2.4-1.4-3.4-2.3l.6-.8c1 .8 2.1 1.6 3.3 2.2l-.5.9Zm23.5-1.7-.6-.8c1.1-.8 2-1.7 2.9-2.7l.7.7c-.9 1-2 2-3.1 2.8ZM5.9 36.9c-.9-1-1.8-2.1-2.5-3.3l.8-.5c.7 1.1 1.5 2.2 2.4 3.1l-.7.7Zm34.2-2.5-.8-.6c.7-1.1 1.4-2.3 1.9-3.5l.9.4c-.6 1.3-1.2 2.5-2 3.6ZM1.9 30.9C1.3 29.6.9 28.3.6 27l1-.2c.3 1.3.7 2.5 1.3 3.8L2 31Zm41.3-3-1-.3c.4-1.3.6-2.6.7-3.9h1c-.1 1.5-.4 2.8-.7 4.2ZM0 23.9V22c0-.8 0-1.5.1-2.3h1c0 .8-.1 1.5-.1 2.3v1.8H0Zm43-3.2c0-1.3-.3-2.6-.6-3.9l1-.2c.3 1.3.6 2.7.6 4.1h-1ZM1.6 16.9l-1-.2c.3-1.3.8-2.7 1.4-3.9l.9.4c-.6 1.2-1 2.5-1.3 3.7ZM41.4 14c-.5-1.2-1.1-2.4-1.8-3.5l.8-.5c.8 1.2 1.4 2.4 1.9 3.7l-.9.4Zm-37-3.4-.8-.5c.8-1.2 1.6-2.3 2.6-3.3l.7.7c-.9 1-1.7 2-2.5 3.1Zm33.4-2.5c-.9-1-1.8-1.9-2.9-2.7l.6-.8c1.1.8 2.1 1.8 3 2.8l-.8.7ZM9 5.5l-.6-.8c1.1-.9 2.3-1.6 3.5-2.2l.5.9c-1.2.6-2.3 1.3-3.3 2.1Zm23.4-1.7c-1.1-.7-2.4-1.2-3.6-1.6l.3-.9c1.3.4 2.6 1 3.8 1.7l-.5.9ZM15.1 2.2l-.3-.9c1.3-.5 2.7-.8 4-1v1c-1.2.2-2.5.5-3.7.9Zm10.8-.8C24.6 1.2 23.3 1 22 1V0c1.4 0 2.8.1 4.1.4l-.2 1Z"></path></svg></div><div class="quickLinkSlot "> <a class="textButtonV2 buttonFramed layoutButton disabled round withIcon gold" data-load-tooltip-data="{&quot;type&quot;:&quot;WorkshopManagement&quot;}" data-dragid="villageQuickLinks4" href="#"><svg class="WorkshopManagement"><svg viewBox="0 0 250 227.9" class="outline"><path d="M110.6 205.5c11 14.3-14.8 31.9-23.6 16.2l-6.1-9.4 1.4-1.6 18.5-20.2 9.8 15Zm-61.7-55.4c4.3-4.7 23.7-26 27.6-30.2l.5-23.8 15.3 6.4 18.2-20-21.1-8.7C110.1 39.1 77.6-9 37.2 1.5l22.2 36.1L57 52.5l-9.9 6.2L32.2 55 9.8 18.8c-24.6 31.2.1 80.3 41.1 78.3l-2 52.9Zm115.9-28c-1 1.1-19.8 20.3-20 20.9l18.1 27.8c3.9 6.8 14.3 9 19.9 2.4 6.2-3.7 8.7-12.5 3.6-18.6l-21.6-32.5Zm70.1-58.9-38.3-.6 7.7-8.7c6.3-8.8 1.5-18.3-7.1-23.7-10.8-9-20.2 1.9-26.7 9.8 1.6-42.8 1.1-29.5-39.1-32.2-4.3-.1-7.5 3.1-7.6 7.3l-.4 32c-.1 4.3 3.1 7.5 7.3 7.6l26 .3L126 88.8c-22.8 25.4-50.1 55-73 80.4l-27.5 30.2c-7.7 9.1-.8 18.7 7.1 23.8 14.9 13.2 29-15.3 37.6-23.1l1.6-1.7L90.4 178c27.3-30.1 68.3-72.2 94.8-102.8l-.6 37.7c-.2 9.6 8.6 16.1 17.8 15 42.1 2.7 64.1-61.6 32.4-64.8Z"></path></svg><svg viewBox="0 0 250 227.9" class="icon"><path d="M110.6 205.5c11 14.3-14.8 31.9-23.6 16.2l-6.1-9.4 1.4-1.6 18.5-20.2 9.8 15Zm-61.7-55.4c4.3-4.7 23.7-26 27.6-30.2l.5-23.8 15.3 6.4 18.2-20-21.1-8.7C110.1 39.1 77.6-9 37.2 1.5l22.2 36.1L57 52.5l-9.9 6.2L32.2 55 9.8 18.8c-24.6 31.2.1 80.3 41.1 78.3l-2 52.9Zm115.9-28c-1 1.1-19.8 20.3-20 20.9l18.1 27.8c3.9 6.8 14.3 9 19.9 2.4 6.2-3.7 8.7-12.5 3.6-18.6l-21.6-32.5Zm70.1-58.9-38.3-.6 7.7-8.7c6.3-8.8 1.5-18.3-7.1-23.7-10.8-9-20.2 1.9-26.7 9.8 1.6-42.8 1.1-29.5-39.1-32.2-4.3-.1-7.5 3.1-7.6 7.3l-.4 32c-.1 4.3 3.1 7.5 7.3 7.6l26 .3L126 88.8c-22.8 25.4-50.1 55-73 80.4l-27.5 30.2c-7.7 9.1-.8 18.7 7.1 23.8 14.9 13.2 29-15.3 37.6-23.1l1.6-1.7L90.4 178c27.3-30.1 68.3-72.2 94.8-102.8l-.6 37.7c-.2 9.6 8.6 16.1 17.8 15 42.1 2.7 64.1-61.6 32.4-64.8Z"></path></svg></svg></a><svg viewBox="0 0 44 44" class="editSlotIndicator"><path d="M22 44h-.5v-1h.5c1.2 0 2.4 0 3.5-.3l.2 1c-1.2.2-2.4.3-3.7.3Zm-3.6-.3c-1.4-.2-2.7-.6-4-1.1l.3-.9c1.2.5 2.5.8 3.8 1l-.2 1Zm10.3-.7-.3-1c1.3-.4 2.5-.9 3.6-1.6l.5.9c-1.2.7-2.5 1.2-3.8 1.6Zm-17.1-1.6c-1.2-.7-2.4-1.4-3.4-2.3l.6-.8c1 .8 2.1 1.6 3.3 2.2l-.5.9Zm23.5-1.7-.6-.8c1.1-.8 2-1.7 2.9-2.7l.7.7c-.9 1-2 2-3.1 2.8ZM5.9 36.9c-.9-1-1.8-2.1-2.5-3.3l.8-.5c.7 1.1 1.5 2.2 2.4 3.1l-.7.7Zm34.2-2.5-.8-.6c.7-1.1 1.4-2.3 1.9-3.5l.9.4c-.6 1.3-1.2 2.5-2 3.6ZM1.9 30.9C1.3 29.6.9 28.3.6 27l1-.2c.3 1.3.7 2.5 1.3 3.8L2 31Zm41.3-3-1-.3c.4-1.3.6-2.6.7-3.9h1c-.1 1.5-.4 2.8-.7 4.2ZM0 23.9V22c0-.8 0-1.5.1-2.3h1c0 .8-.1 1.5-.1 2.3v1.8H0Zm43-3.2c0-1.3-.3-2.6-.6-3.9l1-.2c.3 1.3.6 2.7.6 4.1h-1ZM1.6 16.9l-1-.2c.3-1.3.8-2.7 1.4-3.9l.9.4c-.6 1.2-1 2.5-1.3 3.7ZM41.4 14c-.5-1.2-1.1-2.4-1.8-3.5l.8-.5c.8 1.2 1.4 2.4 1.9 3.7l-.9.4Zm-37-3.4-.8-.5c.8-1.2 1.6-2.3 2.6-3.3l.7.7c-.9 1-1.7 2-2.5 3.1Zm33.4-2.5c-.9-1-1.8-1.9-2.9-2.7l.6-.8c1.1.8 2.1 1.8 3 2.8l-.8.7ZM9 5.5l-.6-.8c1.1-.9 2.3-1.6 3.5-2.2l.5.9c-1.2.6-2.3 1.3-3.3 2.1Zm23.4-1.7c-1.1-.7-2.4-1.2-3.6-1.6l.3-.9c1.3.4 2.6 1 3.8 1.7l-.5.9ZM15.1 2.2l-.3-.9c1.3-.5 2.7-.8 4-1v1c-1.2.2-2.5.5-3.7.9Zm10.8-.8C24.6 1.2 23.3 1 22 1V0c1.4 0 2.8.1 4.1.4l-.2 1Z"></path></svg></div><button class="textButtonV2 buttonFramed layoutButton settings  round withIcon gold" type="button"><svg><svg viewBox="0 0 13 3" class="outline"><path d="M3 1.5C3 2.33 2.33 3 1.5 3S0 2.33 0 1.5.67 0 1.5 0 3 .67 3 1.5ZM8 1.5C8 2.33 7.33 3 6.5 3S5 2.33 5 1.5 5.67 0 6.5 0 8 .67 8 1.5ZM13 1.5c0 .83-.67 1.5-1.5 1.5S10 2.33 10 1.5 10.67 0 11.5 0 13 .67 13 1.5Z"></path></svg><svg viewBox="0 0 13 3" class="icon"><path d="M3 1.5C3 2.33 2.33 3 1.5 3S0 2.33 0 1.5.67 0 1.5 0 3 .67 3 1.5ZM8 1.5C8 2.33 7.33 3 6.5 3S5 2.33 5 1.5 5.67 0 6.5 0 8 .67 8 1.5ZM13 1.5c0 .83-.67 1.5-1.5 1.5S10 2.33 10 1.5 10.67 0 11.5 0 13 .67 13 1.5Z"></path></svg></svg></button></div></div><div class="content"><div class="playerName">FireDefen</div><div id="villageName" class="boxTitle editable" data-x="146" data-y="-137"><form><input class="villageInput" maxlength="20" data-did="53517" type="text" value="FireDefen的村莊" name="villageName"><svg viewBox="0 0 12.8 18.8" class="rename"><path d="M5.5 16.6.8 18.8 0 13.6c0-.1.1-.1.1-.1l5.4 2.9c.1.1.1.2 0 .2zm6.7-14.4L8.4.1C7.9-.1 7.3 0 7 .5L1.2 11.2c-.3.5-.1 1.1.3 1.4h.1l3.9 2.1c.5.3 1.1.1 1.4-.4l5.8-10.7c.3-.4.1-1.1-.5-1.4.1 0 .1 0 0 0z"></path></svg></form></div><div class="population">人口: <span>‭23‬</span></div><div class="loyalty medium">忠誠度: <span>‭‭100‬%‬</span></div></div></div><div id="sidebarBoxVillageList" class="sidebarBox "><div class="header"><div class="buttonsWrapper quickLinks"><div class="quickLinkSlot "> <div class="slot"></div><svg viewBox="0 0 44 44" class="editSlotIndicator"><path d="M22 44h-.5v-1h.5c1.2 0 2.4 0 3.5-.3l.2 1c-1.2.2-2.4.3-3.7.3Zm-3.6-.3c-1.4-.2-2.7-.6-4-1.1l.3-.9c1.2.5 2.5.8 3.8 1l-.2 1Zm10.3-.7-.3-1c1.3-.4 2.5-.9 3.6-1.6l.5.9c-1.2.7-2.5 1.2-3.8 1.6Zm-17.1-1.6c-1.2-.7-2.4-1.4-3.4-2.3l.6-.8c1 .8 2.1 1.6 3.3 2.2l-.5.9Zm23.5-1.7-.6-.8c1.1-.8 2-1.7 2.9-2.7l.7.7c-.9 1-2 2-3.1 2.8ZM5.9 36.9c-.9-1-1.8-2.1-2.5-3.3l.8-.5c.7 1.1 1.5 2.2 2.4 3.1l-.7.7Zm34.2-2.5-.8-.6c.7-1.1 1.4-2.3 1.9-3.5l.9.4c-.6 1.3-1.2 2.5-2 3.6ZM1.9 30.9C1.3 29.6.9 28.3.6 27l1-.2c.3 1.3.7 2.5 1.3 3.8L2 31Zm41.3-3-1-.3c.4-1.3.6-2.6.7-3.9h1c-.1 1.5-.4 2.8-.7 4.2ZM0 23.9V22c0-.8 0-1.5.1-2.3h1c0 .8-.1 1.5-.1 2.3v1.8H0Zm43-3.2c0-1.3-.3-2.6-.6-3.9l1-.2c.3 1.3.6 2.7.6 4.1h-1ZM1.6 16.9l-1-.2c.3-1.3.8-2.7 1.4-3.9l.9.4c-.6 1.2-1 2.5-1.3 3.7ZM41.4 14c-.5-1.2-1.1-2.4-1.8-3.5l.8-.5c.8 1.2 1.4 2.4 1.9 3.7l-.9.4Zm-37-3.4-.8-.5c.8-1.2 1.6-2.3 2.6-3.3l.7.7c-.9 1-1.7 2-2.5 3.1Zm33.4-2.5c-.9-1-1.8-1.9-2.9-2.7l.6-.8c1.1.8 2.1 1.8 3 2.8l-.8.7ZM9 5.5l-.6-.8c1.1-.9 2.3-1.6 3.5-2.2l.5.9c-1.2.6-2.3 1.3-3.3 2.1Zm23.4-1.7c-1.1-.7-2.4-1.2-3.6-1.6l.3-.9c1.3.4 2.6 1 3.8 1.7l-.5.9ZM15.1 2.2l-.3-.9c1.3-.5 2.7-.8 4-1v1c-1.2.2-2.5.5-3.7.9Zm10.8-.8C24.6 1.2 23.3 1 22 1V0c1.4 0 2.8.1 4.1.4l-.2 1Z"></path></svg></div><div class="quickLinkSlot "> <div class="slot"></div><svg viewBox="0 0 44 44" class="editSlotIndicator"><path d="M22 44h-.5v-1h.5c1.2 0 2.4 0 3.5-.3l.2 1c-1.2.2-2.4.3-3.7.3Zm-3.6-.3c-1.4-.2-2.7-.6-4-1.1l.3-.9c1.2.5 2.5.8 3.8 1l-.2 1Zm10.3-.7-.3-1c1.3-.4 2.5-.9 3.6-1.6l.5.9c-1.2.7-2.5 1.2-3.8 1.6Zm-17.1-1.6c-1.2-.7-2.4-1.4-3.4-2.3l.6-.8c1 .8 2.1 1.6 3.3 2.2l-.5.9Zm23.5-1.7-.6-.8c1.1-.8 2-1.7 2.9-2.7l.7.7c-.9 1-2 2-3.1 2.8ZM5.9 36.9c-.9-1-1.8-2.1-2.5-3.3l.8-.5c.7 1.1 1.5 2.2 2.4 3.1l-.7.7Zm34.2-2.5-.8-.6c.7-1.1 1.4-2.3 1.9-3.5l.9.4c-.6 1.3-1.2 2.5-2 3.6ZM1.9 30.9C1.3 29.6.9 28.3.6 27l1-.2c.3 1.3.7 2.5 1.3 3.8L2 31Zm41.3-3-1-.3c.4-1.3.6-2.6.7-3.9h1c-.1 1.5-.4 2.8-.7 4.2ZM0 23.9V22c0-.8 0-1.5.1-2.3h1c0 .8-.1 1.5-.1 2.3v1.8H0Zm43-3.2c0-1.3-.3-2.6-.6-3.9l1-.2c.3 1.3.6 2.7.6 4.1h-1ZM1.6 16.9l-1-.2c.3-1.3.8-2.7 1.4-3.9l.9.4c-.6 1.2-1 2.5-1.3 3.7ZM41.4 14c-.5-1.2-1.1-2.4-1.8-3.5l.8-.5c.8 1.2 1.4 2.4 1.9 3.7l-.9.4Zm-37-3.4-.8-.5c.8-1.2 1.6-2.3 2.6-3.3l.7.7c-.9 1-1.7 2-2.5 3.1Zm33.4-2.5c-.9-1-1.8-1.9-2.9-2.7l.6-.8c1.1.8 2.1 1.8 3 2.8l-.8.7ZM9 5.5l-.6-.8c1.1-.9 2.3-1.6 3.5-2.2l.5.9c-1.2.6-2.3 1.3-3.3 2.1Zm23.4-1.7c-1.1-.7-2.4-1.2-3.6-1.6l.3-.9c1.3.4 2.6 1 3.8 1.7l-.5.9ZM15.1 2.2l-.3-.9c1.3-.5 2.7-.8 4-1v1c-1.2.2-2.5.5-3.7.9Zm10.8-.8C24.6 1.2 23.3 1 22 1V0c1.4 0 2.8.1 4.1.4l-.2 1Z"></path></svg></div><div class="quickLinkSlot "> <div class="slot"></div><svg viewBox="0 0 44 44" class="editSlotIndicator"><path d="M22 44h-.5v-1h.5c1.2 0 2.4 0 3.5-.3l.2 1c-1.2.2-2.4.3-3.7.3Zm-3.6-.3c-1.4-.2-2.7-.6-4-1.1l.3-.9c1.2.5 2.5.8 3.8 1l-.2 1Zm10.3-.7-.3-1c1.3-.4 2.5-.9 3.6-1.6l.5.9c-1.2.7-2.5 1.2-3.8 1.6Zm-17.1-1.6c-1.2-.7-2.4-1.4-3.4-2.3l.6-.8c1 .8 2.1 1.6 3.3 2.2l-.5.9Zm23.5-1.7-.6-.8c1.1-.8 2-1.7 2.9-2.7l.7.7c-.9 1-2 2-3.1 2.8ZM5.9 36.9c-.9-1-1.8-2.1-2.5-3.3l.8-.5c.7 1.1 1.5 2.2 2.4 3.1l-.7.7Zm34.2-2.5-.8-.6c.7-1.1 1.4-2.3 1.9-3.5l.9.4c-.6 1.3-1.2 2.5-2 3.6ZM1.9 30.9C1.3 29.6.9 28.3.6 27l1-.2c.3 1.3.7 2.5 1.3 3.8L2 31Zm41.3-3-1-.3c.4-1.3.6-2.6.7-3.9h1c-.1 1.5-.4 2.8-.7 4.2ZM0 23.9V22c0-.8 0-1.5.1-2.3h1c0 .8-.1 1.5-.1 2.3v1.8H0Zm43-3.2c0-1.3-.3-2.6-.6-3.9l1-.2c.3 1.3.6 2.7.6 4.1h-1ZM1.6 16.9l-1-.2c.3-1.3.8-2.7 1.4-3.9l.9.4c-.6 1.2-1 2.5-1.3 3.7ZM41.4 14c-.5-1.2-1.1-2.4-1.8-3.5l.8-.5c.8 1.2 1.4 2.4 1.9 3.7l-.9.4Zm-37-3.4-.8-.5c.8-1.2 1.6-2.3 2.6-3.3l.7.7c-.9 1-1.7 2-2.5 3.1Zm33.4-2.5c-.9-1-1.8-1.9-2.9-2.7l.6-.8c1.1.8 2.1 1.8 3 2.8l-.8.7ZM9 5.5l-.6-.8c1.1-.9 2.3-1.6 3.5-2.2l.5.9c-1.2.6-2.3 1.3-3.3 2.1Zm23.4-1.7c-1.1-.7-2.4-1.2-3.6-1.6l.3-.9c1.3.4 2.6 1 3.8 1.7l-.5.9ZM15.1 2.2l-.3-.9c1.3-.5 2.7-.8 4-1v1c-1.2.2-2.5.5-3.7.9Zm10.8-.8C24.6 1.2 23.3 1 22 1V0c1.4 0 2.8.1 4.1.4l-.2 1Z"></path></svg></div><div class="quickLinkSlot "> <div class="slot"></div><svg viewBox="0 0 44 44" class="editSlotIndicator"><path d="M22 44h-.5v-1h.5c1.2 0 2.4 0 3.5-.3l.2 1c-1.2.2-2.4.3-3.7.3Zm-3.6-.3c-1.4-.2-2.7-.6-4-1.1l.3-.9c1.2.5 2.5.8 3.8 1l-.2 1Zm10.3-.7-.3-1c1.3-.4 2.5-.9 3.6-1.6l.5.9c-1.2.7-2.5 1.2-3.8 1.6Zm-17.1-1.6c-1.2-.7-2.4-1.4-3.4-2.3l.6-.8c1 .8 2.1 1.6 3.3 2.2l-.5.9Zm23.5-1.7-.6-.8c1.1-.8 2-1.7 2.9-2.7l.7.7c-.9 1-2 2-3.1 2.8ZM5.9 36.9c-.9-1-1.8-2.1-2.5-3.3l.8-.5c.7 1.1 1.5 2.2 2.4 3.1l-.7.7Zm34.2-2.5-.8-.6c.7-1.1 1.4-2.3 1.9-3.5l.9.4c-.6 1.3-1.2 2.5-2 3.6ZM1.9 30.9C1.3 29.6.9 28.3.6 27l1-.2c.3 1.3.7 2.5 1.3 3.8L2 31Zm41.3-3-1-.3c.4-1.3.6-2.6.7-3.9h1c-.1 1.5-.4 2.8-.7 4.2ZM0 23.9V22c0-.8 0-1.5.1-2.3h1c0 .8-.1 1.5-.1 2.3v1.8H0Zm43-3.2c0-1.3-.3-2.6-.6-3.9l1-.2c.3 1.3.6 2.7.6 4.1h-1ZM1.6 16.9l-1-.2c.3-1.3.8-2.7 1.4-3.9l.9.4c-.6 1.2-1 2.5-1.3 3.7ZM41.4 14c-.5-1.2-1.1-2.4-1.8-3.5l.8-.5c.8 1.2 1.4 2.4 1.9 3.7l-.9.4Zm-37-3.4-.8-.5c.8-1.2 1.6-2.3 2.6-3.3l.7.7c-.9 1-1.7 2-2.5 3.1Zm33.4-2.5c-.9-1-1.8-1.9-2.9-2.7l.6-.8c1.1.8 2.1 1.8 3 2.8l-.8.7ZM9 5.5l-.6-.8c1.1-.9 2.3-1.6 3.5-2.2l.5.9c-1.2.6-2.3 1.3-3.3 2.1Zm23.4-1.7c-1.1-.7-2.4-1.2-3.6-1.6l.3-.9c1.3.4 2.6 1 3.8 1.7l-.5.9ZM15.1 2.2l-.3-.9c1.3-.5 2.7-.8 4-1v1c-1.2.2-2.5.5-3.7.9Zm10.8-.8C24.6 1.2 23.3 1 22 1V0c1.4 0 2.8.1 4.1.4l-.2 1Z"></path></svg></div><a class="textButtonV2 buttonFramed layoutButton villageStatistics round withIcon green" href="/village/statistics"><svg class="overview"><svg viewBox="0 0 20 14.92" class="outline"><path d="M10 1.41c4.61 0 8.34 6.05 8.34 6.05s-3.73 6.05-8.34 6.05-8.34-6-8.34-6 3.73-6 8.34-6M10 0C7.7 0 5.38 1.16 3.1 3.44A20.17 20.17 0 0 0 .46 6.72L0 7.46l.46.74a20.17 20.17 0 0 0 2.64 3.28c2.28 2.28 4.6 3.44 6.9 3.44s4.62-1.16 6.9-3.44a20.17 20.17 0 0 0 2.64-3.28l.46-.74-.46-.74a20.17 20.17 0 0 0-2.64-3.28C14.62 1.16 12.3 0 10 0zm.08 11.64a4.5 4.5 0 1 1 4.49-4.49 4.5 4.5 0 0 1-4.49 4.49zm0-7.88a3.39 3.39 0 1 0 3.38 3.39 3.39 3.39 0 0 0-3.38-3.39zm0 5.92a2.53 2.53 0 1 1 2.52-2.53 2.53 2.53 0 0 1-2.52 2.53z"></path></svg><svg viewBox="0 0 20 14.92" class="icon"><path d="M10 1.41c4.61 0 8.34 6.05 8.34 6.05s-3.73 6.05-8.34 6.05-8.34-6-8.34-6 3.73-6 8.34-6M10 0C7.7 0 5.38 1.16 3.1 3.44A20.17 20.17 0 0 0 .46 6.72L0 7.46l.46.74a20.17 20.17 0 0 0 2.64 3.28c2.28 2.28 4.6 3.44 6.9 3.44s4.62-1.16 6.9-3.44a20.17 20.17 0 0 0 2.64-3.28l.46-.74-.46-.74a20.17 20.17 0 0 0-2.64-3.28C14.62 1.16 12.3 0 10 0zm.08 11.64a4.5 4.5 0 1 1 4.49-4.49 4.5 4.5 0 0 1-4.49 4.49zm0-7.88a3.39 3.39 0 1 0 3.38 3.39 3.39 3.39 0 0 0-3.38-3.39zm0 5.92a2.53 2.53 0 1 1 2.52-2.53 2.53 2.53 0 0 1-2.52 2.53z"></path></svg></svg></a><button class="textButtonV2 buttonFramed layoutButton settings  round withIcon grey" type="button"><svg><svg viewBox="0 0 13 3" class="outline"><path d="M3 1.5C3 2.33 2.33 3 1.5 3S0 2.33 0 1.5.67 0 1.5 0 3 .67 3 1.5ZM8 1.5C8 2.33 7.33 3 6.5 3S5 2.33 5 1.5 5.67 0 6.5 0 8 .67 8 1.5ZM13 1.5c0 .83-.67 1.5-1.5 1.5S10 2.33 10 1.5 10.67 0 11.5 0 13 .67 13 1.5Z"></path></svg><svg viewBox="0 0 13 3" class="icon"><path d="M3 1.5C3 2.33 2.33 3 1.5 3S0 2.33 0 1.5.67 0 1.5 0 3 .67 3 1.5ZM8 1.5C8 2.33 7.33 3 6.5 3S5 2.33 5 1.5 5.67 0 6.5 0 8 .67 8 1.5ZM13 1.5c0 .83-.67 1.5-1.5 1.5S10 2.33 10 1.5 10.67 0 11.5 0 13 .67 13 1.5Z"></path></svg></svg></button></div></div><div class="content"><div class="expansionSlotInfo"><div class="boxTitle">村莊&nbsp;<span class="slots">‭‭1‬/‭1‬‬</span></div><div class="barWrapper"><div class="bar" style="width: 25.6%;">&nbsp;</div></div></div><div class="villageList "><div class="groupsHeader"><span>村莊群組</span><span>(‭‭0‬/‭20‬‬)</span><button class="secondaryIconButton addGroup " title=""><svg viewBox="0 0 20 16"><path d="M12 12h2v-2h2V8h-2V6h-2v2h-2v2h2v2ZM2 16c-.55 0-1.02-.2-1.41-.59C.2 15.02 0 14.55 0 14V2C0 1.45.2.98.59.59.98.2 1.45 0 2 0h6l2 2h8c.55 0 1.02.2 1.41.59.39.39.59.86.59 1.41v10c0 .55-.2 1.02-.59 1.41-.39.39-.86.59-1.41.59H2Zm0-2h16V4H9.18l-2-2H2v12Z"></path></svg></button></div><div class="dropContainer" data-sortid="village53517" data-sortlevel="0"><div class="listEntry village active" data-did="53517" data-sortid="village53517"><div class="dragAndDrop preventMobileSwipeNavigation" data-sortid="village53517"><svg class="handle"><svg viewBox="0 0 7 13"><circle cx="1.5" cy="1.5" r="1.5"></circle><circle cx="5.5" cy="1.5" r="1.5"></circle><circle cx="1.5" cy="6.5" r="1.5"></circle><circle cx="5.5" cy="6.5" r="1.5"></circle><circle cx="1.5" cy="11.5" r="1.5"></circle><circle cx="5.5" cy="11.5" r="1.5"></circle></svg></svg></div><a href="#" class="active"><div class="iconAndNameWrapper"><span class="incomingTroops" data-id="53517" data-load-tooltip="incomingTroops" data-load-tooltip-data="{&quot;villageIds&quot;:[53517]}"><svg viewBox="0 0 20 19.06" class="attack"><path d="M16.22 13.08l2.14-2.14-1.37-1.36-1.63 1.63-2.15-2.15 4.74-4.73L19.06 0l-4.32 1.11L10 5.85 5.26 1.11.94 0l1.11 4.33 4.74 4.73-2.15 2.15-1.63-1.63-1.37 1.36 2.14 2.14L0 16.86l2.21 2.2 3.78-3.77 2.13 2.13 1.37-1.37-1.63-1.63L10 12.28l2.14 2.14-1.63 1.63 1.37 1.37 2.14-2.13 3.77 3.77 2.21-2.2-3.78-3.78z"></path></svg></span><span class="name" data-did="53517">FireDefen的村莊</span></div></a><span class="coordinatesGrid">‭<span class="coordinates coordinatesWrapper coordinatesAligned coordinatesltr"><span class="coordinateX">(‭146‬</span><span class="coordinatePipe">|</span><span class="coordinateY">‭−‭137‬‬)</span></span>‬</span></div></div></div></div></div></div>
+
+<script type="text/javascript">
+    jQuery(function() {
+        window.Travian.React.VillageBoxes.render(
+            {
+                gqlQuery: "query{bootstrapData{buildings{type validTribes}serverSupportedFeatures{keepVidOnConquer}} ownPlayer{name tribeId isSitter goldFeatures{travianPlus{isActive}goldClub}village{id tribeId name sortIndex population loyalty quickLinks{all{type buildingIsAvailable availableBuildingId}villageListSet{type buildingIsAvailable availableBuildingId}villageSet{type buildingIsAvailable availableBuildingId}} x y}isSitter culturalPointsOverview{usedSlots maxControllableVillages cpProducedForNextSlot cpNeededForNextSlot cpProductionTotal}profileBan{isActive tooltip}villageList{... on VillageListGroup{id name color villages{id name distance incomingAttacksAmount incomingAttacksSymbols{gray green red yellow}x y}} ... on VillageListVillage{id name distance incomingAttacksAmount incomingAttacksSymbols{gray green red yellow}x y}}}}",
+                viewData: {"bootstrapData":{"buildings":[{"type":1,"validTribes":[1,2,3,6,7]},{"type":2,"validTribes":[1,2,3,6,7]},{"type":3,"validTribes":[1,2,3,6,7]},{"type":4,"validTribes":[1,2,3,6,7]},{"type":5,"validTribes":[1,2,3,6,7]},{"type":6,"validTribes":[1,2,3,6,7]},{"type":7,"validTribes":[1,2,3,6,7]},{"type":8,"validTribes":[1,2,3,6,7]},{"type":9,"validTribes":[1,2,3,6,7]},{"type":10,"validTribes":[1,2,3,6,7]},{"type":11,"validTribes":[1,2,3,6,7]},{"type":13,"validTribes":[1,2,3,6,7]},{"type":14,"validTribes":[1,2,3,6,7]},{"type":15,"validTribes":[1,2,3,6,7]},{"type":16,"validTribes":[1,2,3,6,7]},{"type":17,"validTribes":[1,2,3,6,7]},{"type":18,"validTribes":[1,2,3,6,7]},{"type":19,"validTribes":[1,2,3,6,7]},{"type":20,"validTribes":[1,2,3,6,7]},{"type":21,"validTribes":[1,2,3,6,7]},{"type":22,"validTribes":[1,2,3,6,7]},{"type":23,"validTribes":[1,2,3,6,7]},{"type":24,"validTribes":[1,2,3,6,7]},{"type":25,"validTribes":[1,2,3,6,7]},{"type":26,"validTribes":[1,2,3,6,7]},{"type":27,"validTribes":[1,2,3,6,7]},{"type":28,"validTribes":[1,2,3,6,7]},{"type":29,"validTribes":[1,2,3,6,7]},{"type":30,"validTribes":[1,2,3,6,7]},{"type":31,"validTribes":[1]},{"type":32,"validTribes":[2]},{"type":33,"validTribes":[3]},{"type":34,"validTribes":[1,2,3,6,7]},{"type":35,"validTribes":[2]},{"type":36,"validTribes":[3]},{"type":37,"validTribes":[1,2,3,6,7]},{"type":38,"validTribes":[1,2,3,6,7]},{"type":39,"validTribes":[1,2,3,6,7]},{"type":40,"validTribes":[]},{"type":41,"validTribes":[1]},{"type":42,"validTribes":[6]},{"type":43,"validTribes":[7]},{"type":44,"validTribes":[7]},{"type":45,"validTribes":[6]},{"type":46,"validTribes":[1,2,3,6,7]}],"serverSupportedFeatures":{"keepVidOnConquer":false}},"ownPlayer":{"name":"FireDefen","tribeId":1,"isSitter":false,"goldFeatures":{"travianPlus":{"isActive":false},"goldClub":false},"village":{"id":53517,"tribeId":1,"name":"FireDefen\u7684\u6751\u838a","sortIndex":1,"population":23,"loyalty":100,"quickLinks":{"all":[{"type":"BlacksmithManagement","buildingIsAvailable":false,"availableBuildingId":null},{"type":"RallyPointOverview","buildingIsAvailable":true,"availableBuildingId":16},{"type":"RallyPointSendTroops","buildingIsAvailable":true,"availableBuildingId":16},{"type":"RallyPointFarmList","buildingIsAvailable":true,"availableBuildingId":16},{"type":"MarketplaceSendResources","buildingIsAvailable":false,"availableBuildingId":null},{"type":"MarketplaceTradeRoutes","buildingIsAvailable":false,"availableBuildingId":null},{"type":"MarketplaceBuy","buildingIsAvailable":false,"availableBuildingId":null},{"type":"BarracksManagement","buildingIsAvailable":false,"availableBuildingId":null},{"type":"GreatBarracksManagement","buildingIsAvailable":false,"availableBuildingId":null},{"type":"StableManagement","buildingIsAvailable":false,"availableBuildingId":null},{"type":"GreatStableManagement","buildingIsAvailable":false,"availableBuildingId":null},{"type":"WorkshopManagement","buildingIsAvailable":false,"availableBuildingId":null},{"type":"TownHallCelebration","buildingIsAvailable":false,"availableBuildingId":null},{"type":"TrapperManagement","buildingIsAvailable":false,"availableBuildingId":null},{"type":"HerosMansionManagement","buildingIsAvailable":false,"availableBuildingId":null},{"type":"HospitalManagement","buildingIsAvailable":false,"availableBuildingId":null},{"type":"ExpansionTrain","buildingIsAvailable":false,"availableBuildingId":null}],"villageListSet":[null,null,null,null],"villageSet":[null,{"type":"MarketplaceSendResources","buildingIsAvailable":false,"availableBuildingId":null},{"type":"BarracksManagement","buildingIsAvailable":false,"availableBuildingId":null},{"type":"StableManagement","buildingIsAvailable":false,"availableBuildingId":null},{"type":"WorkshopManagement","buildingIsAvailable":false,"availableBuildingId":null}]},"x":146,"y":-137},"culturalPointsOverview":{"usedSlots":1,"maxControllableVillages":1,"cpProducedForNextSlot":512,"cpNeededForNextSlot":2000,"cpProductionTotal":14},"profileBan":{"isActive":false,"tooltip":""},"villageList":[{"id":53517,"name":"FireDefen\u7684\u6751\u838a","distance":0,"incomingAttacksAmount":0,"incomingAttacksSymbols":{"gray":0,"green":0,"red":0,"yellow":0},"x":146,"y":-137}]}},
+                knowledgeBaseLinkPlus: 'https://game-configuration.service.legends.travian.info/knowledgebase/premiumPlus?lang=en'
+            },
+            ["layout","karte","allgemein","dorf1u2","spieler","api","quickLinks","gid16","gid17","gid24","gid25u26","plus"]        );
+    });
+</script>
+<div id="sidebarBoxQuestmaster" class="sidebarBox  expanded">
+	<div class="header">
+		<button id="questmasterButton" class="vid_1 claimable" type="button">
+
+            <svg width="152" height="121" viewBox="0 0 152 121">
+    <path fill="url(#mentor_gradient)" d="M0 121c.58-1.86 1.22-4.71 1.57-6.14.74-3.08 1.73-5.45 2.95-7.12.32-.43.78-1.06.95-1.41l.25-1.85.24-1.45c.32-.6.27-1.97.23-3.3-.1-3.08-.25-7.72 3.97-11.08 7.86-7.11 17.31-14.95 28.34-19.84.25-.44.5-.92.76-1.41 1.34-2.55 3.27-6.22 7.65-7.99.12-2.25-.92-7.25-2.71-11.48-3.01-5.87-1.7-11.07-.64-15.26.41-1.62.79-3.14.93-4.63l.02-.18C46.33 14 53.51-.09 72.8 0c8.93.04 17.78 4.1 23.02 11.44 6.87 9.62 5.27 23.97 2.18 38.46l-.06.17-.59 1.37c-.62 1.44-1.42 3.27-1.79 4.49.6.11 1.52.21 2.89.23h.28l.28.04c3.74.48 6.03 2.87 6.31 6.57v.18l.01.18c0 .09 0 .16.01.21.65.51 2.98.99 4.26 1.26 2 .41 4.07.84 5.9 1.81l1.31.69.72 1.3c.35.07 1.01.12 1.51.16 1.64.12 3.89.29 6.29 1.39l.26.12.25.15c1.29.78 2.32 1.69 3.23 2.5 1.34 1.19 1.99 1.71 2.59 1.71l.4-.02.46.05c3.57.43 5.55 2.07 6.65 3.81 2.59 1.36 3.6 3.14 3.89 4.78 3.33 6.51 4.38 13.48 5.19 20.25.97 8.07 3.92 16.05 3.72 17.72H0Z"></path>
+    <defs>
+        <linearGradient id="mentor_gradient" gradientTransform="rotate(90)">
+            <stop class="colorStop1" offset="0%"></stop>
+            <stop class="colorStop2" offset="30%"></stop>
+            <stop class="colorStop1" offset="60%"></stop>
+            <stop class="colorStop3" offset="95%"></stop>
+            <stop class="colorStop4" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+</svg>
+    	<img class="mentor" alt="" src="/img/x.gif">
+    <div class="bigSpeechBubble newQuestSpeechBubble" title="">
+	<img src="/img/x.gif" alt="">
+</div></button>
+
+<script type="text/javascript">
+    jQuery(function() {
+        jQuery('button#questmasterButton').on('click', function() {
+            window.location = '/tasks';
+        });
+            });
+</script>
+	</div>
+	<div class="content">
+		<a href="/tasks" class="progressiveTasksTitle">
+    <div class="boxTitle">任務概覽</div>
+</a>
+	</div>
+	</div>
+                    </div>
+                </div>
+			</div>
+
+			<div id="footer">
+				<div id="pageLinks">
+					<a href="https://www.travian.com/tw" target="_blank">首頁</a>
+					<a href="https://discord.gg/travianlegends" target="_blank">Discord</a>
+					<a href="https://www.travian.com/tw/news" target="_blank">公會新聞</a>
+					<a href="/support/home" target="_blank">支援</a>
+					<a href="https://www.travian.com/tw/gamerules" target="_blank">遊戲規則</a>
+					<a href="https://agb.traviangames.com/terms-zh.pdf" target="_blank">條款</a>
+					<a href="https://www.travian.com/tw/imprint" target="_blank">法律聲明</a>
+					<div class="clear"></div>
+				</div>
+				<p class="copyright">© 2004 - 2026 Travian Games GmbH</p>
+			</div>
+
+			<div id="ce"></div>
+		</div>
+
+        <div id="toastStack"><div class="toastStack"></div></div>
+        <script type="text/javascript">
+            jQuery(function() {
+                window.Travian.React.ToastStack.render({}, []);
+            });
+        </script>
+
+		<script type="application/javascript">
+                            Travian.Game.contextHelpData = {"groupName":"Hero resources in inventory - Main UI","steps":[{"content":"\u60a8\u7684\u82f1\u96c4\u7372\u5f97\u4e86\u4e00\u4e9b\u8cc7\u6e90\u734e\u52f5\u3002\u8981\u4f7f\u7528\u9019\u4e9b\u8cc7\u6e90\uff0c\u60a8\u9996\u5148\u9700\u8981\u5c07\u5b83\u5011\u5f9e\u82f1\u96c4\u9053\u5177\u5eab\u79fb\u5230\u5eab\u5b58\u88cf\u3002","stickToElement":"#heroImageButton","boxPosition":"below","arrowPosition":50}],"restartableGroup":null};
+                Travian.Game.ContextualHelp.initialize();
+            
+            
+                            Travian.Game.Layout.MobileOptimizations.init();
+                Travian.Game.Layout.updateContentTitleClass();
+            		</script>
+        	
+
+<iframe data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/crossdomain.html" name="__cmpcdframe" title="Intentionally hidden, please ignore" role="none" tabindex="-1" style="display: none;"></iframe><style type="text/css">div.cmpwrapper:empty, div.cmpwrapper, div#cmpwrapper.cmpwrapper, div#cmpwrapper.cmpwrapper:empty{ display: block !important;}</style></body></html>

@@ -1,0 +1,45 @@
+{
+  "Warehouse": {
+    "0": {
+      "wood": 130,
+      "clay": 160,
+      "iron": 90,
+      "crop": 40,
+      "time_sec": 1600
+    },
+    "1": {
+      "wood": 165,
+      "clay": 205,
+      "iron": 115,
+      "crop": 50,
+      "time_sec": 1800
+    }
+  },
+  "Granary": {
+    "0": {
+      "wood": 80,
+      "clay": 100,
+      "iron": 70,
+      "crop": 20,
+      "time_sec": 1200
+    }
+  },
+  "Main Building": {
+    "0": {
+      "wood": 70,
+      "clay": 40,
+      "iron": 60,
+      "crop": 15,
+      "time_sec": 700
+    }
+  },
+  "Barracks": {
+    "0": {
+      "wood": 210,
+      "clay": 140,
+      "iron": 260,
+      "crop": 120,
+      "time_sec": 2600
+    }
+  }
+}
