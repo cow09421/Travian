@@ -14,12 +14,13 @@ class RuleDecision:
 
 class RuleEngine:
     async def evaluate(self, state: GameState, plan_store: PlanStore) -> RuleDecision:
-        # P0 Emergency Checks
-        res = state.get("resources", {})
-        wood, clay, iron, crop = res.get('wood', 0), res.get('clay', 0), res.get('iron', 0), res.get('crop', 0)
-        wh_cap = res.get('warehouse_cap', 800)
-        gr_cap = res.get('granary_cap', 800)
-        crop_rate = res.get('crop_rate', 0)
+        try:
+            # P0 Emergency Checks
+            res = state.get("resources", {})
+            wood, clay, iron, crop = res.get('wood') or 0, res.get('clay') or 0, res.get('iron') or 0, res.get('crop') or 0
+            wh_cap = res.get('warehouse_cap') or 800
+            gr_cap = res.get('granary_cap') or 800
+            crop_rate = res.get('crop_rate') or 0
         
         # 1. 糧食負產量且糧倉低於20%
         if crop_rate < 0 and crop < gr_cap * 0.2:
@@ -86,7 +87,14 @@ class RuleEngine:
             # 準備執行，在此階段我們只返回決策，真正的執行和狀態更新交由 dispatcher / loop 處理
             return RuleDecision(step.action, step.params, False, 0)
             
-        # P2 無計畫或計劃完成
-        return RuleDecision("", {}, True, 60)
+            # P2 無計畫或計劃完成
+            return RuleDecision("", {}, True, 60)
+            
+        except Exception as e:
+            import traceback
+            from loguru import logger
+            logger.error(f"RuleEngine異常：{e}")
+            logger.error(traceback.format_exc())
+            return RuleDecision(action="wait", params={}, wait_seconds=60, need_replan=False)
 
 rule_engine = RuleEngine()

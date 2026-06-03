@@ -149,6 +149,12 @@ def build_game_state(html_dorf1: str, html_dorf2: str = "") -> dict:
         combined = html_dorf1 + html_dorf2
 
         resources = parse_resources(html_dorf1)
+        # 任務一/步驟二：數值保護
+        for k in ['wood', 'clay', 'iron', 'crop', 'wood_rate', 'clay_rate', 'iron_rate', 'crop_rate']:
+            resources[k] = resources.get(k) or 0
+        resources['warehouse_cap'] = resources.get('warehouse_cap') or 800
+        resources['granary_cap'] = resources.get('granary_cap') or 800
+
         build_queue = parse_build_queue(html_dorf1)
         troop_queue = parse_troop_queue(html_dorf1)
         troops = parse_troops(html_dorf1)

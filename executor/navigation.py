@@ -16,6 +16,26 @@ URL_SECTIONS = {
     "messages": "nachrichten.php",
 }
 
+async def dismiss_popups(page: Page):
+    """關閉已知的遊戲彈窗"""
+    popup_selectors = [
+        "button.dialogButtonOk",
+        "button[class*='dialogButton']",
+        ".dialog .button.ok",
+        ".closeWindow",
+        "#closeWindowButton",
+        ".infobox .close",
+    ]
+    for selector in popup_selectors:
+        try:
+            btn = await page.query_selector(selector)
+            if btn and await btn.is_visible():
+                await btn.click()
+                await page.wait_for_timeout(500)
+                logger.info(f"已關閉彈窗: {selector}")
+        except Exception:
+            pass
+
 
 def _resolve_slot_for_section(section: str, state: Optional[dict]) -> Optional[int]:
     """Look up a building name in state.buildings_with_slots to find its slot."""
@@ -61,7 +81,9 @@ async def navigate_to(page: Page, section: str, sub_id: str = None,
             else:
                 url = f"{config.travian_url}/{section}"
 
-    return await browser_manager.safe_goto(page, url)
+    ok = await browser_manager.safe_goto(page, url)
+    await dismiss_popups(page)
+    return ok
 
 
 async def navigate_to_build(page: Page, building_id: int) -> bool:

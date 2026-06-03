@@ -19,6 +19,10 @@ class StateSummarizer:
             return "No state data available."
         
         parts = []
+        is_new_village = state.get('map', {}).get('population', 0) < 100 or state.get('hero', {}).get('hero_level', 0) < 5
+        if is_new_village:
+            parts.append("⚠️ 新手村莊：大多數建築尚未建造，優先建造基礎建築。")
+            parts.append(f"新手保護狀態：{'有效' if state.get('diplomatic_intel', {}).get('new_player_protection') else '已過期'}")
         
         # 1. 資源現況與生產速率
         # 2. 倉庫/糧倉剩餘容量百分比
