@@ -57,7 +57,7 @@ class RuleEngine:
             return RuleDecision("collect_quest_reward", {}, False, 0)
 
         # 5. 英雄血量過低
-        if hero.get("hero_health", 100) < 20:
+        if (hero.get("hero_health") or 100) < 20:
             return RuleDecision("wait", {"reason": "英雄血量過低"}, False, 600)
 
         # 佇列檢查
@@ -80,12 +80,12 @@ class RuleEngine:
         step = await plan_store.get_next_pending_step()
         if step:
             if build_queue_full and step.action in ["upgrade_building", "upgrade_resource_field"]:
-                queue_seconds = bq[0].get("seconds_left", 60) if bq else 60
+                queue_seconds = (bq[0].get("seconds_left") or 60) if bq else 60
                 return RuleDecision("wait", {"reason": "佇列已滿"}, False, min(queue_seconds + 5, 120))
                 
             cost = step.estimated_cost
             if cost:
-                if wood < cost.get("wood", 0) or clay < cost.get("clay", 0) or iron < cost.get("iron", 0) or crop < cost.get("crop", 0):
+                if wood < (cost.get("wood") or 0) or clay < (cost.get("clay") or 0) or iron < (cost.get("iron") or 0) or crop < (cost.get("crop") or 0):
                     # 資源不足，計算需要等待的時間
                     # 簡化計算：等待固定時間讓資源增加，或者呼叫精確計算
                     return RuleDecision("wait", {"reason": "資源不足"}, False, 300)

@@ -122,7 +122,9 @@ class GameLoop:
             except asyncio.CancelledError:
                 break
             except Exception as e:
+                import traceback
                 logger.error(f"主循環異常: {e}")
+                logger.error(traceback.format_exc())
                 await asyncio.sleep(15)
 
     async def _do_replan(self, state: GameState):
