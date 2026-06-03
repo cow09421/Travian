@@ -97,3 +97,4 @@
 {"timestamp": "2026-06-01T09:14:49.430479+00:00", "action_type": "upgrade_building", "params": {"building_name": "Main Building", "current_level": 0}, "result": "升級建築 Main Building"}
 {"timestamp": "2026-06-01T09:15:35.845852+00:00", "action_type": "upgrade_building", "params": {"building_name": "Warehouse", "current_level": 0}, "result": "升級建築 Warehouse"}
 {"timestamp": "2026-06-01T09:16:30.434123+00:00", "action_type": "upgrade_building", "params": {"building_name": "Warehouse", "current_level": 0}, "result": "升級建築 Warehouse"}
+{"timestamp": "2026-06-02T09:43:35.762351+00:00", "action_type": "upgrade_building", "params": {"building_name": "Barracks", "current_level": 0}, "result": "升級建築 Barracks"}
