@@ -25,6 +25,8 @@ async def dismiss_popups(page: Page):
         ".closeWindow",
         "#closeWindowButton",
         ".infobox .close",
+        "div.dialogContent + div button",
+        ".dialog button.button",
     ]
     for selector in popup_selectors:
         try:
@@ -35,6 +37,15 @@ async def dismiss_popups(page: Page):
                 logger.info(f"已關閉彈窗: {selector}")
         except Exception:
             pass
+
+    try:
+        btn = page.get_by_role("button", name="確定")
+        if await btn.is_visible():
+            await btn.click()
+            await page.wait_for_timeout(500)
+            logger.info("已關閉彈窗: 確定")
+    except Exception:
+        pass
 
 
 def _resolve_slot_for_section(section: str, state: Optional[dict]) -> Optional[int]:

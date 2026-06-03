@@ -17,7 +17,6 @@ from executor.train import train_troops
 from executor.attack import send_attack, send_scout
 from executor.hero import collect_hero_resources, send_hero_adventure, allocate_hero_points
 from executor.quests import collect_quest_reward
-from agent.memory import memory_manager
 from agent.planner import planner
 from parser.state_builder import summarize_state
 from shared.troop_data import get_building_gid_for_troop as _get_troop_building_gid
@@ -105,12 +104,6 @@ async def execute_single_action(
             success=result.get("success", False),
             result_text=result.get("action_taken") or result.get("error_msg", ""),
             screenshot_path=result.get("screenshot_path")
-        )
-
-        await memory_manager.record_action(
-            action_name, action_params,
-            result.get("success", False),
-            result.get("action_taken") or result.get("error_msg", "")
         )
 
         return result
