@@ -14,7 +14,7 @@ from loguru import logger
 from database import db
 from executor.build import upgrade_building, upgrade_resource_field
 from executor.train import train_troops
-from executor.attack import send_attack, send_scout
+from executor.attack import send_attack, send_raid, send_scout
 from executor.hero import collect_hero_resources, send_hero_adventure, allocate_hero_points
 from executor.quests import collect_quest_reward
 from agent.planner import planner
@@ -58,6 +58,13 @@ async def execute_single_action(
                 action_params.get("target_x", 0),
                 action_params.get("target_y", 0),
                 action_params.get("mission_type", "raid"),
+                action_params.get("troops", {})
+            )
+        elif action_name == "send_raid":
+            result = await send_raid(
+                page,
+                action_params.get("target_x", 0),
+                action_params.get("target_y", 0),
                 action_params.get("troops", {})
             )
         elif action_name == "send_scout":

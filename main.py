@@ -9,6 +9,8 @@ try:
     from loguru import logger
     from config import config, validate_config
     from scheduler.loop import scheduler
+    from raider.raid_scheduler import raid_scheduler
+    from raider.farm_list import farm_list_manager
 except ImportError as e:
     print(f"\n❌ 套件匯入失敗: {e}")
     print("請執行: pip install -r requirements.txt")
@@ -107,6 +109,23 @@ async def main():
         logger.error("啟動失敗")
         return
 
+    # 注入實際的 executor 和 scraper 給 raid_scheduler
+    from scheduler.action_dispatcher import execute_single_action
+    from scraper.browser import browser_manager
+
+    async def _scraper_get_state():
+        page = browser_manager._page
+        if not page:
+            return {}
+        from scheduler.loop import _build_state
+        state = await scheduler._build_state()
+        return state or {}
+
+    raid_scheduler.executor = type("Executor", (), {"send_raid": lambda x, y, troops=None: execute_single_action(
+        browser_manager._page, "send_raid", {"target_x": x, "target_y": y, "troops": troops or {}}, {}
+    )})()
+    raid_scheduler.scraper = type("Scraper", (), {"get_game_state": _scraper_get_state})()
+
     logger.info("✅ 已登入 Travian，AI 將自動管理所有遊戲操作")
     logger.info("📋 按 Ctrl+C 停止")
 
@@ -123,8 +142,17 @@ async def main():
     except NotImplementedError:
         pass
 
+    # 並行執行兩個排程器
+    raid_task = asyncio.create_task(raid_scheduler.run())
+    main_task = asyncio.create_task(stop_event.wait())
+
     try:
-        await stop_event.wait()
+        done, pending = await asyncio.wait(
+            [main_task, raid_task],
+            return_when=asyncio.FIRST_COMPLETED,
+        )
+        for task in pending:
+            task.cancel()
     except (KeyboardInterrupt, asyncio.CancelledError):
         pass
     finally:

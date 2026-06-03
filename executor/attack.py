@@ -95,6 +95,15 @@ async def send_attack(page: Page, target_x: int, target_y: int,
     return result
 
 
+async def send_raid(page: Page, target_x: int, target_y: int,
+                    troops: dict = None) -> dict:
+    """發送劫掠 (send_attack with mission_type=raid)"""
+    if troops is None:
+        troops = {}
+    result = await send_attack(page, target_x, target_y, "raid", troops)
+    return result
+
+
 async def send_scout(page: Page, target_x: int, target_y: int) -> dict:
     result = {
         "success": False,

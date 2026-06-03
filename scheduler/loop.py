@@ -31,17 +31,79 @@ def _find_building_slot(state: GameState, gid: int) -> Optional[int]:
 
 
 def _pre_loop_priority_checks(state: GameState) -> Optional[dict]:
-    """硬規則優先，不經 LLM，不燒 token。"""
+    """硬規則優先，不經 LLM，不燒 token。
+    按優先級順序，找到第一個符合的就返回動作。"""
     res = state.get("resources", {})
-    buildings = state.get("buildings_by_gid", {})
+    buildings = state.get("buildings", {})
+    buildings_gid = state.get("buildings_by_gid", {})
+    troops_home = state.get("troops", {}).get("home", {})
+    total_troops_home = sum(troops_home.values())
+    has_rally_point = "Rally Point" in buildings
+    has_barracks = "Barracks" in buildings
 
-    # 1. Cranny (GID=23): 沒有就馬上蓋
-    if 23 not in buildings and not state.get("build_queue_full", False):
+    # 優先級1（最高）：兵 >20 且有 Rally Point → 派出去掠奪
+    if total_troops_home > 20 and has_rally_point:
+        from raider.farm_list import farm_list_manager
+        ready = farm_list_manager.get_ready_targets()
+        if ready:
+            target = ready[0]
+            return {
+                "action": "send_raid",
+                "target_x": target.coord_x,
+                "target_y": target.coord_y,
+                "troops": {"legionnaire": max(5, total_troops_home // 3)},
+                "use_farm_list": True,
+            }
+        # 沒有農場目標但兵太多 → 強制 LLM 處理
+        logger.warning(f"{total_troops_home} 兵在家但無農場目標可用，交給 LLM")
+
+    # 優先級2：被攻擊且資源 > Cranny 保護量 → 轉移資源（stub）
+    incoming = state.get("diplomatic_intel", {}).get("incoming_attacks", [])
+    if incoming:
+        logger.warning(f"偵測到 {len(incoming)} 波攻擊，保護資源優先")
+        # 用 Cranny 的保護
+        cranny_level = buildings.get("Cranny", 0)
+        cranny_cap = {0: 0, 1: 400, 2: 600, 3: 800, 4: 1000}.get(cranny_level, 1200)
+        wh_cap = res.get("warehouse_cap", 800)
+        for r in ["wood", "clay", "iron"]:
+            if res.get(r, 0) > min(cranny_cap, wh_cap) * 0.8:
+                return {
+                    "action": "trade_resources",
+                    "target": "alliance_member",
+                    "resource_type": r,
+                    "reason": "受攻擊前轉移資源",
+                }
+
+    # 優先級3：Barracks 不存在 → 強制建 Barracks（比 Warehouse 更優先）
+    if not has_barracks and not state.get("build_queue_full", False):
+        slot = state.get("next_free_slot")
+        if slot is not None:
+            return {"action": "upgrade_building", "building_name": "Barracks", "gid": 19, "slot_id": slot}
+
+    # 優先級4：Barracks 存在但訓練佇列為空且資源足夠 → 訓練
+    if has_barracks:
+        tq = state.get("troop_queue", [])
+        if not tq:
+            res_w = res.get("wood", 0)
+            res_c = res.get("clay", 0)
+            # Legionnaire cost: wood=120, clay=130, iron=150, crop=30
+            max_by_wood = res_w // 120
+            max_by_clay = res_c // 130
+            max_count = min(max_by_wood, max_by_clay, 20)
+            if max_count >= 3:
+                return {
+                    "action": "train_troops",
+                    "troop_type": "legionnaire",
+                    "count": max_count,
+                }
+
+    # 優先級5：Cranny (GID=23): 沒有就馬上蓋（新手保護）
+    if 23 not in buildings_gid and not state.get("build_queue_full", False):
         slot = state.get("next_free_slot")
         if slot is not None:
             return {"action": "upgrade_building", "gid": 23, "slot_id": slot}
 
-    # 2. Warehouse (GID=10): 任一資源 >85% 倉庫容量就升
+    # 優先級6：Warehouse (GID=10): 任一資源 >85% 倉庫容量就升
     wh_cap = res.get("warehouse_cap", 800)
     if any(res.get(r, 0) > wh_cap * 0.85 for r in ["wood", "clay", "iron"]):
         if not state.get("build_queue_full", False):
@@ -49,7 +111,7 @@ def _pre_loop_priority_checks(state: GameState) -> Optional[dict]:
             if ws is not None:
                 return {"action": "upgrade_building", "gid": 10, "slot_id": ws}
 
-    # 3. Granary (GID=11): crop >85%
+    # 優先級7：Granary (GID=11): crop >85%
     gr_cap = res.get("granary_cap", 800)
     if res.get("crop", 0) > gr_cap * 0.85:
         if not state.get("build_queue_full", False):
@@ -187,12 +249,12 @@ class GameLoop:
             history_summary = await plan_store.get_plan_history_summary(n=3)
             new_plan = await llm_client.request_new_plan(state_summary, history_summary, raw_state=state)
 
-            # 最低步數驗證：LLM 產少於 3 步時補充 wait 步撐時間，避免無限迴圈
-            if len(new_plan.steps) < 3:
-                logger.warning(f"LLM 只產了 {len(new_plan.steps)} 步，補充 wait 步驟以避免重複規劃迴圈")
+            # 最低步數驗證：LLM 產少於 10 步時補充 wait 步撐時間，避免無限迴圈
+            if len(new_plan.steps) < 10:
+                logger.warning(f"LLM 只產了 {len(new_plan.steps)} 步，補充 wait 至 15 步以避免重複規劃迴圈")
                 from agent.plan_model import BuildStep
                 import uuid
-                for _ in range(5 - len(new_plan.steps)):
+                for _ in range(15 - len(new_plan.steps)):
                     new_plan.steps.append(BuildStep(
                         step_id=str(uuid.uuid4()),
                         action="wait",

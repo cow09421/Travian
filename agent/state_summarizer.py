@@ -5,6 +5,10 @@ from agent.knowledge_base import BUILDING_COSTS
 
 def compress_state_for_llm(state: GameState) -> dict:
     """只傳 LLM 真正需要的資訊，砍掉 raw HTML 殘留、完整 map 等大欄位。"""
+    buildings = state.get("buildings", {})
+    troops_home = state.get("troops", {}).get("home", {})
+    total_troops_home = sum(troops_home.values())
+
     return {
         "resources": state.get("resources", {}),
         "resource_rates": {
@@ -25,7 +29,12 @@ def compress_state_for_llm(state: GameState) -> dict:
             {"name": q.get("name"), "seconds_left": q.get("seconds_left")}
             for q in state.get("build_queue", [])
         ],
-        "troops_at_home": state.get("troops", {}).get("home", {}),
+        "troops_at_home": troops_home,
+        "total_troops_home": total_troops_home,
+        "has_barracks": "Barracks" in buildings,
+        "has_rally_point": "Rally Point" in buildings,
+        "has_cranny": "Cranny" in buildings,
+        "hero_location": state.get("hero", {}).get("hero_status", "unknown"),
         "incoming_attacks": state.get("diplomatic_intel", {}).get("incoming_attacks", []),
         "population": state.get("population", 0),
     }

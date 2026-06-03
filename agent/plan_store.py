@@ -17,8 +17,9 @@ class PlanStore:
 
     async def save_plan(self, plan: BuildPlan) -> None:
         steps = plan.steps
-        if len(steps) < 3:
-            logger.warning(f"LLM 返回計畫步驟數過少 ({len(steps)} 步)，可能陷入重複規劃迴圈")
+        if len(steps) < 10:
+            logger.warning(f"LLM 返回計畫步驟數過少 ({len(steps)} 步 < 10)，拒絕接受，要求重新規劃")
+            raise ValueError(f"Plan too short: {len(steps)} steps, minimum 10 required")
 
         async with aiosqlite.connect(self.db_path) as db_conn:
             await db_conn.execute(
