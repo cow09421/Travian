@@ -84,6 +84,16 @@ class Database:
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                     completed_at TIMESTAMP
                 );
+                CREATE TABLE IF NOT EXISTS build_plans (
+                    plan_id TEXT PRIMARY KEY,
+                    created_at REAL NOT NULL,
+                    strategic_goal TEXT NOT NULL,
+                    plan_json TEXT NOT NULL,
+                    replan_trigger TEXT,
+                    valid_for_hours REAL,
+                    status TEXT NOT NULL DEFAULT 'active',
+                    invalidated_reason TEXT
+                );
             """)
             conn.commit()
             self._initialized = True
