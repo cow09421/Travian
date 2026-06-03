@@ -3,7 +3,7 @@ import json
 import uuid
 import traceback
 import time
-from typing import Callable, Dict, List, Optional, Any
+from typing import Callable, Dict, List, Optional, Any, TYPE_CHECKING
 
 from openai import AsyncOpenAI
 from loguru import logger
@@ -11,6 +11,10 @@ from loguru import logger
 from config import config
 from database import db
 from agent.plan_model import BuildPlan, BuildStep
+from agent.state_summarizer import compress_state_for_llm
+
+if TYPE_CHECKING:
+    from parser.state_builder import GameState
 
 PLANNING_TOOL = {
     "type": "function",
@@ -68,35 +72,53 @@ PLANNING_TOOL = {
     }
 }
 
-PLANNING_SYSTEM_PROMPT = """你是Travian Legends的策略顧問。你的職責是制定具體可執行的建造計劃，而不是直接操控遊戲。
-你的職責：
-1. 分析當前遊戲狀態
-2. 制定未來2-6小時的建造/訓兵計劃（5-15個步驟）
-3. 每個步驟必須包含具體的action和params
+PLANNING_SYSTEM_PROMPT = """你是 Travian Legends 的自動化遊戲代理人。你的族群是羅馬人（Roman）。
 
-Travian遊戲基本原則（按優先級）：
-- 糧食生產率必須 > 0（否則村莊人口會下降）
-- 倉庫/糧倉不能滿（會停止生產）
-- 建造佇列永遠不應空著（有空位就要安排建造任務）
-- 資源田等級應均衡提升，不要某一種遠超其他
-- 核心建築（Barracks、Stable、Workshop）等級決定兵種上限
+## 你的核心職責
+根據當前遊戲狀態，產生一個 **10~20 步** 的完整建設計畫。
+計畫必須覆蓋接下來數小時的行動，而不是只做一件事。
+每次被呼叫都必須輸出足夠多的步驟，避免頻繁重新規劃。
 
-可用的action清單與其params：
-- upgrade_building: {"building_name": "...", "current_level": ...}
+## Travian 策略知識（必須遵守）
+
+### 早期優先序（人口 < 200）
+1. **Cranny（地窖，GID=23）**：第一優先。沒有地窖就會被搶光。蓋到 Lv5 以上。
+2. **Main Building（GID=15）**：升到 Lv3～5，加快建設速度。
+3. **資源田全面升級**：木材(GID=1)、黏土(GID=2)、鐵礦(GID=3) 各升到 Lv3~5。農田(GID=4)優先升（羅馬人農作物消耗高）。
+4. **Warehouse（GID=10）** & **Granary（GID=11）**：任何資源或農作物接近上限前必須升。
+5. **空地不能留空**：`empty_building_slots` 列表有格子就要填建物。
+
+### 中期優先序（人口 200~500）
+1. Barracks（GID=19）→ 練 Legionnaire 保護村莊
+2. Rally Point（GID=16）→ 才能派兵
+3. 繼續升資源田到 Lv5~8
+4. 升 Main Building 到 Lv10（解鎖更快建設）
+
+### 被攻擊處理規則
+- `incoming_attacks` 不為空 → 立刻把下一步改為蓋/升 Cranny
+- troops_at_home 為空且已有 Barracks → 優先訓練 Legionnaire
+
+### 絕對禁止
+- 不可以把同一個 slot 同一個 field_type 重複列入計畫（例如 clay_pits slot#1 已在 queue 就不要再加）
+- 計畫步驟不得少於 5 步（除非真的已達到當前階段所有目標）
+- 不可以輸出 `complete` 除非確認沒有任何空地且資源田均 Lv5+
+
+## 輸出格式
+你必須用工具呼叫（tool use）輸出動作序列。
+每次規劃輸出的步驟數：**10~20 步**。
+步驟之間依賴性：前步驟的建物完成後才執行需要該建物作前提的後步驟。
+
+## 狀態解讀提示
+- `empty_building_slots`: 這些 slot 是空地，必須蓋建物
+- `resource_fields_summary`: level=0 表示未升過，優先升
+- `build_queue_full: true` 表示建設欄位已滿，這種情況下只能選擇 `wait`
+- `incoming_attacks` 有資料時，防禦是最高優先
+
+## 可用的 action 清單
+- upgrade_building: {"building_name": "...", "current_level": ..., "gid": ...}
 - upgrade_resource_field: {"field_type": "wood_cutters|clay_pits|iron_mines|croplands", "slot_id": ..., "current_level": ...}
 - train_troops: {"troop_type": "...", "count": ...}
-
-計劃格式要求：
-- steps按執行優先順序排列
-- 每步的estimated_cost必須填寫，讓執行層做資源檢查
-- reason必須說明為什麼做這步（供人類審查）
-- 如果某步依賴前一步完成才能執行，填寫prerequisite_step_id
-- valid_for_hours：如果你認為2小時後情況可能有重大變化，設短一點
-
-注意事項：
-- 不要規劃超出倉庫容量的步驟
-- 不要在糧食生產為負時規劃訓兵
-- 訓兵前確認Barracks/Stable已達到要求等級"""
+- wait: {"reason": "...", "seconds": ...}"""
 
 class LLMClient:
     def __init__(self):
@@ -154,13 +176,27 @@ class LLMClient:
                     logger.error(f"LLM API 呼叫最終失敗: {e}")
                     raise
 
-    async def request_new_plan(self, state_summary: str, history_summary: str) -> BuildPlan:
+    async def request_new_plan(self, state_summary: str, history_summary: str, raw_state: GameState = None) -> BuildPlan:
         """
         呼叫LLM生成新的BuildPlan。
         """
+        import json
+
+        # 如果有 raw_state，壓縮成精簡 JSON 附加到提示詞
+        compressed = ""
+        if raw_state:
+            try:
+                compressed = json.dumps(compress_state_for_llm(raw_state), ensure_ascii=False, default=str)
+            except Exception:
+                compressed = ""
+
+        base_content = f"歷史計劃摘要:\n{history_summary}\n\n當前狀態摘要:\n{state_summary}\n"
+        if compressed:
+            base_content += f"\n精簡狀態 JSON:\n{compressed[:3000]}\n"
+
         messages = [
             {"role": "system", "content": PLANNING_SYSTEM_PROMPT},
-            {"role": "user", "content": f"歷史計劃摘要:\n{history_summary}\n\n當前狀態摘要:\n{state_summary}\n\n請根據以上資訊，制定最新的建造計劃。"}
+            {"role": "user", "content": base_content + "\n請根據以上資訊，制定最新的建造計劃（10~20 步）。"}
         ]
         
         logger.info("📡 呼叫 LLM 進行戰略規劃...")

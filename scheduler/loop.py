@@ -21,6 +21,45 @@ from agent.intel import intel_manager
 MIN_SLEEP = 5
 MAX_SLEEP = 60
 
+
+def _find_building_slot(state: GameState, gid: int) -> Optional[int]:
+    """從 buildings_with_slots 中找到指定 gid 的 slot_id"""
+    for slot_id, b in state.get("buildings_with_slots", {}).items():
+        if b.get("gid") == gid:
+            return int(slot_id)
+    return None
+
+
+def _pre_loop_priority_checks(state: GameState) -> Optional[dict]:
+    """硬規則優先，不經 LLM，不燒 token。"""
+    res = state.get("resources", {})
+    buildings = state.get("buildings_by_gid", {})
+
+    # 1. Cranny (GID=23): 沒有就馬上蓋
+    if 23 not in buildings and not state.get("build_queue_full", False):
+        slot = state.get("next_free_slot")
+        if slot is not None:
+            return {"action": "upgrade_building", "gid": 23, "slot_id": slot}
+
+    # 2. Warehouse (GID=10): 任一資源 >85% 倉庫容量就升
+    wh_cap = res.get("warehouse_cap", 800)
+    if any(res.get(r, 0) > wh_cap * 0.85 for r in ["wood", "clay", "iron"]):
+        if not state.get("build_queue_full", False):
+            ws = _find_building_slot(state, gid=10)
+            if ws is not None:
+                return {"action": "upgrade_building", "gid": 10, "slot_id": ws}
+
+    # 3. Granary (GID=11): crop >85%
+    gr_cap = res.get("granary_cap", 800)
+    if res.get("crop", 0) > gr_cap * 0.85:
+        if not state.get("build_queue_full", False):
+            gs = _find_building_slot(state, gid=11)
+            if gs is not None:
+                return {"action": "upgrade_building", "gid": 11, "slot_id": gs}
+
+    return None  # 交給 LLM
+
+
 class GameLoop:
     def __init__(self):
         self.running = False
@@ -79,6 +118,20 @@ class GameLoop:
 
                 await db.save_state(state)
 
+                # 1a. 硬規則優先檢查（不經 LLM）
+                hard_rule = _pre_loop_priority_checks(state)
+                if hard_rule:
+                    logger.info(f"⚡ 硬規則觸發: {hard_rule['action']}")
+                    result = await execute_single_action(
+                        self.current_page, hard_rule["action"], hard_rule, state
+                    )
+                    if result.get("success"):
+                        logger.info(f"✅ 硬規則動作成功")
+                    else:
+                        logger.warning(f"❌ 硬規則動作失敗: {result.get('error_msg')}")
+                    await asyncio.sleep(MIN_SLEEP)
+                    continue
+
                 # 2. RuleEngine評估（不呼叫LLM）
                 decision = await rule_engine.evaluate(state, plan_store)
 
@@ -128,11 +181,26 @@ class GameLoop:
                 await asyncio.sleep(15)
 
     async def _do_replan(self, state: GameState):
-        """呼叫LLM生成新計劃，寫入PlanStore"""
+        """呼叫LLM生成新計劃，寫入PlanStore，並驗證最低步數"""
         try:
             state_summary = state_summarizer.summarize_for_planning(state)
             history_summary = await plan_store.get_plan_history_summary(n=3)
-            new_plan = await llm_client.request_new_plan(state_summary, history_summary)
+            new_plan = await llm_client.request_new_plan(state_summary, history_summary, raw_state=state)
+
+            # 最低步數驗證：LLM 產少於 3 步時補充 wait 步撐時間，避免無限迴圈
+            if len(new_plan.steps) < 3:
+                logger.warning(f"LLM 只產了 {len(new_plan.steps)} 步，補充 wait 步驟以避免重複規劃迴圈")
+                from agent.plan_model import BuildStep
+                import uuid
+                for _ in range(5 - len(new_plan.steps)):
+                    new_plan.steps.append(BuildStep(
+                        step_id=str(uuid.uuid4()),
+                        action="wait",
+                        params={"reason": "補充等待避免重複規劃"},
+                        reason="LLM 步驟數過少，自動補充等待",
+                        estimated_cost={},
+                    ))
+
             await plan_store.save_plan(new_plan)
             logger.info(f"✅ 新計劃已生成寫入資料庫：{new_plan.strategic_goal}，共{len(new_plan.steps)}步")
         except Exception as e:
