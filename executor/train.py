@@ -168,7 +168,9 @@ async def _find_building_slot_from_page(page, target_gid: int) -> int:
     return None
 
 
-def _find_building_slot(state: dict, target_gid: int, building_name: str) -> int:
+from parser.state_builder import GameState as _GameState
+
+def _find_building_slot(state: _GameState, target_gid: int, building_name: str) -> int:
     if not state:
         return None
     bws = state.get("buildings_with_slots", {})

@@ -48,7 +48,9 @@ async def dismiss_popups(page: Page):
         pass
 
 
-def _resolve_slot_for_section(section: str, state: Optional[dict]) -> Optional[int]:
+from parser.state_builder import GameState as _GameState
+
+def _resolve_slot_for_section(section: str, state: Optional[_GameState]) -> Optional[int]:
     """Look up a building name in state.buildings_with_slots to find its slot."""
     if not state:
         return None

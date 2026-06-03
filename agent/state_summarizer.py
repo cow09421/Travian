@@ -16,8 +16,8 @@ def compress_state_for_llm(state: GameState) -> dict:
             for k in ["wood_rate", "clay_rate", "iron_rate", "crop_rate"]
         },
         "buildings_summary": [
-            {"slot": int(k), "gid": v.get("gid"), "level": v.get("level"), "name": v.get("name")}
-            for k, v in state.get("buildings_with_slots", {}).items()
+            {"slot": v.get("slot"), "gid": v.get("gid"), "level": v.get("level"), "name": v.get("name")}
+            for v in state.get("buildings_with_slots", {}).values()
         ],
         "empty_slots": state.get("empty_building_slots", []),
         "resource_fields_summary": [

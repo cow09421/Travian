@@ -3,12 +3,14 @@
 每隔 10 分鐘檢查一次是否有兵可以派出。
 """
 import asyncio
+from typing import Optional
 from loguru import logger
 from raider.farm_list import farm_list_manager
+from raider.__init__ import RaidExecutor, StateProvider
 
 
 class RaidScheduler:
-    def __init__(self, executor, scraper):
+    def __init__(self, executor: RaidExecutor, scraper: StateProvider):
         self.executor = executor
         self.scraper = scraper
         self.check_interval = 600
@@ -41,14 +43,11 @@ class RaidScheduler:
         for target in ready_targets[:5]:
             logger.info(f"派 {troops_to_send} 兵掠奪 ({target.coord_x}|{target.coord_y}) {target.village_name}")
             result = await self.executor.send_raid(
-                x=target.coord_x,
-                y=target.coord_y,
+                target_x=target.coord_x,
+                target_y=target.coord_y,
                 troops={"legionnaire": troops_to_send},
             )
             if result.get("success"):
                 logger.info(f"掠奪成功: ({target.coord_x}|{target.coord_y})")
             else:
                 logger.warning(f"掠奪失敗: {result.get('error_msg')}")
-
-
-raid_scheduler = RaidScheduler(None, None)

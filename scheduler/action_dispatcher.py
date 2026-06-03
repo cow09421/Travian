@@ -17,8 +17,7 @@ from executor.train import train_troops
 from executor.attack import send_attack, send_raid, send_scout
 from executor.hero import collect_hero_resources, send_hero_adventure, allocate_hero_points
 from executor.quests import collect_quest_reward
-from agent.planner import planner
-from parser.state_builder import summarize_state
+from parser.state_builder import summarize_state, GameState
 from shared.troop_data import get_building_gid_for_troop as _get_troop_building_gid
 
 
@@ -26,7 +25,7 @@ async def execute_single_action(
     page: Page,
     action_name: str,
     action_params: dict,
-    state: dict,
+    state: GameState,
 ) -> dict:
     try:
         logger.info(f"🎮 執行動作: {action_name}, 參數: {json.dumps(action_params, ensure_ascii=False)[:200]}")
@@ -94,9 +93,9 @@ async def execute_single_action(
                 action_params.get("quest_id")
             )
         elif action_name == "complete":
-            from agent.planner import planner
             from parser.state_builder import summarize_state
-            await planner.complete_goal()
+            from agent.plan_store import plan_store
+            await plan_store.invalidate_plan("目標完成")
             summary = summarize_state(state)
             result = {"success": True, "action_taken": "目標完成，規劃下一步"}
         else:

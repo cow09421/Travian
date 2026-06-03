@@ -3,8 +3,10 @@ scheduler/sleep_manager.py
 
 Smart sleep scheduling based on build queue and resource levels.
 """
+from parser.state_builder import GameState
+
 def smart_sleep(
-    state: dict,
+    state: GameState,
     consecutive_waits: int,
     min_sleep: int = 5,
     max_sleep: int = 60,

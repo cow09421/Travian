@@ -17,6 +17,7 @@ from agent.llm_client import llm_client
 from scheduler.rule_engine import rule_engine
 from scheduler.action_dispatcher import execute_single_action
 from agent.intel import intel_manager
+from raider.farm_list import farm_list_manager
 
 MIN_SLEEP = 5
 MAX_SLEEP = 60
@@ -24,9 +25,9 @@ MAX_SLEEP = 60
 
 def _find_building_slot(state: GameState, gid: int) -> Optional[int]:
     """從 buildings_with_slots 中找到指定 gid 的 slot_id"""
-    for slot_id, b in state.get("buildings_with_slots", {}).items():
+    for bname, b in state.get("buildings_with_slots", {}).items():
         if b.get("gid") == gid:
-            return int(slot_id)
+            return b.get("slot")
     return None
 
 
@@ -43,7 +44,6 @@ def _pre_loop_priority_checks(state: GameState) -> Optional[dict]:
 
     # 優先級1（最高）：兵 >20 且有 Rally Point → 派出去掠奪
     if total_troops_home > 20 and has_rally_point:
-        from raider.farm_list import farm_list_manager
         ready = farm_list_manager.get_ready_targets()
         if ready:
             target = ready[0]
@@ -172,7 +172,6 @@ class GameLoop:
                     self.current_page = await browser_manager.new_page()
                     await login_manager.ensure_login(self.current_page)
 
-                # 1. 獲取遊戲狀態
                 state = await self._build_state()
                 if not state:
                     await asyncio.sleep(MAX_SLEEP)
@@ -180,59 +179,18 @@ class GameLoop:
 
                 await db.save_state(state)
 
-                # 1a. 硬規則優先檢查（不經 LLM）
-                hard_rule = _pre_loop_priority_checks(state)
-                if hard_rule:
-                    logger.info(f"⚡ 硬規則觸發: {hard_rule['action']}")
-                    result = await execute_single_action(
-                        self.current_page, hard_rule["action"], hard_rule, state
-                    )
-                    if result.get("success"):
-                        logger.info(f"✅ 硬規則動作成功")
-                    else:
-                        logger.warning(f"❌ 硬規則動作失敗: {result.get('error_msg')}")
-                    await asyncio.sleep(MIN_SLEEP)
+                if await self._run_hard_rules(state):
                     continue
 
-                # 2. RuleEngine評估（不呼叫LLM）
                 decision = await rule_engine.evaluate(state, plan_store)
 
-                # 3. 如果需要重新規劃，呼叫LLM
                 if decision.need_replan:
                     logger.info("需要重新規劃，呼叫 LLM...")
                     await self._do_replan(state)
                     await asyncio.sleep(MIN_SLEEP)
                     continue
-                
-                # 4. 執行動作
-                if decision.wait_seconds > 0:
-                    logger.info(f"等待 {decision.wait_seconds} 秒...")
-                    await asyncio.sleep(decision.wait_seconds)
-                elif decision.action:
-                    logger.info(f"執行動作: {decision.action} {decision.params}")
-                    
-                    # 取出對應的 step_id
-                    step = await plan_store.get_next_pending_step()
-                    step_id = step.step_id if step and step.action == decision.action else None
-                    
-                    if step_id:
-                        await plan_store.advance_step(step_id, "executing")
 
-                    result = await execute_single_action(self.current_page, decision.action, decision.params, state)
-                    
-                    if result.get("success"):
-                        logger.info(f"✅ 動作成功: {result.get('action_taken')}")
-                        if step_id:
-                            await plan_store.advance_step(step_id, "done")
-                    else:
-                        logger.warning(f"❌ 動作失敗: {result.get('error_msg')}")
-                        if step_id:
-                            await plan_store.advance_step(step_id, "failed")
-                            # Check if consecutive failures requires replanning (todo)
-                    
-                    await asyncio.sleep(MIN_SLEEP)
-                else:
-                    await asyncio.sleep(MIN_SLEEP)
+                await self._execute_step(state, decision)
 
             except asyncio.CancelledError:
                 break
@@ -241,6 +199,46 @@ class GameLoop:
                 logger.error(f"主循環異常: {e}")
                 logger.error(traceback.format_exc())
                 await asyncio.sleep(15)
+
+    async def _run_hard_rules(self, state: GameState) -> bool:
+        """執行硬規則優先檢查，回傳 True 表示已處理（呼叫方應 continue）"""
+        hard_rule = _pre_loop_priority_checks(state)
+        if not hard_rule:
+            return False
+        logger.info(f"⚡ 硬規則觸發: {hard_rule['action']}")
+        result = await execute_single_action(
+            self.current_page, hard_rule["action"], hard_rule, state
+        )
+        if result.get("success"):
+            logger.info(f"✅ 硬規則動作成功")
+        else:
+            logger.warning(f"❌ 硬規則動作失敗: {result.get('error_msg')}")
+        await asyncio.sleep(MIN_SLEEP)
+        return True
+
+    async def _execute_step(self, state: GameState, decision) -> None:
+        """執行單一 action 並更新 step 狀態"""
+        if decision.wait_seconds > 0:
+            logger.info(f"等待 {decision.wait_seconds} 秒...")
+            await asyncio.sleep(decision.wait_seconds)
+        elif decision.action:
+            logger.info(f"執行動作: {decision.action} {decision.params}")
+            step = await plan_store.get_next_pending_step()
+            step_id = step.step_id if step and step.action == decision.action else None
+            if step_id:
+                await plan_store.advance_step(step_id, "executing")
+            result = await execute_single_action(self.current_page, decision.action, decision.params, state)
+            if result.get("success"):
+                logger.info(f"✅ 動作成功: {result.get('action_taken')}")
+                if step_id:
+                    await plan_store.advance_step(step_id, "done")
+            else:
+                logger.warning(f"❌ 動作失敗: {result.get('error_msg')}")
+                if step_id:
+                    await plan_store.advance_step(step_id, "failed")
+            await asyncio.sleep(MIN_SLEEP)
+        else:
+            await asyncio.sleep(MIN_SLEEP)
 
     async def _do_replan(self, state: GameState):
         """呼叫LLM生成新計劃，寫入PlanStore，並驗證最低步數"""

@@ -13,7 +13,7 @@ from rich.text import Text
 from loguru import logger
 
 from database import db
-from agent.planner import planner
+from agent.plan_store import plan_store
 from scheduler.loop import scheduler
 from config import config
 
@@ -81,10 +81,10 @@ def render_dashboard(layout: Layout):
 def _render_goal_panel() -> Panel:
     goal_text = "（無活躍目標 - 請按 N 輸入新目標）"
     progress_str = ""
-    if planner.current_goal:
-        goal_text = planner.current_goal["goal_text"]
-        total = len(planner.plan_steps) or 1
-        current = planner.current_step_index
+    if plan_store.current_goal:
+        goal_text = plan_store.current_goal.get("goal_text", str(plan_store.current_goal))
+        total = len(plan_store.plan_steps) or 1
+        current = plan_store.current_step_index
         pct = min(current / total * 100, 100)
         bar_len = 20
         filled = int(bar_len * pct / 100)
@@ -92,11 +92,11 @@ def _render_goal_panel() -> Panel:
         progress_str = f"\n進度: {current}/{total} {bar} {pct:.0f}%"
 
     plan_lines = []
-    if planner.plan_steps:
-        for i, step in enumerate(planner.plan_steps):
-            if i < planner.current_step_index:
+    if plan_store.plan_steps:
+        for i, step in enumerate(plan_store.plan_steps):
+            if i < plan_store.current_step_index:
                 prefix = "✅"
-            elif i == planner.current_step_index:
+            elif i == plan_store.current_step_index:
                 prefix = "▶"
             else:
                 prefix = "  "

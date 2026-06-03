@@ -80,7 +80,9 @@ class GameState(TypedDict, total=False):
     resources: Resources
     buildings: dict[str, int]
     buildings_with_slots: dict[str, BuildingSlot]
+    buildings_by_gid: dict[int, str]
     resource_fields: dict[str, list[ResourceField]]
+    resource_fields_by_slot: dict[int, dict]
     empty_building_slots: list[EmptySlot]
     coord_x: int
     coord_y: int
@@ -95,6 +97,7 @@ class GameState(TypedDict, total=False):
     quests: QuestState
     diplomatic_intel: DiplomaticIntel
     protection_hours_remaining: float
+    population: int
 
 
 def summarize_state(state: dict) -> str:
@@ -126,8 +129,8 @@ def _find_village_name(html: str) -> str:
     return "Unknown"
 
 
-def build_game_state(html_dorf1: str, html_dorf2: str = "") -> dict:
-    state = {
+def build_game_state(html_dorf1: str, html_dorf2: str = "") -> GameState:
+    state: GameState = {
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "village_name": "Unknown",
         "resources": {},
@@ -143,6 +146,7 @@ def build_game_state(html_dorf1: str, html_dorf2: str = "") -> dict:
         "troops": {},
         "map": {},
         "next_free_slot": None,
+        "population": 0,
     }
 
     try:
@@ -167,7 +171,21 @@ def build_game_state(html_dorf1: str, html_dorf2: str = "") -> dict:
         state["resources"] = resources
         state["buildings"] = buildings_data.get("buildings", {})
         state["buildings_with_slots"] = buildings_data.get("buildings_with_slots", {})
+        # Invert buildings_with_slots to gid→name map
+        state["buildings_by_gid"] = {
+            v.get("gid"): k
+            for k, v in state["buildings_with_slots"].items()
+            if v.get("gid")
+        }
         state["resource_fields"] = fields_data.get("resource_fields", {})
+        # Build slot-indexed field lookup
+        rfbs: dict[int, dict] = {}
+        for ftype, flist in state["resource_fields"].items():
+            for f in flist:
+                sid = f.get("slot", 0)
+                if sid:
+                    rfbs[sid] = {**f, "field_type": ftype}
+        state["resource_fields_by_slot"] = rfbs
         state["empty_building_slots"] = buildings_data.get("empty_slots", [])
         state["build_queue"] = build_queue
         has_plus = state.get("has_plus", False)
@@ -175,6 +193,7 @@ def build_game_state(html_dorf1: str, html_dorf2: str = "") -> dict:
         state["troop_queue"] = troop_queue
         state["troops"] = troops
         state["map"] = map_data
+        state["population"] = map_data.get("population", 0)
 
         next_slot = calculate_next_free_slot(build_queue, troop_queue)
         if next_slot:

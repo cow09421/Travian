@@ -14,6 +14,10 @@ class PlanStore:
         self.db_path = db.db_path
         self._last_invalidate_time: float = 0.0
         self._invalidate_cooldown: float = 120.0  # 2 minutes between plan invalidations
+        # Sync-compat attributes for monitor/dashboard (replaces agent/planner stubs)
+        self.current_goal: Optional[dict] = None
+        self.plan_steps: list = []
+        self.current_step_index: int = 0
 
     async def save_plan(self, plan: BuildPlan) -> None:
         steps = plan.steps
