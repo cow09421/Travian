@@ -21,7 +21,13 @@ class RuleEngine:
             wh_cap = res.get('warehouse_cap') or 800
             gr_cap = res.get('granary_cap') or 800
             crop_rate = res.get('crop_rate') or 0
-        
+        except Exception as e:
+            import traceback
+            from loguru import logger
+            logger.error(f"RuleEngine狀態解析異常：{e}")
+            logger.error(traceback.format_exc())
+            return RuleDecision(action="wait", params={}, wait_seconds=60, need_replan=False)
+            
         # 1. 糧食負產量且糧倉低於20%
         if crop_rate < 0 and crop < gr_cap * 0.2:
             fields = state.get("resource_fields", {}).get("croplands", [])
@@ -87,14 +93,7 @@ class RuleEngine:
             # 準備執行，在此階段我們只返回決策，真正的執行和狀態更新交由 dispatcher / loop 處理
             return RuleDecision(step.action, step.params, False, 0)
             
-            # P2 無計畫或計劃完成
-            return RuleDecision("", {}, True, 60)
-            
-        except Exception as e:
-            import traceback
-            from loguru import logger
-            logger.error(f"RuleEngine異常：{e}")
-            logger.error(traceback.format_exc())
-            return RuleDecision(action="wait", params={}, wait_seconds=60, need_replan=False)
+        # P2 無計畫或計劃完成
+        return RuleDecision("", {}, True, 60)
 
 rule_engine = RuleEngine()
