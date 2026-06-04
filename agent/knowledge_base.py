@@ -76,19 +76,68 @@ RESOURCE_FIELD_COSTS = {
     },
 }
 
+BUILDING_GID = {
+    "Main Building": 15,
+    "Warehouse": 10,
+    "Granary": 11,
+    "Barracks": 19,
+    "Stable": 20,
+    "Workshop": 21,
+    "Academy": 22,
+    "Cranny": 23,
+    "Rally Point": 16,
+    "Marketplace": 17,
+    "Embassy": 26,
+    "Smithy": 13,
+    "Tournament Square": 14,
+    "Town Hall": 18,
+    "Residence": 24,
+    "Palace": 25,
+    "Treasury": 27,
+    "Trade Office": 28,
+    "Great Barracks": 29,
+    "Great Stable": 30,
+    "City Wall": 31,
+    "Hero's Mansion": 34,
+    "Waterworks": 35,
+    "Hospital": 37,
+    "Horse Drinking Trough": 38,
+    "Sawmill": 5,
+    "Brickyard": 6,
+    "Iron Foundry": 7,
+    "Grain Mill": 8,
+}
+
+ROMAN_EARLY_GAME_BUILD_ORDER = [
+    ("Main Building", 3, "加速建造速度，是所有發展的前提"),
+    ("Warehouse", 1, "需要倉庫才能儲存資源"),
+    ("Granary", 1, "需要糧倉才能儲存糧草"),
+    ("Barracks", 1, "可以開始訓練軍隊，保護村莊"),
+    ("Rally Point", 1, "允許派兵，是軍事行動前提"),
+    ("Main Building", 5, "繼續加速建造"),
+    ("Warehouse", 3, "擴大倉儲上限"),
+    ("Granary", 3, "擴大糧食儲量"),
+    ("Academy", 1, "解鎖更多兵種"),
+    ("Smithy", 1, "升級武器提升戰力"),
+    ("Stable", 1, "訓練騎兵"),
+    ("Marketplace", 1, "允許貿易"),
+    ("Embassy", 1, "加入聯盟的前提"),
+    ("Hero's Mansion", 1, "讓英雄可以駐守"),
+    ("Cranny", 3, "保護資源不被掠奪"),
+]
+
 BUILDING_COSTS = {
     "Main Building": {
-        0: {"wood": 70, "clay": 40, "iron": 60, "crop": 15, "time_sec": 700},
-        1: {"wood": 117, "clay": 67, "iron": 100, "crop": 25, "time_sec": 1170},
-        2: {"wood": 196, "clay": 112, "iron": 167, "crop": 42, "time_sec": 1960},
-        3: {"wood": 327, "clay": 187, "iron": 279, "crop": 70, "time_sec": 3270},
-        4: {"wood": 546, "clay": 312, "iron": 466, "crop": 117, "time_sec": 5460},
-        5: {"wood": 912, "clay": 521, "iron": 778, "crop": 195, "time_sec": 9120},
-        6: {"wood": 1523, "clay": 870, "iron": 1300, "crop": 325, "time_sec": 15230},
-        7: {"wood": 2543, "clay": 1452, "iron": 2170, "crop": 543, "time_sec": 25430},
-        8: {"wood": 4247, "clay": 2425, "iron": 3624, "crop": 907, "time_sec": 42470},
-        9: {"wood": 7093, "clay": 4050, "iron": 6052, "crop": 1515, "time_sec": 70930},
-        10: {"wood": 11845, "clay": 6764, "iron": 10107, "crop": 2530, "time_sec": 118450},
+        0: {"wood": 70, "clay": 40, "iron": 60, "crop": 20, "time_sec": 2000, "pop": 2},
+        1: {"wood": 90, "clay": 50, "iron": 75, "crop": 25, "time_sec": 2620, "pop": 1},
+        2: {"wood": 115, "clay": 65, "iron": 100, "crop": 35, "time_sec": 3340, "pop": 1},
+        3: {"wood": 145, "clay": 85, "iron": 125, "crop": 40, "time_sec": 4170, "pop": 1},
+        4: {"wood": 190, "clay": 105, "iron": 160, "crop": 55, "time_sec": 5100, "pop": 1},
+        5: {"wood": 240, "clay": 135, "iron": 205, "crop": 70, "time_sec": 6140, "pop": 1},
+        6: {"wood": 305, "clay": 175, "iron": 260, "crop": 90, "time_sec": 7300, "pop": 1},
+        7: {"wood": 385, "clay": 220, "iron": 330, "crop": 110, "time_sec": 8580, "pop": 1},
+        8: {"wood": 490, "clay": 280, "iron": 420, "crop": 140, "time_sec": 10000, "pop": 1},
+        9: {"wood": 620, "clay": 355, "iron": 530, "crop": 180, "time_sec": 11560, "pop": 1},
     },
     "Warehouse": {
         0: {"wood": 130, "clay": 160, "iron": 90, "crop": 40, "time_sec": 1600, "capacity": 800},
@@ -183,7 +232,7 @@ BUILDING_COSTS = {
     "Grain Mill": {
         0: {"wood": 500, "clay": 440, "iron": 380, "crop": 1240, "time_sec": 5000},
     },
-    }
+}
 
 
 KNOWLEDGE_SOURCES = [
@@ -465,7 +514,7 @@ class KnowledgeBase:
 
         # P3: 沒有 Rally Point
         if "Rally Point" not in buildings:
-            return {"building_name": "Rally Point", "gid": 36,
+            return {"building_name": "Rally Point", "gid": 16,
                     "reason": "必要建築，沒有它無法派兵出征",
                     "priority": "high", "can_afford": can_afford("Rally Point")}
 
@@ -491,11 +540,11 @@ class KnowledgeBase:
         if "Barracks" in buildings and "Academy" not in buildings:
             ok, reason = prereq_met("Academy")
             if not ok:
-                return {"building_name": "Academy", "gid": 17,
+                return {"building_name": "Academy", "gid": 22,
                         "reason": f"解鎖進階兵種（但{reason}）",
                         "priority": "low", "can_afford": can_afford("Academy"),
                         "blocked_by": reason}
-            return {"building_name": "Academy", "gid": 17,
+            return {"building_name": "Academy", "gid": 22,
                     "reason": "解鎖進階兵種",
                     "priority": "medium", "can_afford": can_afford("Academy")}
 
@@ -595,6 +644,76 @@ class KnowledgeBase:
         )
         marker = self.dynamic_dir / f"{source_name}.updated"
         marker.write_text(str(datetime.now(timezone.utc).timestamp()))
+
+
+def recommend_building_for_empty_slot(
+    current_buildings: dict,
+    resources: dict,
+    population: int,
+    build_queue_full: bool,
+) -> dict | None:
+    if build_queue_full:
+        return None
+
+    existing = {b["name"]: b["level"] for b in current_buildings.values() if b.get("name")}
+
+    for building_name, target_level, reason in ROMAN_EARLY_GAME_BUILD_ORDER:
+        current_level = existing.get(building_name, 0)
+        if current_level < target_level:
+            if current_level == 0 and building_name not in existing:
+                return {
+                    "building_name": building_name,
+                    "reason": reason,
+                    "priority": 1,
+                }
+
+    return None
+
+
+def get_llm_strategy_context() -> str:
+    return """
+## Travian Legends 遊戲策略知識庫
+
+### 核心原則
+1. **資源地優先**：遊戲初期最重要的是升級資源地（農場、木材、黏土坑、鐵礦），這些是一切發展的基礎
+2. **倉庫與糧倉**：當資源接近上限時，必須優先升級 Warehouse（倉庫）和 Granary（糧倉）
+3. **主建築（Main Building）**：Main Building 等級越高，建造速度越快，應盡早升到 5 級以上
+4. **兵營（Barracks）**：早期建立兵營並持續訓練士兵，即使少量，也能保護村莊不被掠奪
+
+### 建築空地使用規則
+- **遊戲中所有建築空地（empty_building_slots）都應該被利用**
+- 新手村莊常見錯誤：有空地但不建造任何東西
+- 應按照 build order 填充空地
+- 每個空地都是寶貴資源，不應浪費
+
+### 資源管理規則
+- 資源超過倉庫上限 80% 時：優先升級倉庫/糧倉
+- 資源充足時（超過 500 各項）：優先建造新建築或升級現有建築
+- 糧草（crop）不足時：優先升級農場（Cropland）
+
+### 羅馬族（Roman）特性
+- 可以同時建造一棟建築 + 一棟資源地（需要 Travian Plus）
+- 士兵較強但訓練較貴
+- City Wall（城牆 GID=31）提供防禦加成
+
+### 建造優先級（從高到低）
+1. 修建缺少的關鍵建築（無兵營、無倉庫、無糧倉）
+2. 升級倉庫/糧倉（資源接近上限）
+3. 升級主建築（加速建造）
+4. 升級資源地
+5. 建造其他建築
+6. 訓練士兵
+
+### 建築 GID 對照
+Warehouse=10, Granary=11, Barracks=19, Main Building=15,
+Marketplace=17, Academy=22, Smithy=13, Stable=20, Embassy=26,
+Rally Point=16, Hero's Mansion=34, Cranny=23, City Wall=31
+
+### 決策規則
+- 看到 empty_building_slots 不為空時：**必須考慮在空地建造建築**
+- 建造順序參考 ROMAN_EARLY_GAME_BUILD_ORDER
+- 不要讓空地閒置超過一個決策週期
+"""
 
 
 knowledge_base = KnowledgeBase()

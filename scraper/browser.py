@@ -14,6 +14,7 @@ class BrowserManager:
     _instance: Optional["BrowserManager"] = None
     _browser: Optional[Browser] = None
     _context: Optional[BrowserContext] = None
+    _page: Optional[Page] = None
     _playwright = None
 
     def __new__(cls):
@@ -93,6 +94,12 @@ class BrowserManager:
         delay = random.uniform(mn, mx)
         logger.debug(f"人類模擬延遲 {delay:.2f} 秒")
         await asyncio.sleep(delay)
+
+    @property
+    def page(self) -> Page:
+        if self._page is None:
+            raise RuntimeError("Browser page not initialized. Call launch() first.")
+        return self._page
 
     async def safe_goto(self, page: Page, url: str, max_retries: int = 3) -> bool:
         for attempt in range(1, max_retries + 1):

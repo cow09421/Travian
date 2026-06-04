@@ -12,6 +12,7 @@ from config import config
 from database import db
 from agent.plan_model import BuildPlan, BuildStep
 from agent.state_summarizer import compress_state_for_llm
+from agent.knowledge_base import get_llm_strategy_context
 
 if TYPE_CHECKING:
     from parser.state_builder import GameState
@@ -269,8 +270,28 @@ class LLMClient:
         if compressed:
             base_content += f"\n精簡狀態 JSON:\n{compressed[:3000]}\n"
 
+        empty_slots_raw = raw_state.get("empty_building_slots", []) if raw_state else []
+        if empty_slots_raw:
+            from agent.knowledge_base import recommend_building_for_empty_slot
+            rec = recommend_building_for_empty_slot(
+                current_buildings=raw_state.get("buildings", {}),
+                resources=raw_state.get("resources", {}),
+                population=raw_state.get("population", 0),
+                build_queue_full=raw_state.get("build_queue_full", False),
+            )
+            if rec:
+                base_content += (
+                    f"\n\u26a0\ufe0f 重要提示：目前有 {len(empty_slots_raw)} 個建築空地未使用！"
+                    f"建議立即建造：{rec['building_name']}（原因：{rec['reason']}）\n"
+                )
+            else:
+                base_content += (
+                    f"\n📌 目前有 {len(empty_slots_raw)} 個建築空地，"
+                    f"建造佇列已滿，等待空位後繼續建造。\n"
+                )
+
         messages = [
-            {"role": "system", "content": WORLD_CLASS_SYSTEM_PROMPT},
+            {"role": "system", "content": WORLD_CLASS_SYSTEM_PROMPT + "\n\n" + get_llm_strategy_context()},
             {"role": "user", "content": base_content + "\n請根據以上資訊，制定最新的建造計劃（10~20 步）。"}
         ]
         

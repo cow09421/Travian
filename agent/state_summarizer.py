@@ -117,7 +117,15 @@ class StateSummarizer:
         # 6. 空地提示
         empty = state.get("empty_building_slots", [])
         if empty:
-            parts.append(f"⚠️ 空地: {len(empty)} 個 slot 未建造 ({empty})")
+            from agent.knowledge_base import ROMAN_EARLY_GAME_BUILD_ORDER
+            existing = {b.get("name") for b in state.get("buildings_with_slots", {}).values() if b.get("name")}
+            next_building = None
+            for name, _, reason in ROMAN_EARLY_GAME_BUILD_ORDER:
+                if name not in existing:
+                    next_building = f"{name}（{reason}）"
+                    break
+            hint = f"建議建造: {next_building}" if next_building else ""
+            parts.append(f"⚠️ 空地: {len(empty)} 個 slot 未建造 {hint}")
 
         # 7. 英雄狀態
         hero = state.get("hero", {})
