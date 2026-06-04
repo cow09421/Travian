@@ -22,6 +22,8 @@ from raider.farm_list import farm_list_manager
 MIN_SLEEP = 5
 MAX_SLEEP = 60
 MAX_REPLAN_RETRIES = 3
+REPLAN_BACKOFF_BASE = 60
+REPLAN_COOLDOWN = 1800
 
 
 def _find_building_slot(state: GameState, gid: int) -> Optional[int]:
@@ -187,7 +189,9 @@ class GameLoop:
 
                 if decision.need_replan:
                     logger.info("需要重新規劃，呼叫 LLM...")
-                    await self._do_replan(state)
+                    success = await self._replan_with_backoff(state)
+                    if not success:
+                        logger.warning("本輪重新規劃未完成，繼續主迴圈")
                     await asyncio.sleep(MIN_SLEEP)
                     continue
 
@@ -197,8 +201,10 @@ class GameLoop:
                 break
             except Exception as e:
                 import traceback
-                logger.error(f"主循環異常: {e}")
-                logger.error(traceback.format_exc())
+                logger.error(
+                    f"主循環未預期異常: {e}\n"
+                    f"完整 Traceback:\n{traceback.format_exc()}"
+                )
                 await asyncio.sleep(15)
 
     async def _run_hard_rules(self, state: GameState) -> bool:
@@ -242,40 +248,60 @@ class GameLoop:
             await asyncio.sleep(MIN_SLEEP)
 
     async def _do_replan(self, state: GameState):
-        """呼叫LLM生成新計劃，寫入PlanStore，並驗證最低步數。失敗時退避重試。"""
+        """呼叫LLM生成新計劃，寫入PlanStore，並驗證最低步數。"""
         import traceback
 
-        for attempt in range(MAX_REPLAN_RETRIES):
+        state_summary = state_summarizer.summarize_for_planning(state)
+        history_summary = await plan_store.get_plan_history_summary(n=3)
+        new_plan = await llm_client.request_new_plan(state_summary, history_summary, raw_state=state)
+
+        if len(new_plan.steps) < 10:
+            logger.warning(f"LLM 只產了 {len(new_plan.steps)} 步，補充 wait 至 15 步以避免重複規劃迴圈")
+            from agent.plan_model import BuildStep
+            import uuid
+            for _ in range(15 - len(new_plan.steps)):
+                new_plan.steps.append(BuildStep(
+                    step_id=str(uuid.uuid4()),
+                    action="wait",
+                    params={"reason": "補充等待避免重複規劃"},
+                    reason="LLM 步驟數過少，自動補充等待",
+                    estimated_cost={},
+                ))
+
+        await plan_store.save_plan(new_plan)
+        logger.info(f"✅ 新計劃已生成寫入資料庫：{new_plan.strategic_goal}，共{len(new_plan.steps)}步")
+
+    async def _replan_with_backoff(self, state: GameState) -> bool:
+        """重新規劃，失敗時指數退避重試。
+        回傳 True 表示成功，False 表示已超過重試上限進入冷卻。"""
+        import traceback
+
+        for attempt in range(1, MAX_REPLAN_RETRIES + 1):
             try:
-                state_summary = state_summarizer.summarize_for_planning(state)
-                history_summary = await plan_store.get_plan_history_summary(n=3)
-                new_plan = await llm_client.request_new_plan(state_summary, history_summary, raw_state=state)
+                logger.info(f"重新規劃嘗試 {attempt}/{MAX_REPLAN_RETRIES}...")
+                await self._do_replan(state)
+                logger.info(f"重新規劃成功（第 {attempt} 次嘗試）")
+                return True
 
-                if len(new_plan.steps) < 10:
-                    logger.warning(f"LLM 只產了 {len(new_plan.steps)} 步，補充 wait 至 15 步以避免重複規劃迴圈")
-                    from agent.plan_model import BuildStep
-                    import uuid
-                    for _ in range(15 - len(new_plan.steps)):
-                        new_plan.steps.append(BuildStep(
-                            step_id=str(uuid.uuid4()),
-                            action="wait",
-                            params={"reason": "補充等待避免重複規劃"},
-                            reason="LLM 步驟數過少，自動補充等待",
-                            estimated_cost={},
-                        ))
-
-                await plan_store.save_plan(new_plan)
-                logger.info(f"✅ 新計劃已生成寫入資料庫：{new_plan.strategic_goal}，共{len(new_plan.steps)}步")
-                return
             except Exception as e:
-                wait = 60 * (attempt + 1)
-                logger.error(f"重新規劃失敗（第{attempt+1}/{MAX_REPLAN_RETRIES}次）: {e}\n{traceback.format_exc()}")
-                if attempt < MAX_REPLAN_RETRIES - 1:
-                    logger.info(f"等待 {wait} 秒後重試...")
+                wait = REPLAN_BACKOFF_BASE * attempt
+                logger.error(
+                    f"重新規劃失敗（第 {attempt}/{MAX_REPLAN_RETRIES} 次）: {e}\n"
+                    f"完整 Traceback:\n{traceback.format_exc()}"
+                )
+                if attempt < MAX_REPLAN_RETRIES:
+                    logger.info(f"等待 {wait}s 後重試...")
                     await asyncio.sleep(wait)
+                else:
+                    logger.error(
+                        f"重新規劃已達上限 {MAX_REPLAN_RETRIES} 次，"
+                        f"進入 {REPLAN_COOLDOWN // 60} 分鐘冷卻"
+                    )
+                    await asyncio.sleep(REPLAN_COOLDOWN)
+                    logger.info("冷卻結束，重置重試計數器")
+                    return False
 
-        logger.error(f"重新規劃已達最大重試次數（{MAX_REPLAN_RETRIES}），進入 30 分鐘冷卻")
-        await asyncio.sleep(1800)
+        return False
 
     async def _build_state(self) -> GameState:
         try:

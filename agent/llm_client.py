@@ -57,7 +57,7 @@ PLANNING_TOOL = {
                         },
                         "required": ["action", "params", "reason", "estimated_cost"]
                     },
-                    "description": "按優先順序排列的行動步驟，5-15步"
+                    "description": "行動步驟列表。每個元素必須是物件（object），絕對不可以是數字或字串。按優先順序排列，5-15步"
                 },
                 "replan_trigger": {
                     "type": "string",
@@ -312,11 +312,20 @@ class LLMClient:
                 plan_id = str(uuid.uuid4())
                 steps = []
                 raw_steps = args.get("steps", [])
+
                 if not isinstance(raw_steps, list):
-                    raise ValueError(f"LLM 回傳的 steps 不是 list: {type(raw_steps)}")
-                for step_data in raw_steps:
+                    raise ValueError(
+                        f"LLM steps 欄位型別錯誤：期望 list，實際 {type(raw_steps).__name__}，"
+                        f"原始值：{raw_steps!r}"
+                    )
+
+                steps = []
+                for idx, step_data in enumerate(raw_steps):
                     if not isinstance(step_data, dict):
-                        logger.error(f"LLM 回傳的 step 不是 dict: {type(step_data)} = {step_data}")
+                        logger.error(
+                            f"steps[{idx}] 型別錯誤：期望 dict，實際 {type(step_data).__name__}，"
+                            f"值：{step_data!r}，略過此 step"
+                        )
                         continue
                     step_id = str(uuid.uuid4())
                     steps.append(BuildStep(
@@ -330,7 +339,9 @@ class LLMClient:
                     ))
                 
                 if len(steps) == 0:
-                    raise ValueError("LLM 回傳的 steps 全為無效格式，無任何可用步驟")
+                    raise ValueError(
+                        f"LLM 回傳的 steps 全為無效格式，原始 raw_steps：{raw_steps!r}"
+                    )
 
                 plan = BuildPlan(
                     plan_id=plan_id,
@@ -343,8 +354,12 @@ class LLMClient:
                 logger.info(f"✅ LLM 成功生成新計劃: {plan.strategic_goal} ({len(plan.steps)}步)")
                 return plan
             except Exception as e:
-                logger.error(f"解析計劃失敗: {e}\n{traceback.format_exc()}")
-                raise ValueError("LLM return invalid plan format")
+                logger.error(
+                    f"解析計劃失敗: {e}\n"
+                    f"完整 Traceback:\n{traceback.format_exc()}\n"
+                    f"LLM 原始回傳 args: {args!r}"
+                )
+                raise ValueError(f"LLM return invalid plan format: {e}") from e
         else:
             raise ValueError("LLM did not return tool_calls")
 
