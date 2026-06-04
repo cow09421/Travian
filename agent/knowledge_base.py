@@ -652,10 +652,23 @@ def recommend_building_for_empty_slot(
     population: int,
     build_queue_full: bool,
 ) -> dict | None:
+    """
+    current_buildings 接受兩種格式：
+      格式 A: {"slot_1": {"name": "Cranny", "level": 3}, ...}
+      格式 B: {"Cranny": 3, ...}
+    統一正規化為格式 A 後處理。
+    """
     if build_queue_full:
         return None
 
-    existing = {b["name"]: b["level"] for b in current_buildings.values() if b.get("name")}
+    normalized = {}
+    for key, value in current_buildings.items():
+        if isinstance(value, dict):
+            normalized[key] = value
+        elif isinstance(value, int):
+            normalized[key] = {"name": key, "level": value}
+
+    existing = {b["name"]: b["level"] for b in normalized.values() if b.get("name")}
 
     for building_name, target_level, reason in ROMAN_EARLY_GAME_BUILD_ORDER:
         current_level = existing.get(building_name, 0)
