@@ -311,7 +311,13 @@ class LLMClient:
                 args = json.loads(tc["function"]["arguments"])
                 plan_id = str(uuid.uuid4())
                 steps = []
-                for step_data in args.get("steps", []):
+                raw_steps = args.get("steps", [])
+                if not isinstance(raw_steps, list):
+                    raise ValueError(f"LLM 回傳的 steps 不是 list: {type(raw_steps)}")
+                for step_data in raw_steps:
+                    if not isinstance(step_data, dict):
+                        logger.error(f"LLM 回傳的 step 不是 dict: {type(step_data)} = {step_data}")
+                        continue
                     step_id = str(uuid.uuid4())
                     steps.append(BuildStep(
                         step_id=step_id,
@@ -323,6 +329,9 @@ class LLMClient:
                         status="pending"
                     ))
                 
+                if len(steps) == 0:
+                    raise ValueError("LLM 回傳的 steps 全為無效格式，無任何可用步驟")
+
                 plan = BuildPlan(
                     plan_id=plan_id,
                     created_at=time.time(),

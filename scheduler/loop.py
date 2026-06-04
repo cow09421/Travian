@@ -21,6 +21,7 @@ from raider.farm_list import farm_list_manager
 
 MIN_SLEEP = 5
 MAX_SLEEP = 60
+MAX_REPLAN_RETRIES = 3
 
 
 def _find_building_slot(state: GameState, gid: int) -> Optional[int]:
@@ -241,30 +242,40 @@ class GameLoop:
             await asyncio.sleep(MIN_SLEEP)
 
     async def _do_replan(self, state: GameState):
-        """呼叫LLM生成新計劃，寫入PlanStore，並驗證最低步數"""
-        try:
-            state_summary = state_summarizer.summarize_for_planning(state)
-            history_summary = await plan_store.get_plan_history_summary(n=3)
-            new_plan = await llm_client.request_new_plan(state_summary, history_summary, raw_state=state)
+        """呼叫LLM生成新計劃，寫入PlanStore，並驗證最低步數。失敗時退避重試。"""
+        import traceback
 
-            # 最低步數驗證：LLM 產少於 10 步時補充 wait 步撐時間，避免無限迴圈
-            if len(new_plan.steps) < 10:
-                logger.warning(f"LLM 只產了 {len(new_plan.steps)} 步，補充 wait 至 15 步以避免重複規劃迴圈")
-                from agent.plan_model import BuildStep
-                import uuid
-                for _ in range(15 - len(new_plan.steps)):
-                    new_plan.steps.append(BuildStep(
-                        step_id=str(uuid.uuid4()),
-                        action="wait",
-                        params={"reason": "補充等待避免重複規劃"},
-                        reason="LLM 步驟數過少，自動補充等待",
-                        estimated_cost={},
-                    ))
+        for attempt in range(MAX_REPLAN_RETRIES):
+            try:
+                state_summary = state_summarizer.summarize_for_planning(state)
+                history_summary = await plan_store.get_plan_history_summary(n=3)
+                new_plan = await llm_client.request_new_plan(state_summary, history_summary, raw_state=state)
 
-            await plan_store.save_plan(new_plan)
-            logger.info(f"✅ 新計劃已生成寫入資料庫：{new_plan.strategic_goal}，共{len(new_plan.steps)}步")
-        except Exception as e:
-            logger.error(f"重新規劃失敗: {e}")
+                if len(new_plan.steps) < 10:
+                    logger.warning(f"LLM 只產了 {len(new_plan.steps)} 步，補充 wait 至 15 步以避免重複規劃迴圈")
+                    from agent.plan_model import BuildStep
+                    import uuid
+                    for _ in range(15 - len(new_plan.steps)):
+                        new_plan.steps.append(BuildStep(
+                            step_id=str(uuid.uuid4()),
+                            action="wait",
+                            params={"reason": "補充等待避免重複規劃"},
+                            reason="LLM 步驟數過少，自動補充等待",
+                            estimated_cost={},
+                        ))
+
+                await plan_store.save_plan(new_plan)
+                logger.info(f"✅ 新計劃已生成寫入資料庫：{new_plan.strategic_goal}，共{len(new_plan.steps)}步")
+                return
+            except Exception as e:
+                wait = 60 * (attempt + 1)
+                logger.error(f"重新規劃失敗（第{attempt+1}/{MAX_REPLAN_RETRIES}次）: {e}\n{traceback.format_exc()}")
+                if attempt < MAX_REPLAN_RETRIES - 1:
+                    logger.info(f"等待 {wait} 秒後重試...")
+                    await asyncio.sleep(wait)
+
+        logger.error(f"重新規劃已達最大重試次數（{MAX_REPLAN_RETRIES}），進入 30 分鐘冷卻")
+        await asyncio.sleep(1800)
 
     async def _build_state(self) -> GameState:
         try:
